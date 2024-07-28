@@ -8,9 +8,9 @@ Bruno collections and environments for CyberArk Identity Security REST API testi
 * The CyberArk Privilege Cloud REST API Environment includes only those environment variables used in either version of Privilege Cloud.
 
 # How to Import
-* From the Bruno home page, select 'Import Collection' > 'Bruno Collection' and import the .json file corresponding to your desired API collection.
-* Once the collection is imported, a folder is created on the local file system to store the files.
-* Inside the Bruno collection's folder on the file system, in the same folder that contains 'bruno.json', create a folder named "environments". Inside the "environments" folder, copy the .bru file corresponding to your desired API environment. You can now assign the environment to specific API requests in your collection.
+* From the Bruno home page, click 'Import Collection' > 'Bruno Collection' and import the .json file corresponding to your desired API collection.
+* Once imported, select any API request inside the collection and press 'ctrl'+'e' to open the Environments menu.
+* Click 'Import' in the lower left and import the 'Environment' .json file corresponding to your desired API collection
 
 # Maintained by:
 Eli Hopkins (IAM-Jah)
