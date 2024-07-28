@@ -1,0 +1,206 @@
+{
+	"id": "dc8d1752-318e-402a-a5e8-d2036ed16079",
+	"name": "CyberArk Privilege Cloud Environment",
+	"values": [
+		{
+			"key": "authType",
+      "value": "Cyberark/LDAP/RADIUS",
+      "enabled": true
+    },
+    {
+			"key": "safeName",
+      "value": "safeName",
+      "enabled": true
+    },
+    {
+			"key": "PAMUserName",
+      "value": "userName",
+      "enabled": true
+    },
+    {
+			"key": "accountID:",
+      "value": "1",
+      "enabled": true
+    },
+    {
+			"key": "extraPassIndex",
+      "value": "1",
+      "enabled": true
+    },
+    {
+			"key": "PAMAuthID",
+      "value": "saml",
+      "enabled": true
+    },
+    {
+			"key": "domainURL",
+      "value": "domain.com",
+      "enabled": true
+    },
+    {
+			"key": "ldapMappingID",
+      "value": "1",
+      "enabled": true
+    },
+    {
+			"key": "subdomain",
+      "value": "privCloudSubdomain",
+      "enabled": true
+    },
+    {
+			"key": "groupID",
+      "value": "putGroupIDHere",
+      "enabled": true
+    },
+    {
+			"key": "imageType",
+      "value": "Square/Watermark",
+      "enabled": true
+    },
+    {
+			"key": "componentID",
+      "value": "putSystemHealthComponentIDHere",
+      "enabled": true
+    },
+    {
+			"key": "directoryUID",
+      "value": "1",
+      "enabled": true
+    },
+    {
+			"key": "directoryName",
+      "value": "directoryName",
+      "enabled": true
+    },
+    {
+			"key": "safeID",
+      "value": "42",
+      "enabled": true
+    },
+    {
+			"key": "searchTerms",
+      "value": "RESTStandardSearch",
+      "enabled": true
+    },
+    {
+			"key": "platformID",
+      "value": "win-dom-plat-id",
+      "enabled": true
+    },
+    {
+			"key": "safeMemberName",
+      "value": "safeMemberNameUserOrGroup",
+      "enabled": true
+    },
+    {
+			"key": "platformName",
+      "value": "platformNameOrID",
+      "enabled": true
+    },
+    {
+			"key": "ticketID",
+      "value": "ticketNumber",
+      "enabled": true
+    },
+    {
+			"key": "ticketingSystemName",
+      "value": "ticketingSystemName",
+      "enabled": true
+    },
+    {
+			"key": "requestID",
+      "value": "requestID",
+      "enabled": true
+    },
+    {
+			"key": "bulkAccessRequestID",
+      "value": "identifierForBulkAccessRequest",
+      "enabled": true
+    },
+    {
+			"key": "ruleID",
+      "value": "ruleID",
+      "enabled": true
+    },
+    {
+			"key": "activeSessionId",
+      "value": "sessionID",
+      "enabled": true
+    },
+    {
+			"key": "requestID",
+      "value": "requestID",
+      "enabled": true
+    },
+    {
+			"key": "appID",
+      "value": "applicationID",
+      "enabled": true
+    },
+    {
+			"key": "appAuthMethodID",
+      "value": "appAuthMethodID",
+      "enabled": true
+    },
+    {
+			"key": "safeQuery",
+      "value": "safeQuery",
+      "enabled": true
+    },
+    {
+			"key": "bulkUploadID",
+      "value": "bulkUploadID",
+      "enabled": true
+    },
+    {
+			"key": "ruleSetID",
+      "value": "ruleSetID",
+      "enabled": true
+    },
+    {
+			"key": "userID",
+      "value": "22",
+      "enabled": true
+    },
+    {
+			"key": "domainName",
+      "value": "domain.com",
+      "enabled": true
+    },
+    {
+			"key": "MFAKeyFormat",
+      "value": "PPK/PEM/OpenSSH",
+      "enabled": true
+    },
+    {
+			"key": "PAMNewPassword",
+      "value": "XXX",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+			"key": "PAMSAMLToken",
+      "value": "XXX",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+			"key": "PAMSessionToken",
+      "value": "XXX",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+			"key": "identityToken",
+      "value": "XXX",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+			"key": "PAMPassword",
+      "value": "XXX",
+      "type": "secret",
+      "enabled": true
+    }
+    ]
+}
