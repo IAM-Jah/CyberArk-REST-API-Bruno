@@ -1,0 +1,43 @@
+vars {
+  authType: Cyberark/LDAP/RADIUS
+  safeName: safeName
+  PAMUserName: userName
+  accountID: 21
+  extraPassIndex: 1
+  PAMAuthID: saml
+  domainURL: domain.com
+  ldapMappingID: 1
+  subdomain: privCloudSubdomain
+  groupID: putGroupIDHere
+  imageType: Square/Watermark
+  componentID: putSystemHealthComponentIDHere
+  directoryUID: 1
+  directoryName: directoryName
+  safeID: 42
+  searchTerms: RESTStandardSearch
+  platformID: win-dom-plat-id
+  safeMemberName: safeMemberNameUserOrGroup
+  platformName: platformNameOrID
+  ticketID: ticketNumber
+  ticketingSystemName: ticketingSystemName
+  requestID: requestID
+  bulkAccessRequestID: identifierForBulkAccessRequest
+  ruleID: ruleID
+  activeSessionId: sessionID
+  recordingID: recordingID
+  appID: applicationID
+  appAuthMethodID: appAuthMethodID
+  safeQuery: safeQuery
+  bulkUploadID: bulkUploadID
+  ruleSetID: ruleSetID
+  userID: 22
+  domainName: domain.com
+  MFAKeyFormat: PPK/PEM/OpenSSH
+}
+vars:secret [
+  PAMNewPassword,
+  PAMSAMLToken,
+  PAMSessionToken,
+  identityToken,
+  PAMPassword
+]
