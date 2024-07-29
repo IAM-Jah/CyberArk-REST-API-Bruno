@@ -1,0 +1,2470 @@
+{
+  "name": "CyberArk Shared Services REST API",
+  "version": "1",
+  "items": [
+    {
+      "type": "folder",
+      "name": "Identity - Shared Services",
+      "items": [
+        {
+          "type": "folder",
+          "name": "Authentication",
+          "items": [
+            {
+              "type": "folder",
+              "name": "Login",
+              "items": [
+                {
+                  "type": "http",
+                  "name": "Advance Authentication - Answer OOB",
+                  "seq": 4,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/Security/AdvanceAuthentication",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n    \"TenantId\": \"{{identityTenantID}}\",\n    \"SessionId\": \"{{identitySessionID}}\",\n    \"MechanismId\": \"{{identityMechanismID2}}\",\n    \"Action\": \"Answer\",\n    \"Answer\": \"123456\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "const jsonData = res.getBody().Result\n\ntest(\"Identity Token Exists\", function() {\n    expect(jsonData).to.have.property('Token');\n    bru.setEnvVar(\"identityToken\", jsonData.Token);\n});",
+                    "auth": {
+                      "mode": "none"
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Advance Authentication - Poll OOB",
+                  "seq": 3,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/Security/AdvanceAuthentication",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n    \"TenantId\": \"{{identityTenantID}}\",\n    \"SessionId\": \"{{identitySessionID}}\",\n    \"MechanismId\": \"{{identityMechanismID2}}\",\n    \"Action\": \"Poll\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "const jsonData = res.getBody().Result\n\ntest(\"Identity Token Exists\", function() {\n    expect(jsonData).to.have.property('Token');\n    bru.setEnvVar(\"identityToken\", jsonData.Token);\n});",
+                    "auth": {
+                      "mode": "none"
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Advance Authentication - Security Question",
+                  "seq": 6,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/Security/AdvanceAuthentication",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n    \"TenantId\": \"{{identityTenantID}}\",\n    \"SessionId\": \"{{identitySessionID}}\",\n    \"MechanismId\": \"{{identityMechanismID2}}\",\n    \"Action\": \"Answer\",\n    \"Answer\": \"{{securityQuestionAnswer}}\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "const jsonData = res.getBody().Result\n\ntest(\"Identity Token Exists\", function() {\n    expect(jsonData).to.have.property('Token');\n    bru.setEnvVar(\"identityToken\", jsonData.Token);\n});",
+                    "auth": {
+                      "mode": "none"
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Advance Authentication - Security Questions",
+                  "seq": 7,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/Security/AdvanceAuthentication",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n    \"TenantId\": \"{{identityTenantID}}\",\n    \"SessionId\": \"{{identitySessionID}}\",\n    \"MechanismId\": \"{{identityMechanismID2}}\",\n    \"Action\": \"Answer\",\n    \"Answer\": {\n        \"u_a4ed8e81-8e9b-416b-bc00-44ed5bf87744\": \"Arnold\",\n        \"u_144b2e18-9276-49ed-b67a-9e28692f4375\": \"Smokey\"\n    }\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "const jsonData = res.getBody().Result\n\ntest(\"Identity Token Exists\", function() {\n    expect(jsonData).to.have.property('Token');\n    bru.setEnvVar(\"identityToken\", jsonData.Token);\n});",
+                    "auth": {
+                      "mode": "none"
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Advance Authentication - Start OOB",
+                  "seq": 2,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/Security/AdvanceAuthentication",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n    \"TenantId\": \"{{identityTenantID}}\",\n    \"SessionId\": \"{{identitySessionID}}\",\n    \"MechanismId\": \"{{identityMechanismID2}}\",\n    \"Action\": \"StartOOB\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "none"
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Advance Authentication - User Password",
+                  "seq": 5,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/Security/AdvanceAuthentication",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n    \"SessionId\": \"{{identitySessionID}}\",\n    \"MechanismId\": \"{{identityMechanismID}}\",\n    \"Action\": \"Answer\",\n    \"Answer\": \"{{identityPassword}}\",\n    \"PersistentLogin\": \"true\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "const jsonData = res.getBody().Result\n\ntest(\"Identity Token Exists\", function() {\n    expect(jsonData).to.have.property('Token');\n    bru.setEnvVar(\"identityToken\", jsonData.Token);\n});",
+                    "auth": {
+                      "mode": "none"
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Start Authentication",
+                  "seq": 1,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/Security/StartAuthentication",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n    \"TenantID\": \"{{identityTenantID}}\",\n    \"User\": \"{{identityUsername}}\",\n    \"Version\": \"1.0\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "const jsonData = res.getBody().Result\n\ntest(\"Identity Session ID Exists\", function() {\n    if (jsonData.SessionId) {\n        bru.setEnvVar(\"identitySessionID\", jsonData.SessionId);\n    }\n});\n\ntest(\"Identity Mechanism ID Exists\", function() {\n    if (jsonData.Challenges[0].Mechanisms[0].MechanismId) {\n        bru.setEnvVar(\"identityMechanismID\", jsonData.Challenges[0].Mechanisms[0].MechanismId);\n    }\n});\n\ntest(\"Identity Mechanism ID 2 Exists\", function() {\n    if (jsonData.Challenges[1].Mechanisms[0].MechanismId) {\n        bru.setEnvVar(\"identityMechanismID2\", jsonData.Challenges[1].Mechanisms[0].MechanismId);\n    }\n});\n\ntest(\"Identity Token Exists\", function() {\n    if (jsonData.Token) {\n        bru.setEnvVar(\"identityToken\", jsonData.Token);\n    }\n});",
+                    "auth": {
+                      "mode": "none"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "OAuth & OpenID Connect",
+              "items": [
+                {
+                  "type": "http",
+                  "name": "OIDC Authentication",
+                  "seq": 1,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/oauth2/platformtoken",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "formUrlEncoded",
+                      "formUrlEncoded": [
+                        {
+                          "name": "grant_type",
+                          "value": "client_credentials",
+                          "enabled": true
+                        },
+                        {
+                          "name": "client_id",
+                          "value": "{{identityAPIUsername}}",
+                          "enabled": true
+                        },
+                        {
+                          "name": "client_secret",
+                          "value": "{{identityAPIPassword}}",
+                          "enabled": true
+                        }
+                      ],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "var jsonData = JSON.parse(responseBody);\nbru.setEnvVar(\"identityToken\", jsonData.access_token)",
+                    "auth": {
+                      "mode": "none"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "Logout",
+              "items": [
+                {
+                  "type": "http",
+                  "name": "Logout",
+                  "seq": 1,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/Security/Logout",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "allowIWA",
+                        "value": "true",
+                        "type": "query",
+                        "enabled": false
+                      },
+                      {
+                        "name": "redirectUrl",
+                        "value": "URLtoRedirectTo.com",
+                        "type": "query",
+                        "enabled": false
+                      }
+                    ],
+                    "body": {
+                      "mode": "none",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "const data = res.getBody().Result\n\ntest(\"Successful logoff\", function() {\n    if (data.success) {\n        bru.setEnvVar(\"identitySessionID\", \"\");\n        bru.setEnvVar(\"identityToken\",\"\");\n    }\n});",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Sign Out from Current Session",
+                  "seq": 2,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/SignOutCurrentSession",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "none",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Sign Out from Everywhere",
+                  "seq": 3,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/SignOutEverywhere",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "id",
+                        "value": "userIDtoLogOutIfNotYourself",
+                        "type": "query",
+                        "enabled": false
+                      }
+                    ],
+                    "body": {
+                      "mode": "none",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "folder",
+          "name": "Policy Management",
+          "items": [
+            {
+              "type": "http",
+              "name": "Delete Policy",
+              "seq": 1,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Policy/DeletePolicyBlock",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "mode": "json",
+                  "json": "{\n  \"path\": \"string\"\n}",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Get Password Complexity Requirements",
+              "seq": 3,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Policy/GetPasswordComplexityRequirements?uuidOrName=userUUID",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [
+                  {
+                    "name": "uuidOrName",
+                    "value": "userUUID",
+                    "type": "query",
+                    "enabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "none",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Get Policy Block",
+              "seq": 4,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Policy/GetPolicyBlock?name=policyBlockToGet",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [
+                  {
+                    "name": "name",
+                    "value": "policyBlockToGet",
+                    "type": "query",
+                    "enabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "none",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Get Policy Links",
+              "seq": 2,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Policy/GetNicePlinks",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "mode": "none",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Set Policy",
+              "seq": 5,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Policy/SavePolicyBlock3",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "mode": "json",
+                  "json": "{\n  \"policy\": {\n    \"Newpolicy\": true,\n    \"Version\": 0,\n    \"Path\": \"string\",\n    \"RevStamp\": \"string\",\n    \"Description\": \"string\"\n  },\n  \"plinks\": [\n    {}\n  ]\n}",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "folder",
+              "name": "Authentication Profile",
+              "items": [
+                {
+                  "type": "http",
+                  "name": "Delete Authentication Profile",
+                  "seq": 1,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/AuthProfile/DeleteProfile?uuid=authProfileUUID",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "uuid",
+                        "value": "authProfileUUID",
+                        "type": "query",
+                        "enabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"uuid\": \"string\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Get Authentication Assurance Level",
+                  "seq": 4,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/AuthProfile/GetProfileMFAScoring?challenges=profileFactorsString",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "challenges",
+                        "value": "profileFactorsString",
+                        "type": "query",
+                        "enabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "none",
+                      "json": "{\n  \"uuid\": \"string\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Get Authentication Profile",
+                  "seq": 2,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/AuthProfile/GetProfile?uuid=authProfileUUID",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "uuid",
+                        "value": "authProfileUUID",
+                        "type": "query",
+                        "enabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"uuid\": \"string\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Set Authentication Profile",
+                  "seq": 3,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/AuthProfile/SaveProfile",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"settings\": {\n    \"Challenges\": [\n      \"string\"\n    ],\n    \"AdditionalData\": {},\n    \"Uuid\": \"string\",\n    \"SingleChallengeMechanisms\": \"string\",\n    \"DurationInMinutes\": 0,\n    \"Name\": \"string\"\n  }\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "folder",
+          "name": "User Management",
+          "items": [
+            {
+              "type": "folder",
+              "name": "Bulk Import",
+              "items": [
+                {
+                  "type": "http",
+                  "name": "Advance bulk user import",
+                  "seq": 2,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/SubmitUploadedFile?importType=ImportBulkUser",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "importType",
+                        "value": "ImportBulkUser",
+                        "type": "query",
+                        "enabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n    \"AdminEmail\" : \"admin@example.com\",\n    \"ReturnID\": \"{{returnID}}\",\n    \"SendEmailInvite\": true,\n    \"SendSMSInvite\": false\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Start bulk user import",
+                  "seq": 1,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/GetUsersFromCsvFile?importType=ImportBulkUser",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "importType",
+                        "value": "ImportBulkUser",
+                        "type": "query",
+                        "enabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"File_Name\": {\n    \"InEverybodyRole\": true,\n    \"SendSmsInvite\": true,\n    \"InSysAdminRole\": true,\n    \"Description\": \"string\",\n    \"Name\": \"string\",\n    \"MobileNumber\": \"string\",\n    \"Password\": \"string\",\n    \"CmaRedirectedUserUuid\": \"string\",\n    \"ServiceUser\": true,\n    \"OfficeNumber\": \"string\",\n    \"ReportsTo\": \"string\",\n    \"SendEmailInvite\": true,\n    \"HomeNumber\": \"string\",\n    \"DisplayName\": \"string\",\n    \"ForcePasswordChangeNext\": true,\n    \"PasswordNeverExpire\": true,\n    \"Mail\": \"string\"\n  },\n  \"FileName\": \"string\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "var jsonData = JSON.parse(responseBody);\nif(jsonData.success) {\nbru.setVar(\"returnID\", jsonData.Result.ReturnID);\n} else {\n    console.error(jsonData.Message);\n}",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "Additional User Management APIs",
+              "items": [
+                {
+                  "type": "http",
+                  "name": "Exempt a User From MFA",
+                  "seq": 1,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/ExemptUserFromMfa?ID=userUUID",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "ID",
+                        "value": "userUUID",
+                        "type": "query",
+                        "enabled": true
+                      },
+                      {
+                        "name": "timespan",
+                        "value": "10",
+                        "type": "query",
+                        "enabled": false
+                      }
+                    ],
+                    "body": {
+                      "mode": "json",
+                      "json": "",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "Create Users",
+              "items": [
+                {
+                  "type": "http",
+                  "name": "Create User",
+                  "seq": 1,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/CreateUser",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  //Uncomment any lines you wish you include\n  //\"InEverybodyRole\": false,\n  //\"SendSmsInvite\": true,\n  //\"InSysAdminRole\": true,\n  //\"Description\": \"string\",\n  \"Name\": \"username\",\n  //\"MobileNumber\": \"string\",\n  //\"useAlternateMfaAccount\": true,\n  //\"OrgPath\": \"string\",\n  //\"Password\": \"string\",\n  //\"CmaRedirectedUserUuid\": \"string\",\n  //\"ServiceUser\": true,\n  //\"OfficeNumber\": \"string\",\n  //\"ReportsTo\": \"string\",\n  //\"SendEmailInvite\": true,\n  //\"HomeNumber\": \"string\",\n  //\"DisplayName\": \"string\",\n  //\"PrimaryIdentifier\": \"string\",\n  //\"VerifyEmail\": true,\n  //\"ForcePasswordChangeNext\": true,\n  //\"PasswordNeverExpire\": true,\n  \"Mail\": \"user@mail.com\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "Delete users",
+              "items": [
+                {
+                  "type": "http",
+                  "name": "Delete users",
+                  "seq": 1,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/RemoveUsers",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"Users\": [\n    \"string\"\n  ]\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "Manage User Attributes",
+              "items": [
+                {
+                  "type": "http",
+                  "name": "Fetch Attributes for a Specified User",
+                  "seq": 5,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/GetUserAttributes",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "ID",
+                        "value": "userUUID",
+                        "type": "query",
+                        "enabled": false
+                      },
+                      {
+                        "name": "directoryServiceUUID",
+                        "value": "string",
+                        "type": "query",
+                        "enabled": false
+                      }
+                    ],
+                    "body": {
+                      "mode": "none",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Get additional attributes",
+                  "seq": 3,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/ExtData/GetSchema",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"ID\": \"abc-e2e-123\",\n  \"IncludeNulls\": false,\n  \"Table\": \"Users\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Get Schema",
+                  "seq": 6,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/GetUserAttributes",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"Table\": \"Users\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Get user attributes",
+                  "seq": 1,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/GetUserAttributes",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "none",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Set Additional Attributes",
+                  "seq": 4,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/ExtData/SetColumns",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"Columns\": {\n    \"PhoneNumber\": 919876543210\n  },\n  \"ID\": \"abc-e2e-123\",\n  \"Table\": \"Users\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Set users picture",
+                  "seq": 2,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/SetUserPicture?ID=userUUID",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "multipart/form-data",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "ID",
+                        "value": "userUUID",
+                        "type": "query",
+                        "enabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "multipartForm",
+                      "formUrlEncoded": [],
+                      "multipartForm": [
+                        {
+                          "type": "file",
+                          "name": "Picture",
+                          "value": [
+                            ""
+                          ],
+                          "enabled": true
+                        }
+                      ]
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "Send user invites",
+              "items": [
+                {
+                  "type": "http",
+                  "name": "Invite Cloud Users",
+                  "seq": 1,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/InviteUsers",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n    \"EmailInvite\": true,\n    \"GroupInvite\": false,\n    \"SmsInvite\": false,\n    \"Role\": \"roleName\",\n    \"Entities\": [\n        {\n            \"Type\": \"user\",\n            \"Guid\": \"userUUID\",\n            \"Name\": \"userName\"\n        },\n        {\n            \"Type\": \"group\",\n            \"Guid\": \"groupUUID\"\n        },\n        {\n            \"Type\": \"role\",\n            \"Guid\": \"roleUUID\"\n        }\n    ]\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Send Invitation Email",
+                  "seq": 2,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/SendLoginEmails",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"ID\": [\n    //\"UUID\",\n    \"UUID\"\n  ]\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Send Invitation SMS",
+                  "seq": 3,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/SendLoginEmails?ID=userUUID",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "ID",
+                        "value": "userUUID",
+                        "type": "query",
+                        "enabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "none",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "Get User Risk Level",
+              "items": [
+                {
+                  "type": "http",
+                  "name": "Get Risk Level for a Specified User",
+                  "seq": 1,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/GetUserRiskLevel",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"ID\": \"userUUID\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "Manage User State",
+              "items": [
+                {
+                  "type": "http",
+                  "name": "Change user state",
+                  "seq": 1,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/ChangeUserState",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n    \"uuid\": \"userUUID\",\n    \"state\": true\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Check if User is Locked Out By Policy",
+                  "seq": 5,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/IsUserLockedOutByPolicy?user=userUUID",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "user",
+                        "value": "userUUID",
+                        "type": "query",
+                        "enabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "none",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Check if User is Locked",
+                  "seq": 4,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/IsUserLockedOutByPolicy?user=userUUID",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "user",
+                        "value": "userUUID",
+                        "type": "query",
+                        "enabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "none",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Set user state",
+                  "seq": 3,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/cdirectoryservice/setuserstate",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"ID\": \"userUUID\",\n  \"state\": \"None\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Disable or Enable a User",
+                  "seq": 2,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/SetCloudLock?user=userUUID&lockUser=true",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "user",
+                        "value": "userUUID",
+                        "type": "query",
+                        "enabled": true
+                      },
+                      {
+                        "name": "lockUser",
+                        "value": "true",
+                        "type": "query",
+                        "enabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "none",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "folder",
+              "name": "Manage User Data",
+              "items": [
+                {
+                  "type": "http",
+                  "name": "Add Additional Attributes",
+                  "seq": 10,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/ExtData/UpdateSchema",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"Columns\": {\n    \"StreetAddress\": {\n      \"Title\": \"Street Address\",\n      \"Type\": \"text\",\n      \"Description\": \"4817 Hide A Way Road\"\n    }\n  },\n  \"AllowDelete\": true,\n  \"Table\": \"Users\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Get All Users Details",
+                  "seq": 1,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/GetUsers",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Get user details",
+                  "seq": 2,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/GetUser",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n    \"ID\":\"userUUID\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Get User Details By Name",
+                  "seq": 4,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/GetUserByName",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"username\": \"userName\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Get User Information",
+                  "seq": 3,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/GetUserInfo?ID=userUUID",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "ID",
+                        "value": "userUUID",
+                        "type": "query",
+                        "enabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "none",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Get User Roles and Administrative Rights",
+                  "seq": 6,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/GetUsersRolesAndAdministrativeRights?ID=userUUID",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "ID",
+                        "value": "userUUID",
+                        "type": "query",
+                        "enabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"Args\": {\n    \"Limit\": 0,\n    \"PageNumber\": 0,\n    \"PageSize\": 0,\n    \"Caching\": 0,\n    \"SortBy\": \"string\"\n  }\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Get User Settings",
+                  "seq": 9,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/Core/GetUserSettings?ID=userID&SettingType=settingTypeToRetrieve",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [
+                      {
+                        "name": "ID",
+                        "value": "userID",
+                        "type": "query",
+                        "enabled": true
+                      },
+                      {
+                        "name": "SettingType",
+                        "value": "settingTypeToRetrieve",
+                        "type": "query",
+                        "enabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "none",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Update AD User Attributes",
+                  "seq": 8,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/ChangeUserAttributes",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"CmaRedirectedUserUuid\": \"def-s2s-654\",\n  \"ID\": \"abc-e2e-123\",\n  \"MobileNumber\": 18005550100,\n  \"OrgPath\": \"Org A\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Update Base Profile",
+                  "seq": 7,
+                  "request": {
+                    "url": "https://{{identityTenantID}}/CDirectoryService/ChangeUser",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"CmaRedirectedUserUuid\": \"string\",\n  \"HomeNumber\": \"string\",\n  \"useAlternateMfaAccount\": true,\n  \"OrgPath\": \"string\",\n  \"AccountExp\": \"2019-08-24T14:15:22Z\",\n  \"ReportsTo\": \"string\",\n  \"DisplayName\": \"string\",\n  \"PasswordNeverExpire\": true,\n  \"ID\": \"string\",\n  \"OfficeNumber\": \"string\",\n  \"ForcePasswordChangeNext\": true,\n  \"MobileNumber\": \"string\",\n  \"InEverybodyRole\": true,\n  \"ServiceUser\": true,\n  \"VerifyEmail\": true,\n  \"PreferredCulture\": \"string\",\n  \"Mail\": \"string\",\n  \"Description\": \"string\",\n  \"Name\": \"string\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "http",
+                  "name": "Update User Profile",
+                  "seq": 5,
+                  "request": {
+                    "url": "https://{{identityTenantID}}.id.cyberark.cloud/User/UpdateProfile",
+                    "method": "POST",
+                    "headers": [
+                      {
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "enabled": true
+                      }
+                    ],
+                    "params": [],
+                    "body": {
+                      "mode": "json",
+                      "json": "{\n  \"HomeNumber\": 917878787878,\n  \"DisplayName\": \"John Smith\",\n  \"ID\": \"abc-e2e-123\",\n  \"OfficeNumber\": 919876543210,\n  \"MobileNumber\": 91565656565,\n  \"VerifyEmail\": false,\n  \"Mail\": \"john@example.com\",\n  \"Description\": \"Updated display name\",\n  \"Name\": \"John\"\n}",
+                      "formUrlEncoded": [],
+                      "multipartForm": []
+                    },
+                    "script": {},
+                    "vars": {},
+                    "assertions": [],
+                    "tests": "",
+                    "auth": {
+                      "mode": "bearer",
+                      "bearer": {
+                        "token": "{{identityToken}}"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "folder",
+          "name": "Role Management",
+          "items": [
+            {
+              "type": "http",
+              "name": "Add Users or Roles or Groups to Role",
+              "seq": 3,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/AddUsersAndGroupsToRole",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "mode": "json",
+                  "json": "{\n  \"Roles\": [\n    {}\n  ],\n  \"Users\": [\n    {}\n  ],\n  \"Groups\": [\n    {}\n  ],\n  \"Name\": \"string\"\n}",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Assign Administrative Rights to Role",
+              "seq": 4,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Roles/AssignSuperRights",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "mode": "json",
+                  "json": "{\n  \"Role\": \"string\",\n  \"Path\": \"string\"\n}",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Create Role",
+              "seq": 1,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Roles/StoreRole",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "mode": "json",
+                  "json": "{\n  \"Name\": \"string\",\n  \"Description\": \"string\",\n  \"Users\": [\n    {}\n  ],\n  \"Roles\": [\n    {}\n  ],\n  \"Groups\": [\n    {}\n  ],\n  \"RoleType\": \"string\",\n  \"OrgPath\": \"string\"\n}",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Delete Roles",
+              "seq": 6,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/DeleteRoles",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "mode": "json",
+                  "json": "{\n  \"Roles\": [\n    {}\n  ]\n}",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Get Apps Associated with Role",
+              "seq": 12,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Core/GetAssignedAdministrativeRights?role=roleUUID",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [
+                  {
+                    "name": "role",
+                    "value": "roleUUID",
+                    "type": "query",
+                    "enabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "none",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Get Assigned Administrative Rights for Role",
+              "seq": 7,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Core/GetAssignedAdministrativeRights?role=roleUUID",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [
+                  {
+                    "name": "role",
+                    "value": "roleUUID",
+                    "type": "query",
+                    "enabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "none",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Get Role Members",
+              "seq": 9,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Roles/GetRoleMembers?name=roleUUID",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [
+                  {
+                    "name": "name",
+                    "value": "roleUUID",
+                    "type": "query",
+                    "enabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "none",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Get Role",
+              "seq": 8,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Roles/GetRole?Name=roleUUID",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [
+                  {
+                    "name": "Name",
+                    "value": "roleUUID",
+                    "type": "query",
+                    "enabled": true
+                  },
+                  {
+                    "name": "SuppressPrincipalsList",
+                    "value": "true",
+                    "type": "query",
+                    "enabled": false
+                  },
+                  {
+                    "name": "getRights",
+                    "value": "true",
+                    "type": "query",
+                    "enabled": false
+                  }
+                ],
+                "body": {
+                  "mode": "none",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Remove Users or Roles or Groups from Role",
+              "seq": 13,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/RemoveUsersAndGroupsFromRole",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "mode": "json",
+                  "json": "{\n  \"Roles\": [\n    {}\n  ],\n  \"Users\": [\n    {}\n  ],\n  \"Groups\": [\n    {}\n  ],\n  \"Name\": \"string\"\n}",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Set Script of Dynamic Role",
+              "seq": 10,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Roles/SetDynamicRolesScript",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "mode": "json",
+                  "json": "{\n  \"ID\": \"string\",\n  \"Script\": \"string\"\n}",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Test Dynamic Role Script",
+              "seq": 11,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Roles/TestDynamicRolesScript",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "mode": "json",
+                  "json": "{\n  \"User\": \"string\",\n  \"Script\": \"string\"\n}",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Unassign Administrative Rights for Role",
+              "seq": 5,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Roles/UnAssignSuperRights",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "mode": "json",
+                  "json": "{\n  \"Role\": \"string\",\n  \"Path\": \"string\"\n}",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            },
+            {
+              "type": "http",
+              "name": "Update Role",
+              "seq": 2,
+              "request": {
+                "url": "https://{{identityTenantID}}.id.cyberark.cloud/Roles/UpdateRole",
+                "method": "POST",
+                "headers": [
+                  {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "enabled": true
+                  }
+                ],
+                "params": [],
+                "body": {
+                  "mode": "json",
+                  "json": "{\n  \"Roles\": {\n    \"Delete\": [\n      \"string\"\n    ],\n    \"Add\": [\n      \"string\"\n    ]\n  },\n  \"Users\": {\n    \"Delete\": [\n      \"string\"\n    ],\n    \"Add\": [\n      \"string\"\n    ]\n  },\n  \"Groups\": {\n    \"Delete\": [\n      \"string\"\n    ],\n    \"Add\": [\n      \"string\"\n    ]\n  },\n  \"Name\": \"string\"\n}",
+                  "formUrlEncoded": [],
+                  "multipartForm": []
+                },
+                "script": {},
+                "vars": {},
+                "assertions": [],
+                "tests": "",
+                "auth": {
+                  "mode": "bearer",
+                  "bearer": {
+                    "token": "{{identityToken}}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "variables": [
+        {
+          "name": "identityTenantID",
+          "value": "abd1234",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "identityUsername",
+          "value": "user@domain.suffix",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "identitySessionID",
+          "value": "identitySessionID",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "identityMechanismID",
+          "value": "identityMechanismID",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "identityMechanismID2",
+          "value": "identityMechanismID2",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "identityAPIUsername",
+          "value": "APIUser@cyberark.cloud.1234",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "returnID",
+          "value": "returnID",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "identityToken",
+          "value": "",
+          "enabled": true,
+          "secret": true,
+          "type": "text"
+        },
+        {
+          "name": "identityPassword",
+          "value": "",
+          "enabled": true,
+          "secret": true,
+          "type": "text"
+        },
+        {
+          "name": "securityQuestionAnswer",
+          "value": "",
+          "enabled": true,
+          "secret": true,
+          "type": "text"
+        },
+        {
+          "name": "identityAPIPassword",
+          "value": "",
+          "enabled": true,
+          "secret": true,
+          "type": "text"
+        }
+      ],
+      "name": "Identity on ISPSS Environment"
+    }
+  ],
+  "brunoConfig": {
+    "version": "1",
+    "name": "CyberArk Shared Services REST API",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ]
+  }
+}
