@@ -14,7 +14,7 @@ Bruno collections and environments for CyberArk Identity Security REST API testi
 * The CyberArk Identity on ISPSS Environment includes only those environment variables used in Identity.
 
 # How to Import
-* Note: Ensure you have Bruno v1.9 or later. Imports will fail in v1.8 or earlier. 
+* Note: Ensure you have Bruno v1.19 or later. Imports will fail in v1.18 or earlier. 
 * From the Bruno home page, click 'Import Collection' > 'Bruno Collection' and import the .json file corresponding to your desired API collection.
 * Once imported, select any API request inside the collection and press 'ctrl'+'e' to open the Environments menu.
 * Click 'Import' in the lower left and import the 'Environment' .json file corresponding to your desired API collection
