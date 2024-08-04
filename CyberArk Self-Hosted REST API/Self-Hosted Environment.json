@@ -1,0 +1,97 @@
+﻿{
+    "id":  "c0eb618a4e6b4cc9ad378e059052e9b4",
+    "name":  "Self-Hosted Environment",
+    "values":  [
+                   {
+                       "key":  "accountName",
+                       "value":  "accountName",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "appID",
+                       "value":  "applicationID",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "CCPAddress",
+                       "value":  "my.ccp.com",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "domainName",
+                       "value":  "domain.com",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "imageType",
+                       "value":  "Square/Watermark",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "PAMUsername",
+                       "value":  "username",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "platformID",
+                       "value":  "platformID",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "PTAAddress",
+                       "value":  "my.pta.com",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "PTAUsername",
+                       "value":  "username",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "PVWAAddress",
+                       "value":  "my.pvwa.com",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "safeName",
+                       "value":  "safeName",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "CCPRetrievedSecret,",
+                       "type":  "secret",
+                       "value":  "XXX",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "PAMNewPassword,",
+                       "type":  "secret",
+                       "value":  "XXX",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "PAMPassword,",
+                       "type":  "secret",
+                       "value":  "XXX",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "PAMSessionToken,",
+                       "type":  "secret",
+                       "value":  "XXX",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "PTAPassword,",
+                       "type":  "secret",
+                       "value":  "XXX",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "PTASessionToken",
+                       "type":  "secret",
+                       "value":  "XXX",
+                       "enabled":  true
+                   }
+               ]
+}
