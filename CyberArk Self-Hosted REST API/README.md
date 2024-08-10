@@ -15,4 +15,4 @@ Bruno collections and environments for CyberArk Identity Security REST API testi
 * Click 'Import' in the lower left and import the 'Environment' .json file corresponding to your desired API collection
 
 # Maintained by:
-Eli Hopkins (IAM-Jah)
+Copyright Eli Hopkins (IAM-Jah)

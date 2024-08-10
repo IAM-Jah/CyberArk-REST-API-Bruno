@@ -6,8 +6,12 @@ Bruno collections and environments for CyberArk Identity Security REST API testi
 	* All documented API requests for both Privilege Cloud - Standalone and Shared Services (Identity Security Platform for Shared Services/ISPSS).
 	* Most documented API requests for CyberArk Identity on Shared Services.
 	* CCP Get Password web request for secure API usage.
-* Current up to Privilege Cloud version 14.2 (July 2024).
-* For ease of use, the Privilege Cloud Shared Services Environment is alphabetized and includes only those environment variables used in Privilege Cloud, Identity, and with the Central Credential Provider.
+	* All documented API requests for Connector Management (CM) on Shared Services
+	* All documented API requests for Dynamic Privileged Access (DPA) on Shared Services
+	* All documented API requests for Remote Access (RA-V2) on Shared Services
+	* Select documented API requests for Endpoint Privilege Manager SaaS (EPM)
+* Current up to Privilege Cloud version 14.2 (August 2024).
+* For ease of use, the Privilege Cloud Shared Services Environment is alphabetized and includes only those environment variables used in Privilege Cloud, Identity, Shared Services, and with the Central Credential Provider.
 
 # How to Import
 * Note: Ensure you have Bruno v1.19 or later. Imports will fail in v1.18 or earlier. 
@@ -16,4 +20,4 @@ Bruno collections and environments for CyberArk Identity Security REST API testi
 * Click 'Import' in the lower left and import the 'Environment' .json file corresponding to your desired API collection
 
 # Maintained by:
-Eli Hopkins (IAM-Jah)
+Copyright Eli Hopkins (IAM-Jah)
