@@ -6,7 +6,7 @@
   
 Bruno Collection and Environment files for **CyberArk Identity Security** REST API testing and automation. Over 650 REST API requests are included in the Collections, which cover Self-Hosted PAM, Privilege Cloud - Standard, Privilege Cloud on Identity Security Platform for Shared Services (ISPSS/Shared Services), and many shared services from the SaaS platform.
 
-Each request in the Collections includes small optimizations to help get you up and running quickly, for example:
+Each API request includes small optimizations to help get you up and running quickly, for example:
   * Authentication requests test for and store the resulting tokens as Environment variables.
   * Authentication token is automatically populated to request headers where necessary.
   * Documentation links and important notes are stored inside each request's 'Docs' section.
@@ -68,14 +68,14 @@ Each request in the Collections includes small optimizations to help get you up 
 
 ## Roadmap
 
-- [x] Add Privilege Cloud Collections
-- [x] Add Self-Hosted PAM Collection
+- [x] Add Privilege Cloud Collections (28 Jul 2024)
+- [x] Add Self-Hosted PAM Collection (4 Aug 2024)
 - [ ] Add Identity and Shared Services to SaaS Collection:
-    - [x] Identity on Shared Services
-    - [x] Dynamic Privileged Access
-    - [x] Connector Management
-    - [x] Remote Access
-    - [x] Endpoint Privilege Manager (For LCD)
+    - [x] Identity on Shared Services (28 Jul 2024)
+    - [x] Dynamic Privileged Access (10 Aug 2024)
+    - [x] Connector Management (10 Aug 2024)
+    - [x] Remote Access (10 Aug 2024)
+    - [x] Endpoint Privilege Manager (For LCD) (10 Aug 2024)
     - [ ] Secure Cloud Access
     - [ ] Identity - Workforce Password Management
     - [ ] Identity - SCIM
