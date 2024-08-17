@@ -4,7 +4,7 @@
 <tr>
 <td>
   
-Bruno Collection and Environment files for **CyberArk Identity Security** REST API testing and automation. Over 650 REST API requests are included in the Collections, which cover Self-Hosted PAM, Privilege Cloud - Standard, Privilege Cloud on Identity Security Platform for Shared Services (ISPSS/Shared Services), and many shared services from the SaaS platform.
+Bruno Collection and Environment files for **CyberArk Identity Security** REST API testing and automation. Over 800 REST API requests are included in the Collections, which cover Self-Hosted PAM, Privilege Cloud - Standard, Privilege Cloud on Identity Security Platform for Shared Services (ISPSS/Shared Services), and many shared services from the SaaS platform.
 
 Each API request includes small optimizations to help get you up and running quickly, for example:
   * Authentication requests test for and store the resulting tokens as Environment variables.
@@ -49,11 +49,13 @@ Each API request includes small optimizations to help get you up and running qui
 
   * CyberArk Privilege Cloud - Standard
   * CyberArk Privilege Cloud - Shared Services
-  * CyberArk Identity - Shared Services (Most requests)
+  * CyberArk Identity - Shared Services
   * Connector Management
   * Dynamic Privileged Access (DPA)
+  * Secure Cloud Access (SCA)
   * Remote Access V2
-  * EPM SaaS (Select requests)
+  * EPM SaaS (Select requests for EPM LCD)
+  * Secrets Hub
   * Central Credential Provider (CCP)
 
   Current up to Privilege Cloud v14.2 (August 2024)
@@ -76,10 +78,10 @@ Each API request includes small optimizations to help get you up and running qui
     - [x] Connector Management (10 Aug 2024)
     - [x] Remote Access (10 Aug 2024)
     - [x] Endpoint Privilege Manager (For LCD) (10 Aug 2024)
-    - [ ] Secure Cloud Access
-    - [ ] Identity - Workforce Password Management
-    - [ ] Identity - SCIM
-    - [ ] Secrets Hub
+    - [x] Secure Cloud Access (17 Aug 2024)
+    - [x] Identity - Workforce Password Management (17 Aug 2024)
+    - [x] Identity - SCIM (17 Aug 2024)
+    - [x] Secrets Hub (17 Aug 2024)
     - [ ] Conjur Cloud
 - [ ] Add additional services to Self-Hosted Collection:
     - [ ] Remote Access

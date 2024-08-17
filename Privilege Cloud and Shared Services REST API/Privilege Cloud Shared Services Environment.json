@@ -48,6 +48,21 @@
                        "enabled":  true
                    },
                    {
+                       "key":  "challengeID",
+                       "value":  "challengeID",
+                       "enabled":  true
+                   },
+                   {
+                       "key":  "clientAppID",
+                       "value":  "EHOPKBrunoClientApp",
+                       "enabled":  true
+                   },
+				   {
+                       "key":  "clientAppUsername",
+                       "value":  "ehopkbrunoclient@cyberark.cloud.20885",
+                       "enabled":  true
+                   },
+                   {
                        "key":  "componentID",
                        "value":  "putSystemHealthComponentIDHere",
                        "enabled":  true
@@ -238,6 +253,12 @@
                        "value":  "XXX",
                        "enabled":  true
                    },
+				   {
+                       "key":  "clientAppPassword,",
+                       "type":  "secret",
+                       "value":  "XXX",
+                       "enabled":  true
+                   },
                    {
                        "key":  "EPMSAMLToken,",
                        "type":  "secret",
@@ -294,6 +315,12 @@
                    },
                    {
                        "key":  "remoteAccessToken,",
+                       "type":  "secret",
+                       "value":  "XXX",
+                       "enabled":  true
+                   },
+				   {
+                       "key":  "SCAToken,",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
