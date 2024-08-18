@@ -13,6 +13,7 @@
   * EPM SaaS (Select requests for EPM LCD)
   * Secrets Hub
   * Central Credential Provider (CCP)
+  * Conjur Cloud
 
   Current up to Privilege Cloud v14.2 (August 2024)
 
@@ -40,7 +41,7 @@
 
 - [x] Add Privilege Cloud Collections (28 Jul 2024)
 - [x] Add Self-Hosted PAM Collection (4 Aug 2024)
-- [ ] Add Identity and Shared Services to SaaS Collection:
+- [x] Add Identity and Shared Services to SaaS Collection: (18 Aug 2024)
     - [x] Identity on Shared Services (28 Jul 2024)
     - [x] Dynamic Privileged Access (10 Aug 2024)
     - [x] Connector Management (10 Aug 2024)
@@ -50,7 +51,7 @@
     - [x] Identity - Workforce Password Management (17 Aug 2024)
     - [x] Identity - SCIM (17 Aug 2024)
     - [x] Secrets Hub (17 Aug 2024)
-    - [ ] Conjur Cloud
+    - [x] Conjur Cloud (18 Aug 2024)
 - [ ] Add additional services to Self-Hosted Collection:
     - [ ] Remote Access
     - [ ] Endpoint Privilege Manager

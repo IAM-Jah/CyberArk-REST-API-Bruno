@@ -259,6 +259,12 @@
                        "value":  "XXX",
                        "enabled":  true
                    },
+				   {
+                       "key":  "conjurToken,",
+                       "type":  "secret",
+                       "value":  "XXX",
+                       "enabled":  true
+                   },
                    {
                        "key":  "EPMSAMLToken,",
                        "type":  "secret",
