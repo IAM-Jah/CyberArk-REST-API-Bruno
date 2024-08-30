@@ -22,6 +22,11 @@
                        "value":  "domain.com",
                        "enabled":  true
                    },
+				   {
+                       "key":  "EPMAddress",
+                       "value":  "https://EPMServer.local",
+                       "enabled":  true
+                   },
                    {
                        "key":  "imageType",
                        "value":  "Square/Watermark",
@@ -57,38 +62,50 @@
                        "value":  "safeName",
                        "enabled":  true
                    },
-                   {
-                       "key":  "CCPRetrievedSecret,",
+				   {
+                       "key":  "CCPRetrievedSecret",
+                       "type":  "secret",
+                       "value":  "XXX",
+                       "enabled":  true
+                   },
+				   {
+                       "key":  "EPMToken",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "PAMNewPassword,",
+                       "key":  "PAMNewPassword",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "PAMPassword,",
+                       "key":  "PAMPassword",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "PAMSessionToken,",
+                       "key":  "PAMSessionToken",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "PTAPassword,",
+                       "key":  "PTAPassword",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
                        "key":  "PTASessionToken",
+                       "type":  "secret",
+                       "value":  "XXX",
+                       "enabled":  true
+                   },
+				   {
+                       "key":  "remoteAccessToken",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true

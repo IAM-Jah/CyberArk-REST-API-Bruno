@@ -4,7 +4,7 @@
 <tr>
 <td>
   
-Bruno Collection and Environment files for **CyberArk Identity Security** REST API testing and automation. Over 800 REST API requests are included in the Collections, which cover Self-Hosted PAM, Privilege Cloud - Standard, Privilege Cloud on Identity Security Platform for Shared Services (ISPSS/Shared Services), and many shared services from the SaaS platform.
+Bruno Collection and Environment files for **CyberArk Identity Security** REST API testing and automation. 945 REST API requests are included in the Collections, which cover Self-Hosted PAM, Privilege Cloud - Standard, Privilege Cloud on Identity Security Platform for Shared Services (ISPSS/Shared Services), and many shared services from the SaaS platform.
 
 Each API request includes small optimizations to help get you up and running quickly, for example:
   * Authentication requests test for and store the resulting tokens as Environment variables.
@@ -54,7 +54,7 @@ Each API request includes small optimizations to help get you up and running qui
   * Dynamic Privileged Access (DPA)
   * Secure Cloud Access (SCA)
   * Remote Access V2
-  * EPM SaaS (Select requests for EPM LCD)
+  * EPM SaaS (for EPM LCD)
   * Secrets Hub
   * Central Credential Provider (CCP)
   * Conjur Cloud
@@ -66,8 +66,10 @@ Each API request includes small optimizations to help get you up and running qui
 
   * Self-Hosted PAM
   * Central Credential Provider (CCP)
+  * Remote Access V2
+  * EPM On-Prem
 
-  Current up to Password Vault Web Access (PVWA) v14.2 (August 2024)
+  Current up to Password Vault Web Access (PVWA) v14.2 (Aug 2024) and EPM On-Prem v11.5.6 (Feb 2023/final version).
 
 ## Roadmap
 
@@ -84,9 +86,9 @@ Each API request includes small optimizations to help get you up and running qui
     - [x] Identity - SCIM (17 Aug 2024)
     - [x] Secrets Hub (17 Aug 2024)
     - [x] Conjur Cloud (18 Aug 2024)
-- [ ] Add additional services to Self-Hosted Collection:
-    - [ ] Remote Access
-    - [ ] Endpoint Privilege Manager
+- [x] Add additional services to Self-Hosted Collection: (30 Aug 2024)
+    - [x] Remote Access (30 Aug 2024)
+    - [x] Endpoint Privilege Manager (30 Aug 2024)
 - [ ] Add usage guide
 - [ ] Upload native .bru project files
 - [ ] UX enhancements:

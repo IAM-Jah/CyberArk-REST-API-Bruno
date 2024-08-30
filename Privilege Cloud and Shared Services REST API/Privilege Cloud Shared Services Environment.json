@@ -248,85 +248,85 @@
                        "enabled":  true
                    },
                    {
-                       "key":  "CCPRetrievedSecret,",
+                       "key":  "CCPRetrievedSecret",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
 				   {
-                       "key":  "clientAppPassword,",
+                       "key":  "clientAppPassword",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
 				   {
-                       "key":  "conjurToken,",
+                       "key":  "conjurToken",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "EPMSAMLToken,",
+                       "key":  "EPMSAMLToken",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "EPMToken,",
+                       "key":  "EPMToken",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "identityAPIPassword,",
+                       "key":  "identityAPIPassword",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "identityPassword,",
+                       "key":  "identityPassword",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "identityToken,",
+                       "key":  "identityToken",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "PAMNewPassword,",
+                       "key":  "PAMNewPassword",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "PAMPassword,",
+                       "key":  "PAMPassword",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "PAMSAMLToken,",
+                       "key":  "PAMSAMLToken",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "PAMSessionToken,",
+                       "key":  "PAMSessionToken",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
                    {
-                       "key":  "remoteAccessToken,",
+                       "key":  "remoteAccessToken",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true
                    },
 				   {
-                       "key":  "SCAToken,",
+                       "key":  "SCAToken",
                        "type":  "secret",
                        "value":  "XXX",
                        "enabled":  true

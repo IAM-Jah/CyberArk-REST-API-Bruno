@@ -10,7 +10,7 @@
   * Dynamic Privileged Access (DPA)
   * Secure Cloud Access (SCA)
   * Remote Access V2
-  * EPM SaaS (Select requests for EPM LCD)
+  * EPM SaaS (for EPM LCD)
   * Secrets Hub
   * Central Credential Provider (CCP)
   * Conjur Cloud
@@ -52,9 +52,9 @@
     - [x] Identity - SCIM (17 Aug 2024)
     - [x] Secrets Hub (17 Aug 2024)
     - [x] Conjur Cloud (18 Aug 2024)
-- [ ] Add additional services to Self-Hosted Collection:
-    - [ ] Remote Access
-    - [ ] Endpoint Privilege Manager
+- [x] Add additional services to Self-Hosted Collection: (30 Aug 2024)
+    - [x] Remote Access (30 Aug 2024)
+    - [x] Endpoint Privilege Manager (30 Aug 2024)
 - [ ] Add usage guide
 - [ ] Upload native .bru project files
 - [ ] UX enhancements:

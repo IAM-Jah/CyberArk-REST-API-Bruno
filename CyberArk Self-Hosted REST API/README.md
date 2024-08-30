@@ -5,8 +5,10 @@
 
   * Self-Hosted PAM
   * Central Credential Provider (CCP)
+  * Remote Access V2
+  * EPM On-Prem
 
-  Current up to Password Vault Web Access (PVWA) v14.2 (August 2024)
+  Current up to Password Vault Web Access (PVWA) v14.2 (Aug 2024) and EPM On-Prem v11.5.6 (Feb 2023/final version).
 
 ## Installation
 
@@ -32,7 +34,7 @@
 
 - [x] Add Privilege Cloud Collections (28 Jul 2024)
 - [x] Add Self-Hosted PAM Collection (4 Aug 2024)
-- [ ] Add Identity and Shared Services to SaaS Collection:
+- [x] Add Identity and Shared Services to SaaS Collection: (18 Aug 2024)
     - [x] Identity on Shared Services (28 Jul 2024)
     - [x] Dynamic Privileged Access (10 Aug 2024)
     - [x] Connector Management (10 Aug 2024)
@@ -42,10 +44,10 @@
     - [x] Identity - Workforce Password Management (17 Aug 2024)
     - [x] Identity - SCIM (17 Aug 2024)
     - [x] Secrets Hub (17 Aug 2024)
-    - [ ] Conjur Cloud
-- [ ] Add additional services to Self-Hosted Collection:
-    - [ ] Remote Access
-    - [ ] Endpoint Privilege Manager
+    - [x] Conjur Cloud (18 Aug 2024)
+- [x] Add additional services to Self-Hosted Collection: (30 Aug 2024)
+    - [x] Remote Access (30 Aug 2024)
+    - [x] Endpoint Privilege Manager (30 Aug 2024)
 - [ ] Add usage guide
 - [ ] Upload native .bru project files
 - [ ] UX enhancements:
