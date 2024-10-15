@@ -5250,7 +5250,7 @@
     },
     {
       "type": "folder",
-      "name": "DPA - Dynamic Privileged Access",
+      "name": "SIA - Secure Infrastructure Access",
       "items": [
         {
           "type": "folder",
@@ -5293,11 +5293,11 @@
         },
         {
           "type": "folder",
-          "name": "DPA Settings",
+          "name": "SIA Settings",
           "items": [
             {
               "type": "http",
-              "name": "Get DPA Settings by Feature",
+              "name": "Get SIA Settings by Feature",
               "seq": 1,
               "request": {
                 "url": "https://{{subdomain}}-jit.cyberark.cloud/api/settings/:dpaFeatureName",
@@ -5336,7 +5336,7 @@
             },
             {
               "type": "http",
-              "name": "Get DPA Settings",
+              "name": "Get SIA Settings",
               "seq": 3,
               "request": {
                 "url": "https://{{subdomain}}-jit.cyberark.cloud/api/settings",
@@ -5368,7 +5368,7 @@
             },
             {
               "type": "http",
-              "name": "Update DPA Feature Settings",
+              "name": "Update SIA Feature Settings",
               "seq": 3,
               "request": {
                 "url": "https://{{subdomain}}-jit.cyberark.cloud/api/settings/:dpaFeatureName",

@@ -77,7 +77,7 @@ Each API request includes small optimizations to help get you up and running qui
 - [x] Add Self-Hosted PAM Collection (4 Aug 2024)
 - [x] Add Identity and Shared Services to SaaS Collection: (18 Aug 2024)
     - [x] Identity on Shared Services (28 Jul 2024)
-    - [x] Dynamic Privileged Access (10 Aug 2024)
+    - [x] Secure Infrastructure Access (10 Aug 2024)
     - [x] Connector Management (10 Aug 2024)
     - [x] Remote Access (10 Aug 2024)
     - [x] Endpoint Privilege Manager (For LCD) (10 Aug 2024)
@@ -89,7 +89,7 @@ Each API request includes small optimizations to help get you up and running qui
 - [x] Add additional services to Self-Hosted Collection: (30 Aug 2024)
     - [x] Remote Access (30 Aug 2024)
     - [x] Endpoint Privilege Manager (30 Aug 2024)
-- [ ] Add usage guide
+- [x] Add usage guide (14 Oct 2024)
 - [ ] Upload native .bru project files
 - [ ] UX enhancements:
     - [ ] Expand documentation
