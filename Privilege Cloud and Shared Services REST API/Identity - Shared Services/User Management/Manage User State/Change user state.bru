@@ -1,0 +1,26 @@
+meta {
+  name: Change user state
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/ChangeUserState
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+      "uuid": "userUUID",
+      "state": true
+  }
+}

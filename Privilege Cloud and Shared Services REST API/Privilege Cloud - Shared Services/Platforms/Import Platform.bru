@@ -1,0 +1,25 @@
+meta {
+  name: Import Platform
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Platforms/Import/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "ImportFile": {zip file byte array}
+  }
+}

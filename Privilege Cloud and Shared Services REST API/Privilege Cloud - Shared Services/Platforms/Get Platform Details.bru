@@ -1,0 +1,23 @@
+meta {
+  name: Get Platform Details
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Platforms/:platformName
+  body: none
+  auth: bearer
+}
+
+params:path {
+  platformName: {{platformName}}/
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Set Tenant Cname as Preferred Cname
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/TenantCnames/SetPreferred?customCname=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  customCname: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

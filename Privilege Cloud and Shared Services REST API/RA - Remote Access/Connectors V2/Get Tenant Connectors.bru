@@ -1,0 +1,23 @@
+meta {
+  name: Get Tenant Connectors
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://api.alero.io/v2-edge/connectors/:siteID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  siteID: siteID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

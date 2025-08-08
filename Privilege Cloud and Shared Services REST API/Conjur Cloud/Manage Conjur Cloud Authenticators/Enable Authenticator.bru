@@ -1,0 +1,28 @@
+meta {
+  name: Enable Authenticator
+  type: http
+  seq: 1
+}
+
+patch {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/:authenticatorType/:serviceID/conjur
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  authenticatorType: authenticatorType
+  serviceID: serviceID
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:form-urlencoded {
+  enabled: true
+}

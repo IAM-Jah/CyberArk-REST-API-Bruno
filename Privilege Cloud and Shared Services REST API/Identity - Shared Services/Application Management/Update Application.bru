@@ -1,0 +1,54 @@
+meta {
+  name: Update Application
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/UpdateApplicationDE
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "ShowRegistration": true,
+    "_RowKey": "string",
+    "Handler": "string",
+    "IconUri": "string",
+    "Script": "string",
+    "AppRoles": {
+      "Publish": [
+        {
+          "RoleType": "string",
+          "Role": "string",
+          "ID": "string",
+          "Application": "string",
+          "Automatic": true,
+          "Name": "string"
+        }
+      ],
+      "UnPublish": [
+        {
+          "RoleType": "string",
+          "Role": "string",
+          "ID": "string",
+          "Application": "string",
+          "Automatic": true,
+          "Name": "string"
+        }
+      ]
+    },
+    "SamlAttributes": "string",
+    "Description": "string",
+    "Name": "string"
+  }
+}

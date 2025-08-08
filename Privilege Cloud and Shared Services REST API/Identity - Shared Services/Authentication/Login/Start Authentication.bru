@@ -1,0 +1,93 @@
+meta {
+  name: Start Authentication
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/StartAuthentication
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "TenantID": "{{identityTenantID}}",
+      "User": "{{identityUsername}}",
+      "Version": "1.0"
+  }
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  const jsonData = res.getBody().Result
+  
+  //test if Identity Session ID exists in response body and store as identitySessionID if found
+  test("Store Identity session ID", function() {
+  //If no session ID is returned, present an error message indicating user intervention is required to correct syntax, typo or access issues.  
+    expect(
+      jsonData,
+      "Identity session ID not found. Check URI and Body for syntax errors or typos and/or investigate user account access"
+    ).to.have.property("SessionId");
+    // If 'SessionId'' exists, store it as 'IdentitySessionID' environment variable.  
+    bru.setEnvVar("identitySessionID", jsonData.SessionId);
+  });
+  
+  //test if Identity Mechanism ID exists in response body and store as identityMachanismID if found (Often the User Password MFA requirement).
+  test("Check for first MFA requirement", function() {
+  // If a first 'mechanismID' doesn't exist, present an error message indicating that either there is already a valid session or that MFA is not configured for the user.
+    expect(
+      jsonData.Challenges[0].Mechanisms[0],
+      "No MFA mechanism found. Check that you have a valid Identity token or configure MFA for the target user if not"
+    ).to.have.property("MechanismId");
+    // If a first 'MechanismId' exists, store it as 'IdentityMechanismID' environment variable.
+    bru.setEnvVar("identityMechanismID", jsonData.Challenges[0].Mechanisms[0].MechanismId);
+  });
+  
+  //test if Identity Mechanism ID 2 exists in response body and store as identityMachanismID2 if found (Indicates a second factor required for authentication).
+  test("Check for additional MFA requirements", function() {
+  // If a second 'mechanismID' doesn't exist, present an error message indicating the user should complete the first challenge.
+    expect(
+      jsonData.Challenges[1].Mechanisms[0],
+      "No second MFA mechanism found. Complete MFA indicated by the first challenge in the API response"
+    ).to.have.property("MechanismId");
+    // If a second 'MechanismId' exists, store it as 'IdentityMechanismID2' environment variable.
+    bru.setEnvVar("identityMechanismID2", jsonData.Challenges[1].Mechanisms[0].MechanismId);
+  });
+  
+  // Check if 'Token' exists, indicating a valid session is already in progress for the user (due to Identity cookie).
+  test("Check for already existing session", function() {
+    // If 'Token' doesn't exist, present an error message indicating the user should continue with authentication.
+    expect(
+      jsonData,
+      "Identity Token does not exist: continue with Advance Authentication API(s) to complete authentication process"
+    ).to.have.property("Token");
+      // If 'Token' exists, store it as 'IdentityToken' environment variable.
+      bru.setEnvVar("identityToken", jsonData.Token);
+  });
+  
+  // Check if 'PodFQDN' exists, indicating a custom subdomain is configured.
+  test("Check if a custom subdomain is configured", function() {
+      // 'PodFQDN' is returned when the tenant ID sent in the request is no longer valid and should be replaced with the custom subdomain indicated.
+      // If 'PodFQDN' doesn't exist, present a message indicating no change is necessary to 'identityTenantID'.
+      expect(
+        jsonData,
+        "Custom subdomain is not configured. No changes necessary to 'identityTenantID'"
+      ).to.have.property("PodFQDN");
+      // If 'PodFQDN' exists, store it as 'IdentityTenanyID' so that API requests will succeed.
+      bru.setEnvVar("identityTenantID", jsonData.PodFQDN);
+  });
+  
+  //test if API response time is under 500ms. Adjust values as necessary.
+  test("Check API response time", function() {
+       let responseTime = res.getResponseTime();
+       expect(responseTime).to.be.lessThan(500);
+  });
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Delete Dependent Platform
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/platforms/dependents/:platformID/
+  body: none
+  auth: none
+}
+
+params:path {
+  platformID: {{platformID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

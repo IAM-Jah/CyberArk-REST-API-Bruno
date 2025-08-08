@@ -1,0 +1,16 @@
+meta {
+  name: Get All PSM Servers
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/PSM/Servers/
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

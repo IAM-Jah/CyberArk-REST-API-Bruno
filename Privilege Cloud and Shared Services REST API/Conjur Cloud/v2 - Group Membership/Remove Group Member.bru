@@ -1,0 +1,31 @@
+meta {
+  name: Remove Group Member
+  type: http
+  seq: 2
+}
+
+delete {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/groups/:branch/:groupName/members/:roleType/:roleID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  roleID: data/aws-apps/my-aws-workload
+  roleType: user|host|group
+  groupName: app-admins
+  branch: data/myapps/
+}
+
+headers {
+  Accept: application/x.secretsmgr.v2+json
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:form-urlencoded {
+  id: data/aws-apps/my-aws-workload
+  kind: user|host|group
+}

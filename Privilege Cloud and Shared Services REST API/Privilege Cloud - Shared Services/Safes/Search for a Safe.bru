@@ -1,0 +1,23 @@
+meta {
+  name: Search for a Safe
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/WebServices/PIMServices.svc/Safes?query={{safeQuery}}/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  query: {{safeQuery}}/
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

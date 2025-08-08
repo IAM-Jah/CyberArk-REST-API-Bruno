@@ -1,0 +1,26 @@
+meta {
+  name: Submit OATH OTP Code
+  type: http
+  seq: 11
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/SubmitOathOtpCode
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "otpCode": "string",
+    "userUuid": "string"
+  }
+}

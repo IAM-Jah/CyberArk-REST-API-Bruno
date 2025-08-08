@@ -1,0 +1,42 @@
+meta {
+  name: Update Issuer
+  type: http
+  seq: 5
+}
+
+patch {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/issuers/conjur/:issuerID
+  body: json
+  auth: bearer
+}
+
+params:query {
+  ~max_ttl: integer
+  ~data: JSONObject
+}
+
+params:path {
+  issuerID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:json {
+  {
+    "max_ttl": 4000,
+    "data": {
+      "access_key_id": "my_new_key_id",
+      "secret_access_key": "my_new_key_secret"
+    }
+  }
+}
+
+body:form-urlencoded {
+  enabled: true
+}

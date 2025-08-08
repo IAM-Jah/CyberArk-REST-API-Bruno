@@ -1,0 +1,48 @@
+meta {
+  name: Create Vendor Invite
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://api.alero.io/v2-edge/selfServiceRequests/:ID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  ID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}
+
+body:json {
+  {
+    "initialStatus": "Activated",
+    "accessStartDate": 0,
+    "accessEndDate": 0,
+    "canInvite": true,
+    "comments": "'\"9w\\,_w7i6x %REnxPhvl7B=vwYLFdN&8Q3am{%Htg$9F~Y5BLlTd84a9M`48LA\"yKQTXOf5e;zKX\\dw\\8'Lz%m9SC-",
+    "provisioningType": "ProvisionedByAlero",
+    "provisioningUsername": "n3aXAw|ztobs|aeCaY8-x!_6X!9ivo\"1nA2p+qu-I1gI63Y?hO",
+    "provisioningGroups": [
+      "nR5u78v?"
+    ],
+    "applications": [
+      {
+        "siteId": "string",
+        "applicationId": "string"
+      }
+    ],
+    "customText": "35%{!6;EW?M5s*o_;2bocD}v;j!PBk$Uv,9#E,Rwk5ENPXj}2o{#gxEESA8KU#X|tk9B07uC!8^{Gnc_l=n\\Y`f",
+    "maxNumOfInvitedVendors": 2147483647,
+    "phoneAndEmailAuth": true,
+    "invitedVendorsInitialStatus": "Activated"
+  }
+}

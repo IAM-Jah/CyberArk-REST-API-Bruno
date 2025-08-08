@@ -1,0 +1,24 @@
+meta {
+  name: Get Default Agent Configuration
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/Policies/AgentConfiguration/AgentConfiguration/Default
+  body: none
+  auth: bearer
+}
+
+params:path {
+  setID: setID
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{EPMToken}}
+}

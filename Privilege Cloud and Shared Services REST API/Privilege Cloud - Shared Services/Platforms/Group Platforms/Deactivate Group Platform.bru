@@ -1,0 +1,23 @@
+meta {
+  name: Deactivate Group Platform
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/platforms/groups/:platformID/deactivate/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  platformID: {{platformID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

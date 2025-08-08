@@ -1,0 +1,20 @@
+meta {
+  name: Activate User
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Users/:userID/Activate
+  body: none
+  auth: none
+}
+
+params:path {
+  userID: {{userID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

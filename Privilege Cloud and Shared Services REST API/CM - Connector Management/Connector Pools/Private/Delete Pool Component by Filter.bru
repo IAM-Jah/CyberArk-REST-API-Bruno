@@ -1,0 +1,24 @@
+meta {
+  name: Delete Pool Component by Filter
+  type: http
+  seq: 16
+}
+
+delete {
+  url: https://{{subdomain}}.cyberark.cloud/private/pools/:poolID/components
+  body: none
+  auth: bearer
+}
+
+params:path {
+  poolID: poolID
+}
+
+headers {
+  Content-Type: application/json
+  tenant-id: tenant-id
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

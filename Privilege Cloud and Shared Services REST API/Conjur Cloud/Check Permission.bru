@@ -1,0 +1,30 @@
+meta {
+  name: Check Permission
+  type: http
+  seq: 17
+}
+
+get {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/resources/conjur/:resourceType/:identifier?check=true&role=role&privilege=execute
+  body: none
+  auth: bearer
+}
+
+params:query {
+  check: true
+  role: role
+  privilege: execute
+}
+
+params:path {
+  resourceType: user|host|layer|group|policy|variable|webservice
+  identifier: resourceID
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:form-urlencoded {
+  enabled: true
+}

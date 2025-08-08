@@ -1,0 +1,32 @@
+meta {
+  name: Update Pool Component by External ID and Type
+  type: http
+  seq: 17
+}
+
+patch {
+  url: https://{{subdomain}}.cyberark.cloud/private/pools/:poolID/components
+  body: json
+  auth: bearer
+}
+
+params:path {
+  poolID: poolID
+}
+
+headers {
+  Content-Type: application/json
+  tenant-id: tenant-id
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "poolId": "string",
+    "type": "PLATFORM_CONNECTOR",
+    "externalId": "string"
+  }
+}

@@ -1,0 +1,57 @@
+meta {
+  name: Edit Policy
+  type: http
+  seq: 7
+}
+
+put {
+  url: https://{{subdomain}}.sca.cyberark.cloud/api/policies/:policyID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  policyID: policyID
+}
+
+headers {
+  Content-Type: application/json
+  X-API-Version: 2.0
+}
+
+auth:bearer {
+  token: {{SCAToken}}
+}
+
+body:json {
+  {
+    "name": "string",
+    "description": "string",
+    "startDate": "string",
+    "endDate": "string",
+    "roles": [
+      {
+        "entityId": "string",
+        "workspaceType": "string",
+        "entitySourceId": "string",
+        "organizationId": "string"
+      }
+    ],
+    "identities": [
+      {
+        "entityName": "string",
+        "entitySourceId": "string",
+        "entityClass": "string"
+      }
+    ],
+    "accessRules": {
+      "days": [
+        0
+      ],
+      "fromTime": "string",
+      "toTime": "string",
+      "maxSessionDuration": 0,
+      "timeZone": "string"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+meta {
+  name: Create User Invitation
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://api.alero.io/v2-edge/invitations/user-invitations
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}
+
+body:json {
+  {
+    "usersToInvite": [
+      {
+        "name": "p{L}L'. {L. . . . . }'-. p{L}",
+        "emailAddress": "string"
+      }
+    ],
+    "initialStatus": "Deactivated",
+    "invitationExpirationTime": 0
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Register Tenant URL
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/TenantCnames/Register?cnamePrefix=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  cnamePrefix: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

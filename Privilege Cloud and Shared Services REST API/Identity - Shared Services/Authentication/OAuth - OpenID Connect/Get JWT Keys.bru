@@ -1,0 +1,28 @@
+meta {
+  name: Get JWT Keys
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/OAuth2/Keys/:clientAppID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  clientAppID: {{clientAppID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:form-urlencoded {
+  grant_type: client_credentials
+  scope: AllAPIsScope
+}

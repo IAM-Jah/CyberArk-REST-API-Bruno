@@ -1,0 +1,23 @@
+meta {
+  name: Delete Group
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://api.alero.io/v2-edge/groups/:groupID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  groupID: groupID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

@@ -1,0 +1,29 @@
+meta {
+  name: Unlink Account from Dependent
+  type: http
+  seq: 7
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/accounts/:accountID/account-dependents/:dependentAccountID/link-accounts/:index
+  body: none
+  auth: bearer
+}
+
+params:path {
+  index: string
+  accountID: {{accountID}}
+  dependentAccountID: {{dependentAccountID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+docs {
+  https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/account-dependents-cpm.htm
+}

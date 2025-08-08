@@ -1,0 +1,27 @@
+meta {
+  name: Delete Suffixes
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Core/DeleteAliases
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Suffixes": [
+      "string"
+    ]
+  }
+}

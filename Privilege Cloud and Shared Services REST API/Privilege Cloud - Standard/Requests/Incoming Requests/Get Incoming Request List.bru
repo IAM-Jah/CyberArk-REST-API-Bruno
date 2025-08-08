@@ -1,0 +1,21 @@
+meta {
+  name: Get Incoming Request List
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/IncomingRequests?OnlyWaiting=true&Expired=false
+  body: none
+  auth: none
+}
+
+params:query {
+  OnlyWaiting: true
+  Expired: false
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Get a Connector
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/api/connectors/:connectorID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  connectorID: connectorID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

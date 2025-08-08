@@ -1,0 +1,27 @@
+meta {
+  name: Answer Registration Challenge
+  type: http
+  seq: 13
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/U2f/AnswerRegistrationChallenge?rawRegisterResponse=registrationResponseRawFormat
+  body: json
+  auth: none
+}
+
+params:query {
+  rawRegisterResponse: registrationResponseRawFormat
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "ClientData": "string",
+    "RegistrationData": "string",
+    "Challenge": "string"
+  }
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Delete My Request
+  type: http
+  seq: 4
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/myrequests/:requestID
+  body: none
+  auth: none
+}
+
+params:path {
+  requestID: {{requestID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

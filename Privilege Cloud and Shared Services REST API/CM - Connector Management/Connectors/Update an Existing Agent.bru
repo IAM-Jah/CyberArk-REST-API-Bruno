@@ -1,0 +1,29 @@
+meta {
+  name: Update an Existing Agent
+  type: http
+  seq: 7
+}
+
+patch {
+  url: https://{{subdomain}}.cyberark.cloud/api/connectors/:connectorID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  connectorID: connectorID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "connectorPoolId": "96e1df8d-ffe5-4314-8b65-b6b941f35a13"
+  }
+}

@@ -1,0 +1,153 @@
+meta {
+  name: Edit a Discovery Rule Set
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/discovery-rule-sets/:ruleSetID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  ruleSetID: {{ruleSetID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+     "name": "Windows"
+     "trigger":
+    {
+        "type": "ACCOUNT_DISCOVERED",
+        "conditions" : {
+          [
+              {
+                  "property" : "type",
+                  "operator" : "EQUALS",
+                  "value" : "windows"
+              },
+              {
+                  "property" : "subType",
+                  "operator" : "EQUALS",
+                  "value" : "server"
+              }
+          ]
+        }
+    },
+    "rules" :
+    [
+        {
+          "name": "First rule",
+          "conditions" :
+              [
+                  {
+                      "property" : "isPrivileged",
+                      "operator" : "IN",
+                      "value" : "true,false"
+                  },
+                  {
+                      "property" : "source",
+                      "operator" : "IN",
+                      "value" : "discovery management"
+                  },
+                  {
+                      "property" : "network",
+                      "operator" : "STARTS_WITH",
+                      "value" : "Paris"
+                  }
+              ],
+              "action" :
+              {
+                  "type" : "ONBOARD",
+                  "parameters" : {
+                      "platformId" : "WinServerLocal_30",
+                      "safeName" :  "WinParis"
+                  },
+                  "subActions" :
+                  [
+                          {
+                              "type": "LINK_ACCOUNT",
+                              "parameters": {
+                                  "id" : 1,
+                                  "value" : 45                       
+                              }
+                          },
+                          {
+                              "type": "LINK_ACCOUNT",
+                              "parameters": {
+                                  "id" : 3,
+                                  "value" : 48
+                              },
+                          },
+                          {
+                              "type": "RESET_PASSWORD",
+                              "parameters": {},
+                          }
+                           
+                  ]
+              }
+        },
+        {
+           "name": "Second rule",
+             "conditions" :
+              [
+                  {
+                      "property" : "isPrivileged",
+                      "operator" : "IN",
+                      "value" : "true,false"
+                  },
+                  {
+                      "property" : "source",
+                      "operator" : "EQUALS",
+                      "value" : "discovery management"
+                  },
+                  {
+                      "property" : "network",
+                      "operator" : "STARTS_WITH",
+                      "value" : "London"
+                  }
+              ],
+              "action" :
+              {
+                  "type" : "ONBOARD",
+                  "parameters" : {
+                      "platformId" : "WinServerLocal_30",
+                      "safeName" :  "WinLondon"
+                  },
+                  "subactions" :
+                  [
+                          {
+                              "type": "LINK_ACCOUNT",
+                              "parameters": {
+                                  "id" : 1,
+                                  "value" : 63                       
+                              }
+                          },
+                          {
+                              "type": "LINK_ACCOUNT",
+                              "parameters": {
+                                  "id" : 3,
+                                  "value" : 89
+                              },
+                          },
+                          {
+                              "type": "SET_PASSWORD",
+                              "parameters": {
+                                  "password" : "123London"
+                              }, 
+                          }
+                  ]
+              }
+        }
+    ]
+  }
+}

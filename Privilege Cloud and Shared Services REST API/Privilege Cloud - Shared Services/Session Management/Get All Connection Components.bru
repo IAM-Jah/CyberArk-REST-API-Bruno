@@ -1,0 +1,19 @@
+meta {
+  name: Get All Connection Components
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/PSM/Connectors/
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

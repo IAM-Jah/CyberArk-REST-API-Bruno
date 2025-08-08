@@ -1,0 +1,29 @@
+meta {
+  name: Set Policy State
+  type: http
+  seq: 3
+}
+
+put {
+  url: https://{{subdomain}}.secretshub.cyberark.cloud/api/policies/:policyID/state
+  body: json
+  auth: bearer
+}
+
+params:path {
+  policyID: policyID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "action": "disable"
+  }
+}

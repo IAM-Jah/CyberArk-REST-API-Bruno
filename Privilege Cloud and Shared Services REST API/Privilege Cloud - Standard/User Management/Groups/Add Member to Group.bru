@@ -1,0 +1,28 @@
+meta {
+  name: Add Member to Group
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/UserGroups/:groupID/Members/
+  body: json
+  auth: none
+}
+
+params:path {
+  groupID: {{groupID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+      "memberId": "string",
+      "memberType": "domain/vault",
+      "domainName": "{{domainName}}"
+  }
+}

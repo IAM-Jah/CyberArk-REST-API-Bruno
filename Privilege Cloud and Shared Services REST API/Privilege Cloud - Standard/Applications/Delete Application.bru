@@ -1,0 +1,20 @@
+meta {
+  name: Delete Application
+  type: http
+  seq: 6
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/WebServices/PIMServices.svc/Applications/:appID/
+  body: none
+  auth: none
+}
+
+params:path {
+  appID: {{appID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

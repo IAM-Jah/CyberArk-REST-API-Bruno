@@ -1,0 +1,23 @@
+meta {
+  name: Get Account Group by Safe
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/AccountGroups?Safe={{safeName}}/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  Safe: {{safeName}}/
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

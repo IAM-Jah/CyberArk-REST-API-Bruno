@@ -1,0 +1,19 @@
+meta {
+  name: Health
+  type: http
+  seq: 18
+}
+
+get {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/health
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:form-urlencoded {
+  enabled: true
+}

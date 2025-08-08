@@ -1,0 +1,25 @@
+meta {
+  name: Delete Computer
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/Computers/:agentID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  agentID: agentID
+  setID: setID
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{EPMToken}}
+}

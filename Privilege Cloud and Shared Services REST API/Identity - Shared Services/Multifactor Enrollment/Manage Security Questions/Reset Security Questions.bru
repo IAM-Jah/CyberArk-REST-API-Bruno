@@ -1,0 +1,25 @@
+meta {
+  name: Reset Security Questions
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/ResetSecurityQuestions
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Id": "string"
+  }
+}

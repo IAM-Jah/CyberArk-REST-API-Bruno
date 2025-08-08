@@ -1,0 +1,26 @@
+meta {
+  name: Set user state
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/cdirectoryservice/setuserstate
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "ID": "userUUID",
+    "state": "None"
+  }
+}

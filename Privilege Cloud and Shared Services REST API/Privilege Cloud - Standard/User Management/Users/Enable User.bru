@@ -1,0 +1,20 @@
+meta {
+  name: Enable User
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Users/:userID/Enable
+  body: none
+  auth: none
+}
+
+params:path {
+  userID: {{userID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

@@ -1,0 +1,36 @@
+meta {
+  name: Add Onboarding Rule
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/AutomaticOnboardingRules/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+  "TargetPlatformId": "{{platformID}}",
+  "TargetSafeName": "{{safeName}}",
+  "IsAdminIDFilter": false,
+  "MachineTypeFilter": "AnyOrWorkstationOrServer",
+  "SystemTypeFilter": "WindowsOrUnix",
+  "UserNameFilter": "userName",
+  "UserNameMethod": "EqualsOrBeginsOrEnds",
+  "AddressFilter": "IPOrDNSDomainName",
+  "AddressMethod": "EqualsOrBeginsOrEnds",
+  "AccountCategoryFilter": "AnyOrPrivilegedOrNon-privileged",
+  "RuleName": "ruleName",
+  "RuleDescription": "description"
+  }
+}

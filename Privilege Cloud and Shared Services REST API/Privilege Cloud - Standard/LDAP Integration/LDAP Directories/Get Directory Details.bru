@@ -1,0 +1,20 @@
+meta {
+  name: Get Directory Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Configuration/LDAP/Directories/:id/
+  body: none
+  auth: none
+}
+
+params:path {
+  id: {{ldapMappingID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

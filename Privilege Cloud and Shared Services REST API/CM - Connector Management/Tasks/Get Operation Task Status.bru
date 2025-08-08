@@ -1,0 +1,23 @@
+meta {
+  name: Get Operation Task Status
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/api/tasks/operation/:taskID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  taskID: taskID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

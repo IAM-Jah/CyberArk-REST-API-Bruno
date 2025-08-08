@@ -1,0 +1,26 @@
+meta {
+  name: Assign Administrative Rights to Role
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Roles/AssignSuperRights
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Role": "string",
+    "Path": "string"
+  }
+}

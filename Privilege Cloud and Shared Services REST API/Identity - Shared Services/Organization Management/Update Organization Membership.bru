@@ -1,0 +1,37 @@
+meta {
+  name: Update Organization Membership
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Org/ChangeMembership
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Add": [
+      {
+        "ID": "c2c7bcc6-9560-44e0-8dff-5be221cd37ee",
+        "Type": "User"
+      }
+    ],
+    "OrgId": "f584df36-82e1-4c7a-bc8f-b5217bf2557e",
+    "Remove": [
+      {
+        "ID": "c2c7bcc6-9560-44e0-8dff-5be221cd37ee",
+        "Type": "User"
+      }
+    ]
+  }
+}

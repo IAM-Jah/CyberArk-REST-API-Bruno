@@ -1,0 +1,40 @@
+meta {
+  name: Connect Using PSM
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Accounts/:accountID/PSMConnect/
+  body: json
+  auth: none
+}
+
+params:path {
+  accountID: {{accountID}}
+}
+
+headers {
+  Content-Type: application/json
+  Accept: RDP
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "reason":"Connected through Bruno",
+    //"TicketingSystemName":"{{ticketingSystemName}}",
+    //"TicketId":"{{ticketID}}",
+    "ConnectionComponent":"psm-rdp",
+    "ConnectionParams": {//
+      //"AllowMappingLocalDrives":{"value":"No","ShouldSave":false},
+      //"AllowConnectToConsole":{"value":"No","ShouldSave":false},
+      //"RedirectSmartCards":{"value":"no","ShouldSave":false},
+      //"PSMRemoteMachine":{"value":"myremotemachine","ShouldSave":false},
+      //"LogonDomain":{"value":"1.1.1.1","ShouldSave":false},
+      //"AllowSelectHTML5":{"value":"No","ShouldSave":false}
+      "parameterName":{"value":"putValueHere","ShouldSave":false}
+      }
+  }
+  
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Rotate Personal API Key
+  type: http
+  seq: 3
+}
+
+put {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/authn/conjur/api_key
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: joesmith
+  password: P@ssword1!
+}
+
+body:form-urlencoded {
+  enabled: true
+}

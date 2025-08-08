@@ -1,0 +1,25 @@
+meta {
+  name: Upload Personal App Icon
+  type: http
+  seq: 24
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/UploadPersonalAppIcon
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "appkey": "string"
+  }
+}

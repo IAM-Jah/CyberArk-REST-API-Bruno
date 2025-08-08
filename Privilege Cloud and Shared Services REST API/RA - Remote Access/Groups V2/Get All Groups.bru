@@ -1,0 +1,26 @@
+meta {
+  name: Get All Groups
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://api.alero.io/v2-edge/groups
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~searchString: string
+  ~searchIn: string
+  ~offset: integer
+  ~limit: integer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

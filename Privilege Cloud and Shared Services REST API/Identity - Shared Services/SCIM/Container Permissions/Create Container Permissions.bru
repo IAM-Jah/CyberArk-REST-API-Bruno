@@ -1,0 +1,45 @@
+meta {
+  name: Create Container Permissions
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/ContainerPermissions
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "container": {
+      "value": "string",
+      "$ref": "string",
+      "name": "string",
+      "display": "string"
+    },
+    "user": {
+      "value": "string",
+      "$ref": "string",
+      "display": "string"
+    },
+    "rights": [
+      "string"
+    ],
+    "urn:ietf:params:scim:schemas:cyberark:1.0:SafeMember": {
+      "membershipExpirationDate": 0,
+      "searchIn": "string"
+    },
+    "schemas": [
+      "string"
+    ]
+  }
+}

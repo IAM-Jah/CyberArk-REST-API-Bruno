@@ -1,0 +1,20 @@
+meta {
+  name: Delete Group Platform
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/platforms/groups/:platformID/
+  body: none
+  auth: none
+}
+
+params:path {
+  platformID: {{platformID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

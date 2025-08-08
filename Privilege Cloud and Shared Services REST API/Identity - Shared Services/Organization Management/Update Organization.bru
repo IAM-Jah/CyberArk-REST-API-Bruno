@@ -1,0 +1,27 @@
+meta {
+  name: Update Organization
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Org/Update
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "OrgId": "f584df36-82e1-4c7a-bc8f-b5217bf2557e",
+    "Description": "Acme Org",
+    "Name": "Acme"
+  }
+}

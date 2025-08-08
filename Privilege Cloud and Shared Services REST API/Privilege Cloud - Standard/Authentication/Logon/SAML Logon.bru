@@ -1,0 +1,26 @@
+meta {
+  name: SAML Logon
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Auth/SAML/Logon
+  body: formUrlEncoded
+  auth: none
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  apiUse: true
+  concurrentSession: true
+  samlResponse: {{PAMSAMLToken}}
+}
+
+script:post-response {
+  let samlToken = res.getBody();
+  bru.setEnvVar("PAMSAMLToken", samlToken);
+}

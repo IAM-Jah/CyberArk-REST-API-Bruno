@@ -1,0 +1,25 @@
+meta {
+  name: Get Administrators
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Org/GetAdministrators
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "OrgId": "f584df36-82e1-4c7a-bc8f-b5217bf2557e"
+  }
+}

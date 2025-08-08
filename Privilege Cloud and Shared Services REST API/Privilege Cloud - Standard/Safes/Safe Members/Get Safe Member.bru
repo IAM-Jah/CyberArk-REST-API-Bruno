@@ -1,0 +1,25 @@
+meta {
+  name: Get Safe Member
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Safes/:safeID/Members/:safeMemberName/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~useCache: true
+}
+
+params:path {
+  safeMemberName: {{safeMemberName}}
+  safeID: {{safeID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

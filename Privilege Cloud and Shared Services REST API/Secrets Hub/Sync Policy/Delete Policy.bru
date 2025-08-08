@@ -1,0 +1,23 @@
+meta {
+  name: Delete Policy
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{subdomain}}.secretshub.cyberark.cloud/api/policies/:policyID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  policyID: policyID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

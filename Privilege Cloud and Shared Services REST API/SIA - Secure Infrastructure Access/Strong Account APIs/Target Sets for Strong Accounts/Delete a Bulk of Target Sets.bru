@@ -1,0 +1,25 @@
+meta {
+  name: Delete a Bulk of Target Sets
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://{{subdomain}}-jit.cyberark.cloud/api/discovery/targetsets/bulk
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  [
+    "string"
+  ]
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Get Groups
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/UserGroups/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~filter: groupType eq <Directory|Vault>/<GroupName>
+  ~search: {{searchTerms}}
+  ~sort: groupname/directory/location followed by asc/desc
+  ~includeMembers: True
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

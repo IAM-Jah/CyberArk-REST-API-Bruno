@@ -1,0 +1,30 @@
+meta {
+  name: Bulk Add Pool Identifiers
+  type: http
+  seq: 12
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/private/pools/:poolID/identifiers-bulk
+  body: json
+  auth: bearer
+}
+
+params:path {
+  poolID: poolID
+}
+
+headers {
+  Content-Type: application/json
+  tenant-id: tenant-id
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "requests": {}
+  }
+}

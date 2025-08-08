@@ -1,0 +1,51 @@
+meta {
+  name: Update Safe Member
+  type: http
+  seq: 2
+}
+
+put {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Safes/:safeId/Members/:safeMemberName/
+  body: json
+  auth: none
+}
+
+params:path {
+  safeMemberName: {{safeMemberName}}
+  safeId: {{safeID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+      "membershipExpirationDate": 123456,
+      "permissions": {
+          "useAccounts": false,
+          "retrieveAccounts": false,
+          "listAccounts": false,
+          "addAccounts": false,
+          "updateAccountContent": false,
+          "updateAccountProperties": false,
+          "initiateCPMAccountManagementOperations": false,
+          "specifyNextAccountContent": false,
+          "renameAccounts": false,
+          "deleteAccounts": false,
+          "unlockAccounts": false,
+          "manageSafe": false,
+          "manageSafeMembers": false,
+          "backupSafe": false,
+          "viewAuditLog": false,
+          "viewSafeMembers": false,
+          "accessWithoutConfirmation": false,
+          "createFolders": false,
+          "deleteFolders": false,
+          "moveAccountsAndFolders": false,
+          "requestsAuthorizationLevel1": false,
+          "requestsAuthorizationLevel2": false
+      }
+  }
+}

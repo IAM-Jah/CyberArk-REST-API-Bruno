@@ -1,0 +1,24 @@
+meta {
+  name: Fetch Attributes for a Specified User
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/GetUserAttributes
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~ID: userUUID
+  ~directoryServiceUUID: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

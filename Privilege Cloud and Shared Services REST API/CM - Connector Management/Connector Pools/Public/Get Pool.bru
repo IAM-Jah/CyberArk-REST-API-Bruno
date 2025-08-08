@@ -1,0 +1,27 @@
+meta {
+  name: Get Pool
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/pools/:poolID
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~projection: string
+}
+
+params:path {
+  poolID: poolID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

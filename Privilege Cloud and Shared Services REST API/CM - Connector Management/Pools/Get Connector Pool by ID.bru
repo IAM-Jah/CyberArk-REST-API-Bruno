@@ -1,0 +1,23 @@
+meta {
+  name: Get Connector Pool by ID
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/api/connector-pools/:poolID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  poolID: poolID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

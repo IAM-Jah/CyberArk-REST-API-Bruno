@@ -1,0 +1,23 @@
+meta {
+  name: Delete Network
+  type: http
+  seq: 8
+}
+
+delete {
+  url: https://{{subdomain}}.cyberark.cloud/networks/:networkID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  networkID: networkID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

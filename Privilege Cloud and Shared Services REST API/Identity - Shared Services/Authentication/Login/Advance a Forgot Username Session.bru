@@ -1,0 +1,26 @@
+meta {
+  name: Advance a Forgot Username Session
+  type: http
+  seq: 16
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/AdvanceForgotUsername
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "TenantId": "{{identityTenantID}}",
+    "Action": "Answer",
+    "PersistentLogin": "false",
+    "SessionId": {{identitySessionID}},
+    "MechanismId": "{{identityMechanismID}}",
+    "Answer": "SamplePassword123"
+  }
+}

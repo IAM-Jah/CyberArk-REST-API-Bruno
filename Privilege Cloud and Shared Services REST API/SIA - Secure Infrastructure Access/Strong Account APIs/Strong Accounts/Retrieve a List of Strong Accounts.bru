@@ -1,0 +1,28 @@
+meta {
+  name: Retrieve a List of Strong Accounts
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}-jit.cyberark.cloud/api/secrets/public/v1
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~count: string
+  ~any_details: string
+  ~offset: string
+  ~secret_details: string
+  ~secret_name: string
+  ~secret_type: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,28 @@
+meta {
+  name: Generate Script
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}-jit.cyberark.cloud/api/connectors/setup-script
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "connector_type": "AWS",
+    "connector_os": "linux",
+    "connector_pool_id": "",
+    "expiration_minutes": 15
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Get Onboarding Rule
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/AutomaticOnboardingRules/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~name: rulename1,rulename2
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

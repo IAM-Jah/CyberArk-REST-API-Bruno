@@ -1,0 +1,21 @@
+meta {
+  name: Delete Directory Mapping
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Configuration/LDAP/Directories/:directoryName/Mappings/:id/
+  body: json
+  auth: none
+}
+
+params:path {
+  id: {{ldapMappingID}}
+  directoryName: {{directoryName}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

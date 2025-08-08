@@ -1,0 +1,23 @@
+meta {
+  name: Get Details of My Requests
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/myrequests/:requestID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  requestID: {{requestID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

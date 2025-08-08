@@ -1,0 +1,23 @@
+meta {
+  name: Schema
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/Schemas/:schemaID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  schemaID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

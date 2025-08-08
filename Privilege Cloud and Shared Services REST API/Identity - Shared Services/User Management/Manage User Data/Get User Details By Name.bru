@@ -1,0 +1,25 @@
+meta {
+  name: Get User Details By Name
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/GetUserByName
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "username": "userName"
+  }
+}

@@ -1,0 +1,76 @@
+meta {
+  name: Add User
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Users/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+      "username": "newUser",
+      "userType": "EPVUser",
+      "initialPassword": "putPasswordHere",
+      "authenticationMethod": [
+          "AuthTypePass"
+      ],
+      "location": "\\",
+      "unAuthorizedInterfaces": [
+          "PSM",
+          "PSMP"
+      ],
+      "expiryDate": 1577836800,
+      "vaultAuthorization": [
+          "AddSafes",
+          "AuditUsers"
+      ],
+      "enableUser": true,
+      "changePassOnNextLogon": true,
+      "passwordNeverExpires": true,
+      "distinguishedName": "newUser@cyberark",
+      "description": "This user is privileged",
+      "businessAddress": {
+          "workStreet": "Hapssagot 9",
+          "workCity": "Petah Tikva",
+          "workState": "Israel",
+          "workZip": "9999999",
+          "workCountry": "Israel"
+      },
+      "internet": {
+          "homePage": "Cyberark.com",
+          "homeEmail": "homeEmail@mail.com",
+          "businessEmail": "businessEmail@mail.com",
+          "otherEmail": "otherEmail@mail.com"
+      },
+      "phones": {
+          "homeNumber": "555123456",
+          "businessNumber": "555456789",
+          "cellularNumber": "555789789",
+          "faxNumber": "999999",
+          "pagerNumber": "111111"
+      },
+      "personalDetails": {
+          "street": "2 Second Street",
+          "city": "Tel Aviv",
+          "state": "Israel",
+          "zip": "123456",
+          "country": "Israel",
+          "title": "Mr. VIP",
+          "organization": "companyName",
+          "department": "R&D",
+          "profession": "software development",
+          "firstName": "John",
+          "middleName": "Doe",
+          "lastName": "Smith"
+      }
+  }
+}

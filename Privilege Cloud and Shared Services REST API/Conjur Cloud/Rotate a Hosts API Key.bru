@@ -1,0 +1,24 @@
+meta {
+  name: Rotate a Hosts API Key
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/authn/conjur/api_key?role=host:data%2Fmyapp-01
+  body: json
+  auth: basic
+}
+
+params:query {
+  role: host:data%2Fmyapp-01
+}
+
+auth:basic {
+  username: joesmith
+  password: P@ssword1!
+}
+
+body:form-urlencoded {
+  enabled: true
+}

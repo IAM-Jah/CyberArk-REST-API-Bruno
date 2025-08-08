@@ -1,0 +1,23 @@
+meta {
+  name: Add Pool Identifier
+  type: http
+  seq: 11
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/pools/:poolID/identifiers
+  body: none
+  auth: bearer
+}
+
+params:path {
+  poolID: poolID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

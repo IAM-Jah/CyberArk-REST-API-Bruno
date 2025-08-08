@@ -1,0 +1,23 @@
+meta {
+  name: Get Applications for User
+  type: http
+  seq: 16
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/GetResultantAppsForUser?userUuid=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  userUuid: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

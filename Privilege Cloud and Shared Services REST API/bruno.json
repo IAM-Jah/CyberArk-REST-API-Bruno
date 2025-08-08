@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Privilege Cloud and Shared Services REST API v1.2",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Get Session Management Policy of Platform
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Platforms/Targets/:platformID/PrivilegedSessionManagement/
+  body: none
+  auth: none
+}
+
+params:path {
+  platformID: {{platformID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

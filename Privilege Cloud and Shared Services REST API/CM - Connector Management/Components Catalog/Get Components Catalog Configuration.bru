@@ -1,0 +1,31 @@
+meta {
+  name: Get Components Catalog Configuration
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/api/components-catalog/:componentName/versions/:version/configuration
+  body: json
+  auth: bearer
+}
+
+params:path {
+  version: version
+  componentName: componentName
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "operationName": "string",
+    "connectorId": "string"
+  }
+}

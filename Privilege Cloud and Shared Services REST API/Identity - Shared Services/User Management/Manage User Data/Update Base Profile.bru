@@ -1,0 +1,43 @@
+meta {
+  name: Update Base Profile
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{identityTenantID}}/CDirectoryService/ChangeUser
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "CmaRedirectedUserUuid": "string",
+    "HomeNumber": "string",
+    "useAlternateMfaAccount": true,
+    "OrgPath": "string",
+    "AccountExp": "2019-08-24T14:15:22Z",
+    "ReportsTo": "string",
+    "DisplayName": "string",
+    "PasswordNeverExpire": true,
+    "ID": "string",
+    "OfficeNumber": "string",
+    "ForcePasswordChangeNext": true,
+    "MobileNumber": "string",
+    "InEverybodyRole": true,
+    "ServiceUser": true,
+    "VerifyEmail": true,
+    "PreferredCulture": "string",
+    "Mail": "string",
+    "Description": "string",
+    "Name": "string"
+  }
+}

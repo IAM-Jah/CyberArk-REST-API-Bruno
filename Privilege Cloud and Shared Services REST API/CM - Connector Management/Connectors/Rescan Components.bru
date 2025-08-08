@@ -1,0 +1,23 @@
+meta {
+  name: Rescan Components
+  type: http
+  seq: 11
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/api/connectors/:connectorID/components/rescan
+  body: none
+  auth: bearer
+}
+
+params:path {
+  connectorID: connectorID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

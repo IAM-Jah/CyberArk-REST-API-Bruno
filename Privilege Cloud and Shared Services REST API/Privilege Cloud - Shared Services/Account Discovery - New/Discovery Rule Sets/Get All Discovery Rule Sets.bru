@@ -1,0 +1,26 @@
+meta {
+  name: Get All Discovery Rule Sets
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/discovery-rule-sets/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~search: {{searchTerms}}
+  ~offset: 0
+  ~limit: 50
+  ~sort: id - asc/desc
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

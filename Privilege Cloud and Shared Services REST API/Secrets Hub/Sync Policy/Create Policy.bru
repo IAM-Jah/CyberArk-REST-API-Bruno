@@ -1,0 +1,41 @@
+meta {
+  name: Create Policy
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{subdomain}}.secretshub.cyberark.cloud/api/policies
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "name": "Dev Team1 Policy",
+    "description": "This policy is syncing from PAM Self Hosted to us-east-1",
+    "source": {
+      "id": "store-5a05468b-fa58-4bcf-84e9-62ede8af55f4"
+    },
+    "target": {
+      "id": "store-5a05468b-fa58-4bcf-84e9-62ede8af55f4"
+    },
+    "filter": {
+      "data": {
+        "safeName": "MySafe"
+      },
+      "type": "PAM_SAFE"
+    },
+    "transformation": {
+      "predefined": "password_only_plain_text"
+    }
+  }
+}

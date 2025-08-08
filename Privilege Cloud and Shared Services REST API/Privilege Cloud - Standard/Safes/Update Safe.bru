@@ -1,0 +1,36 @@
+meta {
+  name: Update Safe
+  type: http
+  seq: 2
+}
+
+put {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Safes/:safeID/
+  body: json
+  auth: none
+}
+
+params:path {
+  safeID: {{safeID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+      "safeName": "{{safeName}}",
+      "safeNumber": {{safeID}},
+      "description": "safeDescription",
+      "location": "\\",
+      "creator": {
+          "id": "{{userID}}",
+          "name": "{{PAMUserName}}"
+      },
+      "managingCPM": "PasswordManager",
+      "numberOfVersionsRetention": null,
+      "numberOfDaysRetention": 180
+  }
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Create a Host
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/host_factories/hosts
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:form-urlencoded {
+  id: brand-new-host
+  ~annotations: annotation[puppet]=true&annotation[description]=new+db+host
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Delete Directory
+  type: http
+  seq: 4
+}
+
+delete {
+  url: https:/{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Configuration/LDAP/Directories/:id/
+  body: none
+  auth: none
+}
+
+params:path {
+  id: {{ldapMappingID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

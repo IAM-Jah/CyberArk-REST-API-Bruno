@@ -1,0 +1,37 @@
+meta {
+  name: Add Group Member
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/groups/:branch/:groupName/members
+  body: json
+  auth: bearer
+}
+
+params:path {
+  groupName: app-admins
+  branch: data/myapps/
+}
+
+headers {
+  Accept: application/x.secretsmgr.v2+json
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:json {
+  {
+    "id": "data/aws-apps/my-aws-workload",
+    "kind": "user|host|group"
+  }
+}
+
+body:form-urlencoded {
+  id: data/aws-apps/my-aws-workload
+  kind: user|host|group
+}

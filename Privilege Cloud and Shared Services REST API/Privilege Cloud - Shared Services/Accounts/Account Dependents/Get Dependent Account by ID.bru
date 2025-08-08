@@ -1,0 +1,35 @@
+meta {
+  name: Get Dependent Account by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/accounts/:accountID/account-dependents/:dependentAccountID
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~extendedDetails: extendedDetails
+  ~keyword: keyword
+  ~limit: 20
+  ~offset: 0
+}
+
+params:path {
+  dependentAccountID: {{dependentAccountID}}
+  accountID: {{accountID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+docs {
+  https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/account-dependents-cpm.htm
+}

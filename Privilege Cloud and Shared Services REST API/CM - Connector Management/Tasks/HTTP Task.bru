@@ -1,0 +1,59 @@
+meta {
+  name: HTTP Task
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/api/tasks/http
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "request": {
+      "url": "string",
+      "method": "GET",
+      "headers": "string",
+      "queryStringParameters": "string",
+      "data": "string"
+    },
+    "targetFilter": {
+      "connectorId": "ManagementAgent_96e1df8d-ffe5-4314-8b65-b6b941f35a13",
+      "poolFilter": {
+        "poolIds": [
+          "string"
+        ],
+        "excludeFilter": {
+          "connector_ids": [
+            "ManagementAgent_c68bb9cf-9c74-6642-22ad-d96927e7c3d6"
+          ]
+        },
+        "poolIdentifiers": {
+          "additionalProp1": "string",
+          "additionalProp2": "string",
+          "additionalProp3": "string"
+        },
+        "poolNetworkIds": [
+          "string"
+        ]
+      }
+    },
+    "encryption": {
+      "sessionKey": "string",
+      "sensitiveVarNames": [
+        "string"
+      ],
+      "sessionId": "96e14f8d-ffe5-4314-8b65-b6b941f35a13"
+    }
+  }
+}

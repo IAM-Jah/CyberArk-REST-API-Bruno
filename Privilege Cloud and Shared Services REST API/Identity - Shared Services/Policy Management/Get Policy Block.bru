@@ -1,0 +1,23 @@
+meta {
+  name: Get Policy Block
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Policy/GetPolicyBlock?name=policyBlockToGet
+  body: none
+  auth: bearer
+}
+
+params:query {
+  name: policyBlockToGet
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,32 @@
+meta {
+  name: Update Security Questions
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/UpdateSecurityQuestions
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Added": [
+      {}
+    ],
+    "Id": "string",
+    "Deleted": [
+      "string"
+    ],
+    "Replace": false
+  }
+}

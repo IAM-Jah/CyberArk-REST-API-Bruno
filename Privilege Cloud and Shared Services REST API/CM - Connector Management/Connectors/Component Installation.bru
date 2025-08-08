@@ -1,0 +1,31 @@
+meta {
+  name: Component Installation
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/api/connectors/:connectorID/components
+  body: json
+  auth: bearer
+}
+
+params:path {
+  connectorID: connectorID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "componentName": "string",
+    "version": "stable",
+    "extraVars": {seeCatalogAPIDocs}
+  }
+}

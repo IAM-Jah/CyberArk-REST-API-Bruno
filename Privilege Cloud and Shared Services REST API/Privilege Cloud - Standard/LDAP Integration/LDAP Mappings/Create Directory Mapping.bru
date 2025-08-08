@@ -1,0 +1,34 @@
+meta {
+  name: Create Directory Mapping
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Configuration/LDAP/Directories/:directoryUID/Mappings/
+  body: json
+  auth: none
+}
+
+params:path {
+  directoryUID: {{directoryUID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "MappingName": "nameOfRoleCreated",
+    "LDAPBranch": "OU=My,DC=domain,DC=com",
+    "DomainGroups": [
+      "DomainGroup1, Group2, Group3"
+    ],
+    "MappingAuthorizations": [
+      "AddSafes, AuditUsers, AddUpdateUsers, ResetUsersPasswords, ActivateUsers, AddNetworkAreas, ManageServerFileCategories, BackupAllSafes, RestoreAllSafes"
+    ],
+    "UserActivityLogPeriod": <1-3650>
+  }
+}

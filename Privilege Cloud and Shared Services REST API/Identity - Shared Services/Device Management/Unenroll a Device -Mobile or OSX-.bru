@@ -1,0 +1,23 @@
+meta {
+  name: Unenroll a Device -Mobile or OSX-
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Mobile/RemoveDeviceProfile?deviceID=deviceID
+  body: none
+  auth: bearer
+}
+
+params:query {
+  deviceID: deviceID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

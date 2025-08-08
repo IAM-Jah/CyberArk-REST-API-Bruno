@@ -1,0 +1,23 @@
+meta {
+  name: Delete a Discovered Account
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/discovered-accounts/:accountID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  accountID: {{accountID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

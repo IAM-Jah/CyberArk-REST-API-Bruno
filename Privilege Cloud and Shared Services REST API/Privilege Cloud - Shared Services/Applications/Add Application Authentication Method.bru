@@ -1,0 +1,76 @@
+meta {
+  name: Add Application Authentication Method
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/WebServices/PIMServices.svc/Applications/:appID/Authentications
+  body: json
+  auth: bearer
+}
+
+params:path {
+  appID: {{appID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "authentication":
+    {
+      "AuthType":"path",
+      "AuthValue":"pathString",
+      "IsFolder":true,
+      "AllowInternalScripts":true
+    }
+  }
+  //{
+  //  "authentication":
+  //  {
+  //    "AuthType":"hash",
+  //    "AuthValue":"hashString",
+  //    "Comment":"comment"
+  //  }
+  //}
+  //{
+  //  "authentication":
+  //  {
+  //    "AuthType":"osUser",
+  //    "AuthValue":"osUserName"
+  //  }
+  //}
+  //{
+  //  "authentication":
+  //  {
+  //    "AuthType":"machineAddress",
+  //    "AuthValue":"machineAddress"
+  //  }
+  //}
+  //{
+  //  "authentication":
+  //  {
+  //    "AuthType":"certificateserialnumber",
+  //    "AuthValue":"certificateSerialNumberString",
+  //    "Comment":"comment"
+  //  }
+  //}
+  //{
+  //  "authentication":{
+  //   "AuthType":"certificateattr",
+  //  "Issuer":["<IssuerAttribute>=<value>","<IssuerAttribute>=<value>"],
+  //   "Subject":["<SubjectAttribute>=<value>","<SubjectAttribute>=<value>"],
+  //   "SubjectAlternativeName":["<SubjectAlternativeNameAttribute>=<value>","<SubjectAlternativeNameAttribute>=<value>"],
+  //
+  //"Comment":"<comment>"
+  //
+  //    }
+  //}
+}

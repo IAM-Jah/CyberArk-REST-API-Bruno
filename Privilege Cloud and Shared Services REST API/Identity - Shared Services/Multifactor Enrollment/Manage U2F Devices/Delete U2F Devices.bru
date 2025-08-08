@@ -1,0 +1,27 @@
+meta {
+  name: Delete U2F Devices
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/U2f/DeleteU2fDevices
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "KeyHandles": [
+      "string"
+    ]
+  }
+}

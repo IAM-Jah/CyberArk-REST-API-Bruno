@@ -1,0 +1,23 @@
+meta {
+  name: Delete Rotational Group Platform
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/platforms/rotationalGroups/:groupID/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  groupID: {{groupID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Get App ID by Service Name
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/GetAppIDByServiceName?name=serviceName
+  body: none
+  auth: bearer
+}
+
+params:query {
+  name: serviceName
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

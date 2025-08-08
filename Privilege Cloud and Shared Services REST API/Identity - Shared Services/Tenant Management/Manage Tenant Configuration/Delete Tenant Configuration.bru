@@ -1,0 +1,23 @@
+meta {
+  name: Delete Tenant Configuration
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Core/DeleteTenantConfig?key=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  key: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

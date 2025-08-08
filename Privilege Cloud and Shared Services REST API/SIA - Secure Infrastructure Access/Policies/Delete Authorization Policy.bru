@@ -1,0 +1,23 @@
+meta {
+  name: Delete Authorization Policy
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{subdomain}}-jit.cyberark.cloud/api/access-policies/:DPAPolicyID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  DPAPolicyID: {{DPAPolicyID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

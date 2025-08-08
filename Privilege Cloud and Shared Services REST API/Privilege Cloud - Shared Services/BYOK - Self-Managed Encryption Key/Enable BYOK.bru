@@ -1,0 +1,19 @@
+meta {
+  name: Enable BYOK
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/byok/enable
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Get Safe Details
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Safes/:safeId/
+  body: none
+  auth: none
+}
+
+params:path {
+  safeId: {{safeID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

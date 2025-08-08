@@ -1,0 +1,29 @@
+meta {
+  name: Add Member to Account Group
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/AccountGroups/:groupID/Members/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  groupID: {{groupID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "AccountID":"{{accountID}}"
+  }
+}

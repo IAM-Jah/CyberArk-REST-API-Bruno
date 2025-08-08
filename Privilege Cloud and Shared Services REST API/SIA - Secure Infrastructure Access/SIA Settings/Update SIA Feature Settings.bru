@@ -1,0 +1,36 @@
+meta {
+  name: Update SIA Feature Settings
+  type: http
+  seq: 3
+}
+
+patch {
+  url: https://{{subdomain}}-jit.cyberark.cloud/api/settings/:dpaFeatureName
+  body: json
+  auth: bearer
+}
+
+params:path {
+  dpaFeatureName: MFA_CACHING
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "mfaCachingConfiguration": {
+      "isMfaCachingEnabled": true,
+      "keyExpirationTimeSec": 3600
+    },
+    "sshCommandAuditConfiguration": {
+      "isCommandParsingForAuditEnabled": true,
+      "shellPromptForAudit": "(.*)[>#\\$]$"
+    }
+  }
+}

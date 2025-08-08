@@ -1,0 +1,24 @@
+meta {
+  name: Get Discovered Accounts
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/DiscoveredAccounts/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~filter: platformType eq Windows Server Local AND privileged eq true AND accountEnabled eq true
+  ~search: {{searchTerms}}
+  ~searchType: contains/startswith
+  ~offset: 0
+  ~limit: 100
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

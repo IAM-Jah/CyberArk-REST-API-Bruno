@@ -1,0 +1,26 @@
+meta {
+  name: Create Network
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/private/networks
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+  tenant-id: tenant-id
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "name": "oiTegH6l7iJfdL6MODpTRXn_iznPh7tIn)Pl5V54eT6v J_BX'6rH(2K_9_)Xo4GQ7Y4EwsziT0EurE.NCmlbr6607kp4sRLzCnzqDxYKfieZN(TYohszGn'GpAC8HY(.AtN46m(oOIjsy3Uqg@DSC1lPFN 1Mx-sNLQ88p2..2o.)12gUx.oLPEIYTx4sY8(eiy/GzGw0fxXZBC2hK4uQ.j71CN6bYu(rEOVdUMLyB(c)cYT"
+  }
+}

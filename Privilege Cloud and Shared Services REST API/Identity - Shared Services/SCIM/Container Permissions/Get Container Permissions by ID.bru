@@ -1,0 +1,23 @@
+meta {
+  name: Get Container Permissions by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/ContainerPermissions/:containerID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  containerID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

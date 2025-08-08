@@ -1,0 +1,34 @@
+meta {
+  name: Update Pool
+  type: http
+  seq: 5
+}
+
+patch {
+  url: https://{{subdomain}}.cyberark.cloud/private/pools/:poolID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  poolID: poolID
+}
+
+headers {
+  Content-Type: application/json
+  tenant-id: tenant-id
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "name": "23BR6g12crzCpBwGRrVdLAU@e6wIRIW1r1(zEnzNBhWJCu8/TWt9atl",
+    "description": "string",
+    "assignedNetworkIds": [
+      "string"
+    ]
+  }
+}

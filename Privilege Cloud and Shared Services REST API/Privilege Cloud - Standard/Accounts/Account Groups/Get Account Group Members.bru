@@ -1,0 +1,20 @@
+meta {
+  name: Get Account Group Members
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/AccountGroups/:groupID/Members/
+  body: none
+  auth: none
+}
+
+params:path {
+  groupID: {{groupID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

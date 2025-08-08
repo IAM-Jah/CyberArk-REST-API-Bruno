@@ -1,0 +1,25 @@
+meta {
+  name: Get WOrkflow jobs
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/JobFlow/GetJobs
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "type": "string"
+  }
+}

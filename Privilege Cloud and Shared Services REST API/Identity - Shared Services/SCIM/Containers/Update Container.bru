@@ -1,0 +1,37 @@
+meta {
+  name: Update Container
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/Containers/:containerID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  containerID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "name": "string",
+    "description": "string",
+    "urn:ietf:params:scim:schemas:cyberark:1.0:Safe": {
+      "NumberOfDaysRetention": 0,
+      "ManagingCPM": "string"
+    },
+    "schemas": [
+      "string"
+    ]
+  }
+}

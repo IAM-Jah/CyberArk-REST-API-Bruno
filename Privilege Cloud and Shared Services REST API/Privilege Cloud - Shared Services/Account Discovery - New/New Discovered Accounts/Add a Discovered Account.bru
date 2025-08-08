@@ -1,0 +1,34 @@
+meta {
+  name: Add a Discovered Account
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/discovered-accounts/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "type": "windows/mac/unix",
+    "subType": "loosely",
+    "identifiers": {
+      "key1": "value1"
+    },
+    "isPrivileged": "true/false/null",
+    "customProperties": {
+      "key1": "value1"
+    },
+    "source": "discoverySource"
+  }
+}

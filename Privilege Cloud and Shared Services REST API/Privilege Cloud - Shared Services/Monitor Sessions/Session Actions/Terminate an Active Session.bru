@@ -1,0 +1,23 @@
+meta {
+  name: Terminate an Active Session
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/LiveSessions/:activeSessionId/Terminate/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  activeSessionId: {{activeSessionId}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

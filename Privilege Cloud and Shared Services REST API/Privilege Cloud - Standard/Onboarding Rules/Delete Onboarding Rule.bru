@@ -1,0 +1,20 @@
+meta {
+  name: Delete Onboarding Rule
+  type: http
+  seq: 4
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/AutomaticOnboardingRules/:ruleID/
+  body: multipartForm
+  auth: none
+}
+
+params:path {
+  ruleID: {{ruleID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

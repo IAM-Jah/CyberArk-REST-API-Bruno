@@ -1,0 +1,19 @@
+meta {
+  name: Query Users
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/Users
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

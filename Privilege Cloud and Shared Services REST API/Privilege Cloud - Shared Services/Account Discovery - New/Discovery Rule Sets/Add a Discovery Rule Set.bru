@@ -1,0 +1,165 @@
+meta {
+  name: Add a Discovery Rule Set
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/discovery-rule-sets/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "name": "Windows"
+    "trigger":
+    {
+        "type": "ACCOUNT_DISCOVERED",
+        "conditions" : {
+          [
+              {
+                  "property" : "type",
+                  "operator" : "EQUALS",
+                  "value" : "windows"
+              },
+              {
+                  "property" : "subType",
+                  "operator" : "EQUALS",
+                  "value" : "server"
+              }
+          ]
+        }
+    },
+    "rules" :
+    [
+        {
+            "conditions" :
+              [
+                  {
+                      "property" : "isPrivileged",
+                      "operator" : "IN",
+                      "value" : "true,false"
+                  },
+                  {
+                      "property" : "source",
+                      "operator" : "EQUALS",
+                      "value" : "discovery management"
+                  },
+                  {
+                      "property" : "network",
+                      "operator" : "STARTS_WITH",
+                      "value" : "Paris"
+                  }
+              ],
+              "action" :
+              {
+                  "type" : "ONBOARD",
+                  "parameters" : {
+                      "platformId" : "WinServerLocal_30",
+                      "safeName" :  "WinParis"
+                  },
+                  "subActions" :
+                  [
+                          {
+                              "type": "LINK_ACCOUNT",
+                              "parameters": {
+                                  "id" : 1,
+                                  "value" : 45                       
+                              }
+                          },
+                          {
+                              "type": "LINK_ACCOUNT",
+                              "parameters": {
+                                  "id" : 3,
+                                  "value" : 48
+                              },
+                          },
+                          {
+                              "type": "RESET_PASSWORD",
+                              "parameters": {},  
+                          }
+                           
+                  ]
+              }
+        },
+        {
+            "conditions" :
+              [
+                  {
+                      "property" : "isPrivileged",
+                      "operator" : "IN",
+                      "value" : "yes,no"
+                  },
+                  {
+                      "property" : "source",
+                      "operator" : "EQUALS",
+                      "value" : "discovery management"
+                  },
+                  {
+                      "property" : "network",
+                      "operator" : "STARTS_WITH",
+                      "value" : "London"
+                  }
+              ],
+              "action" :
+              {
+                  "type" : "ONBOARD",
+                  "parameters" : {
+                      "platformId" : "WinServerLocal_30",
+                      "safeName" :  "WinLondon"
+                  },
+                  "subActions" :
+                  [
+                          {
+                              "type": "LINK_ACCOUNT",
+                              "parameters": {
+                                  "id" : 1,
+                                  "value" : 63                       
+                              }
+                          },
+                          {
+                              "type": "LINK_ACCOUNT",
+                              "parameters": {
+                                  "id" : 3,
+                                  "value" : 89
+                              },
+                          },
+                          {
+                              "type": "SET_PASSWORD",
+                              "parameters": {
+                                  "password" : "123London"
+                              }, 
+                          }
+                  ]
+              }
+        },
+        {
+            "conditions" : [
+                  {
+                      "property" : "network",
+                      "operator" : "REGEX",
+                      "value" : "[A-Z]{2}, USA"
+                  }
+                ],
+            "action" :
+              {
+                  "type" : "ONBOARD",
+                  "parameters" : {
+                      "platformId" : "WinServerLocal_90",
+                      "safeName" :  "WinNewYork"
+                  }
+              }
+        }
+    ]
+   
+  }
+}

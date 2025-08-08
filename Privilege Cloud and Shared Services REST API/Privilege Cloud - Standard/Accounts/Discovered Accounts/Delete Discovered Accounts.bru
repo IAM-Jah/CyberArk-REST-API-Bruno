@@ -1,0 +1,16 @@
+meta {
+  name: Delete Discovered Accounts
+  type: http
+  seq: 4
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/DiscoveredAccounts/
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: {{PAMSessionToken}}
+  Content-Type: application/json
+}

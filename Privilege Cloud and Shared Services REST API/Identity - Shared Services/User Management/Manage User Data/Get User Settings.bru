@@ -1,0 +1,24 @@
+meta {
+  name: Get User Settings
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Core/GetUserSettings?ID=userID&SettingType=settingTypeToRetrieve
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ID: userID
+  SettingType: settingTypeToRetrieve
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

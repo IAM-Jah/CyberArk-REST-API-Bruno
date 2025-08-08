@@ -1,0 +1,31 @@
+meta {
+  name: Add Safe
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Safes/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+      "numberOfDaysRetention": 180,
+      "numberOfVersionsRetention": null,
+      "autoPurgeEnabled": false,
+      "managingCPM": "CPMName",
+      "safeName": "{{safeName}}",
+      "description": "safeDescription",
+      "location": ""
+  }
+}

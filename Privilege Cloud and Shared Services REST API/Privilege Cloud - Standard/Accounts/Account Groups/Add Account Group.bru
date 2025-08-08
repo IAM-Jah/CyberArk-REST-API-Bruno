@@ -1,0 +1,24 @@
+meta {
+  name: Add Account Group
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/AccountGroups/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "GroupName":"Windows accounts Group",
+    "GroupPlatformID":"WinGroupID",
+    "Safe":"{{safeName}}"
+  }
+}

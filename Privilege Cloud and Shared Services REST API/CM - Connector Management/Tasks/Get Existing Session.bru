@@ -1,0 +1,23 @@
+meta {
+  name: Get Existing Session
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/api/tasks/sessions/:sessionID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  sessionID: sessionID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

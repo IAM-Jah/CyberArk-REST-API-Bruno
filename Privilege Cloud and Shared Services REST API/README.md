@@ -7,7 +7,7 @@
   * CyberArk Privilege Cloud - Shared Services
   * CyberArk Identity - Shared Services
   * Connector Management
-  * Dynamic Privileged Access (DPA)
+  * Secure Infrastructure Access (SIA)
   * Secure Cloud Access (SCA)
   * Remote Access V2
   * EPM SaaS (for EPM LCD)
@@ -15,27 +15,23 @@
   * Central Credential Provider (CCP)
   * Conjur Cloud
 
-  Current up to Privilege Cloud v14.2 (August 2024)
+  Current up to Privilege Cloud v14.7 (August 2025)
 
 ## Installation
 
-##### To import from JSON (Easiest method):
-1. Download the latest version of both the 'Environment' and 'Collection' JSON files that correspond to your environment:
-  * Privilege Cloud and/or Shared Services:
-    * [Collection](https://github.com/IAM-Jah/CyberArk-REST-API-Bruno/blob/main/Privilege%20Cloud%20and%20Shared%20Services%20REST%20API/Privilege%20Cloud%20and%20Shared%20Services%20REST%20API.json)
-    * [Environment](https://github.com/IAM-Jah/CyberArk-REST-API-Bruno/blob/main/Privilege%20Cloud%20and%20Shared%20Services%20REST%20API/Privilege%20Cloud%20Shared%20Services%20Environment.json)
+##### To import:
+1.  Install [Bruno](https://www.usebruno.com/downloads) (if not already installed).
 
-2.  From the Bruno start page, click 'Import Collection' > 'Bruno Collection' and select the Collection JSON file.
+2.  **Clone** this repository locally:
+    ```bash
+    git clone https://github.com/IAM-Jah/CyberArk-REST-API-Bruno/
+    ```
+2.  From the Bruno start page, click 'Open Collection'.
 
-> [!IMPORTANT]  
-> You must use Bruno v1.19 or later to import JSON files.
+3.  Browse to the cloned repository's root folder and select it.
+    This will load the .bru collection in Bruno.
 
-3.  Once the Collection is imported, expand the Collection tree down and select any API request. Press 'ctrl'+'e' on the request page to open the Environments menu.
-
-4. Click 'Import' in the lower left then select the Environment JSON file to use with the Collection.
-
-##### To import Bruno Collection natively (Advanced):
-1.  Uploading native .bru project files is on the roadmap.
+4.  Confirm you have loaded the collection "Privilege Cloud and Shared Services REST API v1.2" and the environment "ISPSS Environment" before making requests.
 
 ## Roadmap
 
@@ -56,7 +52,7 @@
     - [x] Remote Access (30 Aug 2024)
     - [x] Endpoint Privilege Manager (30 Aug 2024)
 - [x] Add usage guide (14 Oct 2024)
-- [ ] Upload native .bru project files
+- [x] Upload native .bru project files (7 Aug 2025)
 - [ ] UX enhancements:
     - [ ] Expand documentation
     - [ ] Improve examples for params

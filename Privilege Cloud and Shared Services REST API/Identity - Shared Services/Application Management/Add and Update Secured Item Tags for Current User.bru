@@ -1,0 +1,28 @@
+meta {
+  name: Add and Update Secured Item Tags for Current User
+  type: http
+  seq: 27
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/UpsertTagsForSecuredItem
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "tagnames": [
+      "string"
+    ],
+    "itemkey": "string"
+  }
+}

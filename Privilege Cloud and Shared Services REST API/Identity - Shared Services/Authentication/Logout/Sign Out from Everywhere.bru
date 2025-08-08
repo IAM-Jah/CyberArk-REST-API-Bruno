@@ -1,0 +1,23 @@
+meta {
+  name: Sign Out from Everywhere
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/SignOutEverywhere
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~id: userIDtoLogOutIfNotYourself
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

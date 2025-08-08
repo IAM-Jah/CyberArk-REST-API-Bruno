@@ -1,0 +1,23 @@
+meta {
+  name: Get HTTP Task by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/api/tasks/http-async/:taskID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  taskID: taskID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

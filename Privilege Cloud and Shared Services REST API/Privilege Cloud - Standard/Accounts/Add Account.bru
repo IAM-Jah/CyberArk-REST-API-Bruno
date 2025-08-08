@@ -1,0 +1,45 @@
+meta {
+  name: Add Account
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Accounts/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "name": "accountName",
+    "address": "accountAddress",
+    "userName": "accountUsername",
+    "platformId": "{{platformID}}",
+    "safeName": "{{safeName}}",
+    "secretType": "password/private SSH key",
+    "secret": "secretValue-WillNotBeReturnedInResult",
+    "platformAccountProperties": {
+      "LogonDomain": "string",
+      "Port": "number"//,
+      //"CustomFileCategory": "value"
+    },
+    "secretManagement": {
+      "automaticManagementEnabled": true,
+      "manualManagementReason": "string"//,
+      //"status": "inProcess, succeeded, failed, partiallySucceeded",
+      //"lastModifiedDateTime": "stringWithDate-Time",
+      //"lastReconciledDateTime": "stringWithDate-Time",
+      //"lastVerifiedDateTime": "stringWithDate-Time"
+    },
+    "remoteMachinesAccess": {
+      "remoteMachines": "server1.domain.com;server2.domain.com",
+      "accessRestrictedToRemoteMachines": true
+    }
+  }
+}

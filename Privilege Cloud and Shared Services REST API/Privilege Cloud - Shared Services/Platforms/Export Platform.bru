@@ -1,0 +1,23 @@
+meta {
+  name: Export Platform
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Platforms/:platformID/Export/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  platformID: {{platformID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

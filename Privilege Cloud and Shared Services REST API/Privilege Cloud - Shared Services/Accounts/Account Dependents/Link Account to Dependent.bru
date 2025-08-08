@@ -1,0 +1,35 @@
+meta {
+  name: Link Account to Dependent
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/accounts/:accountID/account-dependents/:dependentAccountID/link-accounts
+  body: json
+  auth: bearer
+}
+
+params:path {
+  accountID: 
+  dependentAccountID: 
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "index": "string",
+    "accountId": "string"
+  }
+}
+
+docs {
+  https://docs.cyberark.com/privilege-cloud-shared-services/latest/en/content/privilegecloudapis/account-dependents-cpm.htm
+}

@@ -1,0 +1,46 @@
+meta {
+  name: Update Vendor by Phone Number
+  type: http
+  seq: 6
+}
+
+put {
+  url: https://api.alero.io/v2-edge/vendors/phone/:phoneNumber
+  body: json
+  auth: bearer
+}
+
+params:path {
+  phoneNumber: +972058655541
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}
+
+body:json {
+  {
+    "accessStartDate": 0,
+    "accessEndDate": 0,
+    "canInvite": true,
+    "invitedVendorsInitialStatus": "Activated",
+    "maxNumInvitedVendors": 2147483647,
+    "provisioningType": "ProvisionedByAlero",
+    "username": "TME3|ipfYE8U.SuD0u8Zd{Us6\\-kO_XVrwO:x6!y-@@8U*rfA'dYnuQVkU6KcakKUfJK!amM9NGC",
+    "groups": [
+      "string"
+    ],
+    "comments": "LuI{_$\"tTrr{@ZD2$_2-6g'm|g#}aR \"x* 'H?",
+    "applications": [
+      {
+        "siteId": "string",
+        "applicationId": "string"
+      }
+    ],
+    "pvwaApplications": true
+  }
+}

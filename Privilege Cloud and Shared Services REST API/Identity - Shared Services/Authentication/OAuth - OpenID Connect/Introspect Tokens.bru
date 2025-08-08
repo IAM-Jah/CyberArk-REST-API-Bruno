@@ -1,0 +1,31 @@
+meta {
+  name: Introspect Tokens
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/OAuth2/Introspect/:clientAppID
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  clientAppID: PrivCloudAPI
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  "token={{identityToken}}"
+}
+
+body:form-urlencoded {
+  token: {{identityToken}}
+}

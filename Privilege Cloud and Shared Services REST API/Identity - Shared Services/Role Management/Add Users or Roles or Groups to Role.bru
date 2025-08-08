@@ -1,0 +1,34 @@
+meta {
+  name: Add Users or Roles or Groups to Role
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/AddUsersAndGroupsToRole
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Roles": [
+      {}
+    ],
+    "Users": [
+      {}
+    ],
+    "Groups": [
+      {}
+    ],
+    "Name": "string"
+  }
+}

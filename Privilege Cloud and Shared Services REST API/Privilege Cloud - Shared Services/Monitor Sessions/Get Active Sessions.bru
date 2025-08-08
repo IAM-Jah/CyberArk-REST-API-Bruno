@@ -1,0 +1,30 @@
+meta {
+  name: Get Active Sessions
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/LiveSessions?FromTime=1738818000&ToTime=1738872900&Limit=100&offset=0&Search=t0-admin-01
+  body: none
+  auth: bearer
+}
+
+params:query {
+  FromTime: 1738818000
+  ToTime: 1738872900
+  Limit: 100
+  offset: 0
+  Search: t0-admin-01
+  ~Safe: {{safeName}}
+  ~Activities: activitiesKeywords
+  ~Sort: RemoteMachineOrOtherProperty
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

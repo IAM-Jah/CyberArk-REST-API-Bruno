@@ -1,0 +1,23 @@
+meta {
+  name: Get Account Activity
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Accounts/:accountID/Activities
+  body: none
+  auth: bearer
+}
+
+params:path {
+  accountID: {{accountID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

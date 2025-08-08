@@ -1,0 +1,33 @@
+meta {
+  name: Set Application Permissions
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/SetApplicationPermissions
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "RowKey": "string",
+    "ID": "string",
+    "Grants": {
+      "Rights": "string",
+      "Principal": "string",
+      "Type": "string",
+      "PrincipalId": "string",
+      "PType": "string"
+      }
+  }
+}

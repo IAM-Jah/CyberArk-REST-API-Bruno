@@ -1,0 +1,28 @@
+meta {
+  name: Update AD User Attributes
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/ChangeUserAttributes
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "CmaRedirectedUserUuid": "def-s2s-654",
+    "ID": "abc-e2e-123",
+    "MobileNumber": 18005550100,
+    "OrgPath": "Org A"
+  }
+}

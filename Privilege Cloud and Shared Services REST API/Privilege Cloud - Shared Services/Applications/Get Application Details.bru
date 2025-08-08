@@ -1,0 +1,23 @@
+meta {
+  name: Get Application Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/WebServices/PIMServices.svc/Applications/:appID/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  appID: {{appID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

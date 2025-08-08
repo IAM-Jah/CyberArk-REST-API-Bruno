@@ -1,0 +1,45 @@
+meta {
+  name: Get Challenge State
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/ChallengeUser?profileName=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  profileName: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+      "TenantId": "{{identityTenantID}}",
+      "SessionId": "{{identitySessionID}}",
+      "MechanismId": "{{identityMechanismID2}}",
+      "Action": "Answer",
+      "Answer": {
+          "u_a4ed8e81-8e9b-416b-bc00-44ed5bf87744": "Arnold",
+          "u_144b2e18-9276-49ed-b67a-9e28692f4375": "Smokey"
+      }
+  }
+}
+
+tests {
+  const jsonData = res.getBody().Result
+  
+  test("Challenge ID Exists", function() {
+      expect(jsonData).to.have.property('ChallengeId');
+      bru.setEnvVar("challengeID", jsonData.ChallengeId);
+  });
+}

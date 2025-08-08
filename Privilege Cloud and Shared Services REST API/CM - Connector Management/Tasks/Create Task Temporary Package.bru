@@ -1,0 +1,26 @@
+meta {
+  name: Create Task Temporary Package
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/api/tasks/temp-packages
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "checksum": "stringstringstringstringstringstringstringstringstringstringstri",
+    "checksumType": "sha512"
+  }
+}

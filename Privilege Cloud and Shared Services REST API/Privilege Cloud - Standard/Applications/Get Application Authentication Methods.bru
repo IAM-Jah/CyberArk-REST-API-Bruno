@@ -1,0 +1,20 @@
+meta {
+  name: Get Application Authentication Methods
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/WebServices/PIMServices.svc/Applications/:appID/Authentications/
+  body: none
+  auth: none
+}
+
+params:path {
+  appID: {{appID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

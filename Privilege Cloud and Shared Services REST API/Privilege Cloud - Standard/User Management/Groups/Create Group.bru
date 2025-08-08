@@ -1,0 +1,24 @@
+meta {
+  name: Create Group
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/UserGroups
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+      "groupName": "unique-group-name",
+      "description": "The users in this group all have the same authorizations",
+      "location": "\\"
+  }
+}

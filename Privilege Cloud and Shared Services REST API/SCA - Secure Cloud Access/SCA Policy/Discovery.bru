@@ -1,0 +1,30 @@
+meta {
+  name: Discovery
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://{{subdomain}}.sca.cyberark.cloud/api/policies/discovery
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{SCAToken}}
+}
+
+body:json {
+  {
+    "csp": 0,
+    "organization_id": "string",
+    "account_info": {
+      "id": "string",
+      "new_account": true
+    }
+  }
+}

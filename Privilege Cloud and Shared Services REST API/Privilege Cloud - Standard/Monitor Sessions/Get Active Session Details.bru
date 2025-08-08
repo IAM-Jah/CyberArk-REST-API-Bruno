@@ -1,0 +1,20 @@
+meta {
+  name: Get Active Session Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/livesessions/:activeSessionId/
+  body: none
+  auth: none
+}
+
+params:path {
+  activeSessionId: {{activeSessionId}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

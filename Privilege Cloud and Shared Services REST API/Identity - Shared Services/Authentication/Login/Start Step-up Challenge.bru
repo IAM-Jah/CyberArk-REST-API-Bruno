@@ -1,0 +1,36 @@
+meta {
+  name: Start Step-up Challenge
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/StartChallenge
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Version": "1.0",
+    "ChallengeStateId": "{{challengeID}}"
+  }
+}
+
+tests {
+  const jsonData = res.getBody().Result
+  
+  test("Identity Mechanism ID Exists", function() {
+      if (jsonData.Challenges[0].Mechanisms[0].MechanismId) {
+          bru.setEnvVar("identityMechanismID", jsonData.Challenges[0].Mechanisms[0].MechanismId);
+      }
+  });
+}

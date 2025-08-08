@@ -1,0 +1,29 @@
+meta {
+  name: List Networks
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/private/networks
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~continuationToken: string
+  ~filter: string
+  ~order: string
+  ~pageSize: string
+  ~projection: string
+  ~sort: string
+}
+
+headers {
+  Content-Type: application/json
+  tenant-id: tenant-id
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Import Apps from Predefined Templates
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/ImportAppFromTemplate
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "ID": [
+      "string"
+    ]
+  }
+}

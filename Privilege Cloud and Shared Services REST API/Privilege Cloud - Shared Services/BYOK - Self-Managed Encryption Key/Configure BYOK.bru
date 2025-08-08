@@ -1,0 +1,25 @@
+meta {
+  name: Configure BYOK
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/byok/configure
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+      "kms_arn": "arn:aws:kms:us-east-1:1234567890:key/hex-key-goes-here"
+  }
+}

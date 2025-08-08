@@ -1,0 +1,28 @@
+meta {
+  name: Get Policy
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{subdomain}}.sca.cyberark.cloud/api/policies/:policyID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  policyID: policyID
+}
+
+headers {
+  Content-Type: application/json
+  X-API-Version: 2.0
+}
+
+auth:bearer {
+  token: {{SCAToken}}
+}
+
+body:json {
+  "string"
+}

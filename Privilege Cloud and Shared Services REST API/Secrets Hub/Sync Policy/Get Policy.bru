@@ -1,0 +1,27 @@
+meta {
+  name: Get Policy
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{subdomain}}.secretshub.cyberark.cloud/api/policies/:policyID?projection=REGULAR
+  body: none
+  auth: bearer
+}
+
+params:query {
+  projection: REGULAR
+}
+
+params:path {
+  policyID: policyID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

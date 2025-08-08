@@ -1,0 +1,23 @@
+meta {
+  name: Logo -Deprecated-
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/WebServices/PIMServices.svc/Logo?type={{imageType}}
+  body: none
+  auth: bearer
+}
+
+params:query {
+  type: {{imageType}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

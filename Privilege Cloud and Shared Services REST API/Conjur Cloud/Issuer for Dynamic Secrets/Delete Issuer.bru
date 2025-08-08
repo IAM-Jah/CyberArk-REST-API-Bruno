@@ -1,0 +1,27 @@
+meta {
+  name: Delete Issuer
+  type: http
+  seq: 2
+}
+
+delete {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/issuers/conjur/:issuerID
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~keep_secrets: boolean
+}
+
+params:path {
+  issuerID: ID
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:form-urlencoded {
+  enabled: true
+}

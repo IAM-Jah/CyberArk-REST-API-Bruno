@@ -1,0 +1,25 @@
+meta {
+  name: Create a Tag with No Apps for Current User
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/CreateTagWithNoApp
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "tagname": "string"
+  }
+}

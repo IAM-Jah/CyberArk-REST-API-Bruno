@@ -1,0 +1,23 @@
+meta {
+  name: Download Imported Accounts Logs
+  type: http
+  seq: 12
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/DownloadImportAccountsLogFile?fileKey=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  fileKey: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

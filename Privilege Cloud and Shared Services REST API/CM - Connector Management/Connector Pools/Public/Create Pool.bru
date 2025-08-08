@@ -1,0 +1,29 @@
+meta {
+  name: Create Pool
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/pools
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "name": "OgvUt5q763@00PM686__53",
+    "description": "string",
+    "assignedNetworkIds": [
+      "string"
+    ]
+  }
+}

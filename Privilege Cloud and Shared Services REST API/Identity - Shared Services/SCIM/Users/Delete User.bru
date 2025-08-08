@@ -1,0 +1,23 @@
+meta {
+  name: Delete User
+  type: http
+  seq: 6
+}
+
+delete {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/Users/:userID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  userID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

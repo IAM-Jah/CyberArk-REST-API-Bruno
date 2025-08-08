@@ -1,0 +1,23 @@
+meta {
+  name: Get List of Details for Recently Uploaded Files
+  type: http
+  seq: 15
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/GetRecentImportedAccountsFile?fileCount=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  fileCount: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

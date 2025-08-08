@@ -1,0 +1,25 @@
+meta {
+  name: Create Network
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/networks
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "name": "CQpgXcXNhanbOX5JxSWQJ7TU4XWCE'Eyd(R2KSb14S9S5SwDLsim7oNS_Uh5RmTg/ZmQOua1cloM.WF3d6rM9dZr-Z-nuvhCMQ3jo0e"
+  }
+}

@@ -1,0 +1,37 @@
+meta {
+  name: Update Onboarding Rule
+  type: http
+  seq: 3
+}
+
+put {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/AutomaticOnboardingRules/:ruleID/
+  body: json
+  auth: none
+}
+
+params:path {
+  ruleID: {{ruleID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "TargetPlatformId": "{{platformID}}",
+    "TargetSafeName": "{{safeName}}",
+    "IsAdminIDFilter": false,
+    "MachineTypeFilter": "AnyOrWorkstationOrServer",
+    "SystemTypeFilter": "WindowsOrUnix",
+    "UserNameFilter": "userName",
+    "UserNameMethod": "EqualsOrBeginsOrEnds",
+    "AddressFilter": "IPOrDNSDomainName",
+    "AddressMethod": "EqualsOrBeginsOrEnds",
+    "AccountCategoryFilter": "AnyOrPrivilegedOrNon-privileged",
+    "RuleName": "ruleName",
+    "RuleDescription": "description"
+  }
+}

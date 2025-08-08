@@ -1,0 +1,31 @@
+meta {
+  name: Update Pool Component by ID
+  type: http
+  seq: 20
+}
+
+patch {
+  url: https://{{subdomain}}.cyberark.cloud/private/pools/:poolID/components/:componentID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  componentID: componentID
+  poolID: poolID
+}
+
+headers {
+  Content-Type: application/json
+  tenant-id: tenant-id
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "poolId": "string"
+  }
+}

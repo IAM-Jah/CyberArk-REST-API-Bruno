@@ -1,0 +1,27 @@
+meta {
+  name: Get Vendors by Query
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://api.alero.io/v2-edge/vendors
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~invitedBy: string
+  ~searchString: string
+  ~searchIn: string
+  ~offset: integer
+  ~limit: integer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

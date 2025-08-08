@@ -1,0 +1,26 @@
+meta {
+  name: Set Security Question
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/TenantConfig/SetAdminSecurityQuestion
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Culture": "all",
+    "Question": "string"
+  }
+}

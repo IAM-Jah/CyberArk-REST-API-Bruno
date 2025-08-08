@@ -1,0 +1,25 @@
+meta {
+  name: Get QR Code Status
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/GetQRCodeStatus
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "guid": "string"
+  }
+}

@@ -1,0 +1,34 @@
+meta {
+  name: Set Authentication Profile
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/AuthProfile/SaveProfile
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "settings": {
+      "Challenges": [
+        "string"
+      ],
+      "AdditionalData": {},
+      "Uuid": "string",
+      "SingleChallengeMechanisms": "string",
+      "DurationInMinutes": 0,
+      "Name": "string"
+    }
+  }
+}

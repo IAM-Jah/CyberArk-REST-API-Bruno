@@ -1,0 +1,48 @@
+meta {
+  name: Update Account
+  type: http
+  seq: 6
+}
+
+patch {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Accounts/:accountID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  accountID: {{accountID}}/
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  [
+    {
+      "op": "replace",
+      "path": "/address",
+      "value": "10.10.10.10"
+    },
+    {
+      "op": "replace",
+      "path": "/secretManagement/automaticManagementEnabled",
+      "value": "false"
+    },
+    {
+      "op": "add",
+      "path": "/platformAccountProperties/port",
+      "value": "3306"
+    },
+    {
+      "op": "remove",
+      "path": "/ticketnumber",
+      "value": ""
+    }
+  ]
+}

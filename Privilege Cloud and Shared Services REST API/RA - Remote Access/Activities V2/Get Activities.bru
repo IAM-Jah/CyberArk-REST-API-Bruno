@@ -1,0 +1,27 @@
+meta {
+  name: Get Activities
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://api.alero.io/v2-edge/activities?activityTypes=array[string]
+  body: none
+  auth: bearer
+}
+
+params:query {
+  activityTypes: array[string]
+  ~fromTime: int64
+  ~toTime: int64
+  ~offset: integer
+  ~limit: integer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

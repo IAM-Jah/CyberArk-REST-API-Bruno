@@ -1,0 +1,29 @@
+meta {
+  name: List Pool Components
+  type: http
+  seq: 21
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/private/pools/components
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~continuationToken: string
+  ~filter: string
+  ~order: string
+  ~pageSize: string
+  ~projection: string
+  ~sort: string
+}
+
+headers {
+  Content-Type: application/json
+  tenant-id: tenant-id
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

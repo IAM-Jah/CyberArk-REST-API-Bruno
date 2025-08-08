@@ -1,0 +1,25 @@
+meta {
+  name: Get Administrative Rights
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Org/GetPermission
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "OrgId": "f584df36-82e1-4c7a-bc8f-b5217bf2557e"
+  }
+}

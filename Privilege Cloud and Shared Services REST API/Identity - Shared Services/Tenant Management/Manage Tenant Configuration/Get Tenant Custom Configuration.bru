@@ -1,0 +1,19 @@
+meta {
+  name: Get Tenant Custom Configuration
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/TenantConfig/GetCustomerConfig
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

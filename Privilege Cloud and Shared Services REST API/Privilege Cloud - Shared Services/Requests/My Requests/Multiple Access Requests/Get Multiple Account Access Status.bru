@@ -1,0 +1,23 @@
+meta {
+  name: Get Multiple Account Access Status
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/bulkactions/{{bulkAccessRequestID}}/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~DisplayExtendedItems: True
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

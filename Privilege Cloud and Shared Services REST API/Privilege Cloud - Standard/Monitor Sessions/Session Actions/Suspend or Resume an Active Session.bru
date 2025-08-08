@@ -1,0 +1,21 @@
+meta {
+  name: Suspend or Resume an Active Session
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/LiveSessions/:activeSessionId/:action/
+  body: none
+  auth: none
+}
+
+params:path {
+  action: suspend/resume
+  activeSessionId: {{activeSessionId}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

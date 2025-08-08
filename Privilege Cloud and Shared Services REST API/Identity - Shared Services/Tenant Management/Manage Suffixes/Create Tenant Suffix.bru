@@ -1,0 +1,26 @@
+meta {
+  name: Create Tenant Suffix
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Core/StoreAlias?alias=string&cdsAlias=string&domain=string&oldName=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  alias: string
+  cdsAlias: string
+  domain: string
+  oldName: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

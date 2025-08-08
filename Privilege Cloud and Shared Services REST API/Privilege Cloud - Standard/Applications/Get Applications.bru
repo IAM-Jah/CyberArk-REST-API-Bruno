@@ -1,0 +1,21 @@
+meta {
+  name: Get Applications
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/WebServices/PIMServices.svc/Applications/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~Location: \
+  ~IncludeSublocations: false
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Get Tenant Configuration
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Core/GetTenantConfig?dflt=string&key=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  dflt: string
+  key: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

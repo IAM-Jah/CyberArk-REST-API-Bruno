@@ -1,0 +1,33 @@
+meta {
+  name: Create Container
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/Containers
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "name": "string",
+    "description": "string",
+    "urn:ietf:params:scim:schemas:cyberark:1.0:Safe": {
+      "NumberOfDaysRetention": 0,
+      "ManagingCPM": "string"
+    },
+    "schemas": [
+      "string"
+    ]
+  }
+}

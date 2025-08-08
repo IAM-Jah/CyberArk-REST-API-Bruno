@@ -1,0 +1,24 @@
+meta {
+  name: Exempt a User From MFA
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/ExemptUserFromMfa?ID=userUUID
+  body: json
+  auth: bearer
+}
+
+params:query {
+  ID: userUUID
+  ~timespan: 10
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

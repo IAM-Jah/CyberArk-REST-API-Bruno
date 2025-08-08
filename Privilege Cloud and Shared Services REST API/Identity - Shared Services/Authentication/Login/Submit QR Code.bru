@@ -1,0 +1,25 @@
+meta {
+  name: Submit QR Code
+  type: http
+  seq: 12
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/SubmitQRCode
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+      "sessionId": "{{identitySessionID}}"
+  }
+}

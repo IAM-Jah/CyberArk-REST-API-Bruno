@@ -1,0 +1,24 @@
+meta {
+  name: Set Tenant Configuration
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Core/SetTenantConfig?key=string&value=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  key: string
+  value: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

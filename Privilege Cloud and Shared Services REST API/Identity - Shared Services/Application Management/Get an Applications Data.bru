@@ -1,0 +1,29 @@
+meta {
+  name: Get an Applications Data
+  type: http
+  seq: 13
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/GetAppByKey?appkey=string
+  body: json
+  auth: bearer
+}
+
+params:query {
+  appkey: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "markAppVisited": "false"
+  }
+}

@@ -1,0 +1,31 @@
+meta {
+  name: Enroll iOS Device
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Device/EnrollIosDevice
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Version": "string",
+    "Os": "string",
+    "SimpleName": "string",
+    "Udid": "string",
+    "Imei": "string",
+    "Manufacturer": "string",
+    "Name": "string"
+  }
+}

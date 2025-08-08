@@ -1,0 +1,25 @@
+meta {
+  name: Delete Job
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/JobFlow/DeleteJob
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "jobid": "4bebda90-2f94-4cd2-ad58-aa4ebd81be9d"
+  }
+}

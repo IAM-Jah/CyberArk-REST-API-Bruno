@@ -1,0 +1,23 @@
+meta {
+  name: Get User Hierarchy
+  type: http
+  seq: 12
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/GetUserHierarchy
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~ID: stringIfNotCurrentUser
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

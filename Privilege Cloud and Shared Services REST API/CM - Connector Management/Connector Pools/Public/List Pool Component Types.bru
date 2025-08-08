@@ -1,0 +1,19 @@
+meta {
+  name: List Pool Component Types
+  type: http
+  seq: 20
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/pools/components/types
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Get All Safes
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Safes/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~search: {{searchTerms}}
+  ~offset: 0
+  ~limit: 25
+  ~sort: safeName asc/desc
+  ~includeAccounts: false
+  ~extendedDetails: true
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

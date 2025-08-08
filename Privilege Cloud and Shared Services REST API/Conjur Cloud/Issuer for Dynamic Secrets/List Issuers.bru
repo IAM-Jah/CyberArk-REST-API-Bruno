@@ -1,0 +1,19 @@
+meta {
+  name: List Issuers
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/issuers/conjur
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:form-urlencoded {
+  enabled: true
+}

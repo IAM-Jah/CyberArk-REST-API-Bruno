@@ -1,0 +1,15 @@
+meta {
+  name: Server -Deprecated-
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/WebServices/PIMServices.svc/Server
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: {{PAMSessionToken}}
+}

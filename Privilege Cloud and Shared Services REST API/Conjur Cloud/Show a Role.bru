@@ -1,0 +1,24 @@
+meta {
+  name: Show a Role
+  type: http
+  seq: 11
+}
+
+get {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/roles/conjur/:roleType/:identifier
+  body: none
+  auth: bearer
+}
+
+params:path {
+  identifier: data%2Fmyapp-01
+  roleType: User|Host|Layer|Group|Policy
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:form-urlencoded {
+  enabled: true
+}

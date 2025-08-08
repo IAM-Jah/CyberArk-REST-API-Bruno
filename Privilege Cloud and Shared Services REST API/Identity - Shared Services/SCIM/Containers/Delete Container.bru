@@ -1,0 +1,23 @@
+meta {
+  name: Delete Container
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/Containers/:containerID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  containerID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

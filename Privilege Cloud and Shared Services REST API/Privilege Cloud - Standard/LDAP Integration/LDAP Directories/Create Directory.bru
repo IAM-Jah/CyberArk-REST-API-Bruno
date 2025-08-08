@@ -1,0 +1,30 @@
+meta {
+  name: Create Directory
+  type: http
+  seq: 3
+}
+
+post {
+  url: https:/{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Configuration/LDAP/Directories/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+  "DirectoryType": "MicrosoftADProfile.ini",
+  "DCList ": [{
+       "Name":"DC.FQDN.com", "Port":"636", "SSLConnect":"true"}
+  ],
+  "BindUsername": "bindUsername",
+  "BindPassword": "bindUserPassword",
+  "Port": 636,
+  "DomainName": "domain.com",
+  "DomainBaseContext": "DC=Domain,DC=com"
+  }
+}

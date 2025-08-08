@@ -1,0 +1,34 @@
+meta {
+  name: Remove Users or Roles or Groups from Role
+  type: http
+  seq: 13
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/RemoveUsersAndGroupsFromRole
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Roles": [
+      {}
+    ],
+    "Users": [
+      {}
+    ],
+    "Groups": [
+      {}
+    ],
+    "Name": "string"
+  }
+}

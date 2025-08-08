@@ -1,0 +1,31 @@
+meta {
+  name: Upgrade a Component
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloudapi/connectors/:connectorID/components/:componentID/upgrade
+  body: json
+  auth: bearer
+}
+
+params:path {
+  componentID: componentID
+  connectorID: connectorID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "componentVersion": "stable",
+    "extraVars": {}
+  }
+}

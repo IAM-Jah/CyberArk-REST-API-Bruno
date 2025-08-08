@@ -1,0 +1,23 @@
+meta {
+  name: Get Connector Public Key
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/api/connectors/:connectorID/public-key
+  body: none
+  auth: bearer
+}
+
+params:path {
+  connectorID: connectorID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,29 @@
+meta {
+  name: Show Permitted Roles
+  type: http
+  seq: 16
+}
+
+get {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/resources/conjur/:resourceType/:identifier?permitted_roles=true&privilege=execute
+  body: none
+  auth: bearer
+}
+
+params:query {
+  permitted_roles: true
+  privilege: execute
+}
+
+params:path {
+  resourceType: user|host|layer|group|policy|variable|webservice
+  identifier: resourceID
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:form-urlencoded {
+  enabled: true
+}

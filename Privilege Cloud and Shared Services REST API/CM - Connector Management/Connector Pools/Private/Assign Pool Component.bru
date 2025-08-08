@@ -1,0 +1,31 @@
+meta {
+  name: Assign Pool Component
+  type: http
+  seq: 15
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/private/pools/:poolID/components
+  body: json
+  auth: bearer
+}
+
+params:path {
+  poolID: poolID
+}
+
+headers {
+  Content-Type: application/json
+  tenant-id: tenant-id
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "type": "PLATFORM_CONNECTOR",
+    "externalId": "string"
+  }
+}

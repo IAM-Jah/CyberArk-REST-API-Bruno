@@ -1,0 +1,24 @@
+meta {
+  name: List Policies
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.secretshub.cyberark.cloud/api/policies?filter=safeName EQ MySafeName&projection=REGULAR
+  body: none
+  auth: bearer
+}
+
+params:query {
+  filter: safeName EQ MySafeName
+  projection: REGULAR
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

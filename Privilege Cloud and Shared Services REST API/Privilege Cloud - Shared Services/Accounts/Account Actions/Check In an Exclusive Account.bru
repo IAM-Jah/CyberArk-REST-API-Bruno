@@ -1,0 +1,23 @@
+meta {
+  name: Check In an Exclusive Account
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Accounts/:accountID/CheckIn/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  accountID: {{accountID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Fetch Technical Support User
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/GetTechSupportUser
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

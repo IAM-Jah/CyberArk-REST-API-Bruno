@@ -1,0 +1,23 @@
+meta {
+  name: Answer Out-of-band Challenge
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/AnswerOOBChallenge?answer=string
+  body: json
+  auth: none
+}
+
+params:query {
+  answer: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {}
+}

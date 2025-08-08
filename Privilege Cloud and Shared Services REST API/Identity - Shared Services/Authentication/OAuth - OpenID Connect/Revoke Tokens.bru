@@ -1,0 +1,35 @@
+meta {
+  name: Revoke Tokens
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/OAuth2/Revoke/:clientAppID
+  body: json
+  auth: basic
+}
+
+params:path {
+  clientAppID: {{cientAppID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:basic {
+  username: clientID
+  password: clientSecret
+}
+
+body:json {
+  {
+    "token": "string"
+  }
+}
+
+body:form-urlencoded {
+  grant_type: client_credentials
+  scope: AllAPIsScope
+}

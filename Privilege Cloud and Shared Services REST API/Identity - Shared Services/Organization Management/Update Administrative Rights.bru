@@ -1,0 +1,38 @@
+meta {
+  name: Update Administrative Rights
+  type: http
+  seq: 11
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Org/UpdatePermission
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Grant": [
+      {
+        "Right": "string",
+        "Principal": "string",
+        "PrincipalType": "string"
+      }
+    ],
+    "OrgId": "string",
+    "Revoke": [
+      {
+        "Right": "string",
+        "Principal": "string"
+      }
+    ]
+  }
+}

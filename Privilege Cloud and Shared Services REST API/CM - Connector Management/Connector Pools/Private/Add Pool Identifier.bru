@@ -1,0 +1,31 @@
+meta {
+  name: Add Pool Identifier
+  type: http
+  seq: 11
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/private/pools/:poolID/identifiers
+  body: json
+  auth: bearer
+}
+
+params:path {
+  poolID: poolID
+}
+
+headers {
+  Content-Type: application/json
+  tenant-id: tenant-id
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "type": "AWS_SUBNET",
+    "value": "vpc-id"
+  }
+}

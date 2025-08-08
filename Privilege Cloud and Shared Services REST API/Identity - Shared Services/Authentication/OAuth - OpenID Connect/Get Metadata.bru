@@ -1,0 +1,24 @@
+meta {
+  name: Get Metadata
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/OAuth2/GetMeta?serviceName={{clientAppID}}
+  body: none
+  auth: none
+}
+
+params:query {
+  serviceName: {{clientAppID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:form-urlencoded {
+  grant_type: client_credentials
+  scope: AllAPIsScope
+}

@@ -1,0 +1,16 @@
+meta {
+  name: Get Directories
+  type: http
+  seq: 1
+}
+
+get {
+  url: https:/{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Configuration/LDAP/Directories/
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

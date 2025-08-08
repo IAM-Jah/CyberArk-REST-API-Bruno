@@ -32,7 +32,7 @@ Covered topics:
     - [x] Remote Access (30 Aug 2024)
     - [x] Endpoint Privilege Manager (30 Aug 2024)
 - [x] Add usage guide (14 Oct 2024)
-- [ ] Upload native .bru project files
+- [x] Upload native .bru project files (7 Aug 2025)
 - [ ] UX enhancements:
     - [ ] Expand documentation
     - [ ] Improve examples for params

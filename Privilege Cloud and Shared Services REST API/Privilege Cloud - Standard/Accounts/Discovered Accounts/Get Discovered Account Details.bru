@@ -1,0 +1,20 @@
+meta {
+  name: Get Discovered Account Details
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/DiscoveredAccounts/:accountID/
+  body: none
+  auth: none
+}
+
+params:path {
+  accountID: {{accountID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

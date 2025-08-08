@@ -1,0 +1,23 @@
+meta {
+  name: List Identifier Values
+  type: http
+  seq: 19
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/pools/identifiers
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~filter: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

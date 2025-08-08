@@ -1,0 +1,33 @@
+meta {
+  name: Update User Profile
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/User/UpdateProfile
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "HomeNumber": 917878787878,
+    "DisplayName": "John Smith",
+    "ID": "abc-e2e-123",
+    "OfficeNumber": 919876543210,
+    "MobileNumber": 91565656565,
+    "VerifyEmail": false,
+    "Mail": "john@example.com",
+    "Description": "Updated display name",
+    "Name": "John"
+  }
+}

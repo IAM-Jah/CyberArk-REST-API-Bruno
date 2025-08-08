@@ -1,0 +1,32 @@
+meta {
+  name: Get Temporary Connector Installation Script
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/api/setup-script
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "osType": "windows",
+    "version": "stable",
+    "installationPath": "string",
+    "connectorPoolId": "string",
+    "proxyDetails": {
+      "proxyAddress": "string",
+      "proxyPort": 65535
+    }
+  }
+}

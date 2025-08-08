@@ -1,0 +1,39 @@
+meta {
+  name: CyberArk- LDAP- RADIUS
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Auth/:authType/Logon
+  body: json
+  auth: none
+}
+
+params:path {
+  authType: {{authType}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "username": "{{PAMUserName}}",
+    "password": "{{PAMPassword}}",
+    //"newPassword": "{{PAMNewPassword}}",
+    "concurrentSession": "true"
+  }
+}
+
+script:post-response {
+  let PAMToken = res.getBody();
+  bru.setEnvVar("PAMSessionToken", PAMToken);
+}
+
+tests {
+  var jsonData = JSON.parse(responseBody);
+  // postman.setEnvironmentVariable("pasSessionToken", jsonData);
+}

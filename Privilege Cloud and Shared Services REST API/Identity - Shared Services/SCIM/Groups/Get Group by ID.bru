@@ -1,0 +1,23 @@
+meta {
+  name: Get Group by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/Groups/:groupID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  groupID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

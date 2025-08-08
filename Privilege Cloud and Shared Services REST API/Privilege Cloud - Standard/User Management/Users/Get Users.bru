@@ -1,0 +1,23 @@
+meta {
+  name: Get Users
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Users/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~filter: userType/componentUser/userName
+  ~search: username/firstname/lastname
+  ~extendedDetails: true
+  ~sort: username/source/userType/location/lastname/firstname/middlename followed by asc/desc
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

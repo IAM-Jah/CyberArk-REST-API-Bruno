@@ -1,0 +1,20 @@
+meta {
+  name: Get Platform Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Platforms/:platformName/
+  body: none
+  auth: none
+}
+
+params:path {
+  platformName: {{platformName}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Validate Policy
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://{{subdomain}}.sca.cyberark.cloud/api/policies/validate
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{SCAToken}}
+}
+
+body:json {
+  {
+    "policyId": "string"
+  }
+}

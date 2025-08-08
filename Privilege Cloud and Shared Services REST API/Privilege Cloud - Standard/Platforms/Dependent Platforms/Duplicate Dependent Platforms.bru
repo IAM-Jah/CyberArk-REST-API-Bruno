@@ -1,0 +1,27 @@
+meta {
+  name: Duplicate Dependent Platforms
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/platforms/dependent/:platformID/duplicate/
+  body: json
+  auth: none
+}
+
+params:path {
+  platformID: {{platformID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+      "Name": "test Platform",
+      "Description": ""
+  }
+}

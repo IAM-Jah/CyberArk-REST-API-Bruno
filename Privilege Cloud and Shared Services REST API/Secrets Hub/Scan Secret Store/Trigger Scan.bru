@@ -1,0 +1,35 @@
+meta {
+  name: Trigger Scan
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.secretshub.cyberark.cloud/api/scan-definitions/:scanType/:scanID/scan
+  body: json
+  auth: bearer
+}
+
+params:path {
+  scanID: scanID
+  scanType: secret-store
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/x.secretshub.beta+json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "scope": {
+      "secretStoresIds": [
+        "store-c3051c3a-5584-43e3-905d-420b37d5633c"
+      ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Get Network
+  type: http
+  seq: 9
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/networks/:networkID
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~projection: string
+}
+
+params:path {
+  networkID: networkID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

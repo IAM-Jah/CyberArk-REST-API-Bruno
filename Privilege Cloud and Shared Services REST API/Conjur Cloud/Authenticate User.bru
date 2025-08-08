@@ -1,0 +1,24 @@
+meta {
+  name: Authenticate User
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/authn-oidc/cyberark/conjur/authenticate
+  body: formUrlEncoded
+  auth: none
+}
+
+headers {
+  Accept-Encoding: base64
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  id_token: {{identityToken}}
+}
+
+script:post-response {
+  bru.setEnvVar("conjurToken", res.body);
+}

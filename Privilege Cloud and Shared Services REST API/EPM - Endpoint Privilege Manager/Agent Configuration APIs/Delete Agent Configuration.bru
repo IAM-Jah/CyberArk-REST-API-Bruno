@@ -1,0 +1,25 @@
+meta {
+  name: Delete Agent Configuration
+  type: http
+  seq: 6
+}
+
+delete {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/Policies/AgentConfiguration/:agentConfigID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  agentConfigID: agentConfigID
+  setID: setID
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{EPMToken}}
+}

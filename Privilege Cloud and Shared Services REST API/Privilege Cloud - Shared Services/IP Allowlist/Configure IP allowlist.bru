@@ -1,0 +1,33 @@
+meta {
+  name: Configure IP allowlist
+  type: http
+  seq: 2
+}
+
+put {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/advanced-settings/ip-allowlist
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "customerPublicIPs": [
+      "33.33.33.33/32",
+      "44.44.44.41/32",
+      "55.55.55.55/32",
+      "2.2.2.2/32",
+      "22.2.2.2/32",
+      "1.1.1.1/32"
+    ]
+  }
+  
+}

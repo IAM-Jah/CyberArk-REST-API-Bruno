@@ -1,0 +1,38 @@
+meta {
+  name: Update Group with Patch
+  type: http
+  seq: 5
+}
+
+patch {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/Groups/:groupID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  groupID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Operations": [
+      {
+        "op": "string",
+        "path": "string",
+        "value": {}
+      }
+    ],
+    "schemas": [
+      "string"
+    ]
+  }
+}

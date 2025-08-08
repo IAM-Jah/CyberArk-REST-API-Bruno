@@ -1,0 +1,29 @@
+meta {
+  name: Generate Public API Token
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.my.identity.app/oauth2/token/:webapp
+  body: formUrlEncoded
+  auth: none
+}
+
+params:path {
+  webapp: webappIdentifier
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  grant_type: client_credentials
+  scope: scopeSetForAppInIdentity
+}
+
+tests {
+  var jsonData = JSON.parse(responseBody);
+  bru.setEnvVar("SCAToken", jsonData.access_token)
+}

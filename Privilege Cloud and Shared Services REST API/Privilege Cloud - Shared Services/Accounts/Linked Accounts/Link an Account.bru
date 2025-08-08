@@ -1,0 +1,32 @@
+meta {
+  name: Link an Account
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Accounts/:accountID/LinkAccount/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  accountID: {{accountID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "safe": "{{safeName}}",
+    "Name": "linkedAccountName",
+    "ExtraPasswordIndex": 1,
+    "folder": "linkedAccountFolder"
+  }
+}

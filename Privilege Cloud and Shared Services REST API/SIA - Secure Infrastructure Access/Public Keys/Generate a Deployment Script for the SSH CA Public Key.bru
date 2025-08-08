@@ -1,0 +1,25 @@
+meta {
+  name: Generate a Deployment Script for the SSH CA Public Key
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}-jit.cyberark.cloud/api/public-keys/scripts?workspaceId=wiorkspaceIDToApplyKey&workspaceType=AWS/AZURE/ON-PREMISE/GCP
+  body: none
+  auth: bearer
+}
+
+params:query {
+  workspaceId: wiorkspaceIDToApplyKey
+  workspaceType: AWS/AZURE/ON-PREMISE/GCP
+  ~scriptType: bash/kornShell
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

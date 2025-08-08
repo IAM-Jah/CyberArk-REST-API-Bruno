@@ -1,0 +1,23 @@
+meta {
+  name: Check if User is Locked Out By Policy
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/IsUserLockedOutByPolicy?user=userUUID
+  body: none
+  auth: bearer
+}
+
+params:query {
+  user: userUUID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

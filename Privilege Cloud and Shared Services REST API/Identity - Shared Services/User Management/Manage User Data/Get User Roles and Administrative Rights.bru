@@ -1,0 +1,35 @@
+meta {
+  name: Get User Roles and Administrative Rights
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/GetUsersRolesAndAdministrativeRights?ID=userUUID
+  body: json
+  auth: bearer
+}
+
+params:query {
+  ID: userUUID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Args": {
+      "Limit": 0,
+      "PageNumber": 0,
+      "PageSize": 0,
+      "Caching": 0,
+      "SortBy": "string"
+    }
+  }
+}

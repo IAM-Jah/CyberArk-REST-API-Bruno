@@ -1,0 +1,28 @@
+meta {
+  name: List Resources
+  type: http
+  seq: 14
+}
+
+get {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/resources/conjur
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~kind: user|host|layer|group|policy|variable|webservice
+  ~search: string
+  ~limit: integer
+  ~offset: integer
+  ~count: boolean
+  ~acting_as: string
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:form-urlencoded {
+  enabled: true
+}

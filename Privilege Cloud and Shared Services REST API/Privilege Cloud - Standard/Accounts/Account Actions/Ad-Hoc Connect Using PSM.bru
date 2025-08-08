@@ -1,0 +1,32 @@
+meta {
+  name: Ad-Hoc Connect Using PSM
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Accounts/AdHocConnect/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "UserName":"{{PAMUserName}}",
+    "Secret":"{{PAMPassword}}",
+    "Address":"Address",
+    "PlatformId":"{{platformID}}",
+    "extraFields":{
+      //"LogonDomain": "<>"
+    },
+    "PSMConnectPrerequisites": {
+      "ConnectionComponent":"<connectionComponent ID>",
+      "ConnectionType":"<RDPFile/PSMGW>"
+    }
+  }
+}

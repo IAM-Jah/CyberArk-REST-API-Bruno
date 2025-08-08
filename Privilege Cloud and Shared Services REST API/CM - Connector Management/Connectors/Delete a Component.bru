@@ -1,0 +1,24 @@
+meta {
+  name: Delete a Component
+  type: http
+  seq: 4
+}
+
+delete {
+  url: https://{{subdomain}}.cyberark.cloud/api/connectors/:connectorID/components/:componentID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  componentID: componentID
+  connectorID: connectorID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

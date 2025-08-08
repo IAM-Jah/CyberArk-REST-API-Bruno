@@ -1,0 +1,28 @@
+meta {
+  name: Get All Safe Members
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Safes/:safeID/Members/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~filter: memberType/membershipExpired/includePredefinedUsers eq user/group/true/false
+  ~search: {{searchTerms}}
+  ~offset: 0
+  ~limit: 25
+  ~sort: asc/desc
+}
+
+params:path {
+  safeID: {{safeID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

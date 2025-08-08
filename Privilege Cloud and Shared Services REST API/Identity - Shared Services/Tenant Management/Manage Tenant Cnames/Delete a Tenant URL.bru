@@ -1,0 +1,23 @@
+meta {
+  name: Delete a Tenant URL
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/TenantCnames/UnRegister?customCname=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  customCname: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,26 @@
+meta {
+  name: Test Dynamic Role Script
+  type: http
+  seq: 11
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Roles/TestDynamicRolesScript
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "User": "string",
+    "Script": "string"
+  }
+}

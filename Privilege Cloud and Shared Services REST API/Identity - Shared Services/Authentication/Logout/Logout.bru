@@ -1,0 +1,35 @@
+meta {
+  name: Logout
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/Logout
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~allowIWA: true
+  ~redirectUrl: URLtoRedirectTo.com
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+tests {
+  const data = res.getBody().Result
+  
+  test("Successful logoff", function() {
+      if (data.success) {
+          bru.setEnvVar("identitySessionID", "");
+          bru.setEnvVar("identityToken","");
+      }
+  });
+}

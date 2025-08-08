@@ -1,0 +1,25 @@
+meta {
+  name: Get Component Log
+  type: http
+  seq: 13
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/api/connectors/:connectorID/components/:componentID/logs/:logID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  logID: logID
+  componentID: componentID
+  connectorID: connectorID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,35 @@
+meta {
+  name: ISPSS - OIDC Authentication Basic Auth Header
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/oauth2/platformtoken
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{identityAPIUsername}}
+  password: {{identityAPIPassword}}
+}
+
+body:form-urlencoded {
+  grant_type: client_credentials
+}
+
+tests {
+  const jsonData = res.getBody();
+  
+  // Check if 'access_token' exists.
+  test("Check for token", function() {
+    // If 'Token' doesn't exist, present an error message indicating the user should continue with authentication.
+    expect(
+      jsonData,
+      "Identity Token does not exist: continue with Advance Authentication API(s) to complete authentication process"
+    ).to.have.property("access_token");
+      // If 'access_token' exists, store it as 'IdentityToken' environment variable.
+      bru.setEnvVar("identityToken", jsonData.access_token);
+  });
+}

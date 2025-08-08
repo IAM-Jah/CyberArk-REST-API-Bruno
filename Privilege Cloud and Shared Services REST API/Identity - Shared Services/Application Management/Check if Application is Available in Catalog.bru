@@ -1,0 +1,23 @@
+meta {
+  name: Check if Application is Available in Catalog
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/IsApplicationAvailableInCatalog?appKey=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  appKey: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

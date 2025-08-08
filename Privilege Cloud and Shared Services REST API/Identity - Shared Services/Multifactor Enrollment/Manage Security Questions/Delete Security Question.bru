@@ -1,0 +1,25 @@
+meta {
+  name: Delete Security Question
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/TenantConfig/DeleteAdminSecurityQuestion
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Id": "string"
+  }
+}

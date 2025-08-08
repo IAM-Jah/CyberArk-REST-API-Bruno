@@ -1,0 +1,29 @@
+meta {
+  name: Get Authentication Assurance Level
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/AuthProfile/GetProfileMFAScoring?challenges=profileFactorsString
+  body: none
+  auth: bearer
+}
+
+params:query {
+  challenges: profileFactorsString
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "uuid": "string"
+  }
+}

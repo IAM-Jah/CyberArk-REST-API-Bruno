@@ -1,0 +1,35 @@
+meta {
+  name: Add Application
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/WebServices/PIMServices.svc/Applications/
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "application":
+    {
+      "AppID":"{{appID}}",
+      "Description":"appDescription",
+      "Location":"locationInVault",
+      //"AccessPermittedFrom":0,
+      //"AccessPermittedTo":23,
+      "ExpirationDate":"expirationDate",
+      "Disabled":"No",
+      "BusinessOwnerFName":"First",
+      "BusinessOwnerLName":"Last",
+      "BusinessOwnerEmail":"first.last@email.com",
+      "BusinessOwnerPhone":"555-555-5555"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+meta {
+  name: Token Request
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/OAuth2/Token/:clientAppID
+  body: json
+  auth: none
+}
+
+params:path {
+  clientAppID: {{clientAppID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "grant_type": "client_credentials",
+    //"redirect_uri": "string",
+    "client_id": "{{identityAPIUsername}}",
+    "client_secret": "{{identityAPIPassword}}"
+    //"code": "string"
+    //"code_verifier": "string",
+    //"state": "string",
+    //"nonce": "string"
+  }
+}
+
+body:form-urlencoded {
+  grant_type: client_credentials
+  scope: AllAPIsScope
+}
+
+tests {
+  const jsonData = res.getBody().Result
+  
+  test("OAuth2 Token Exists", function() {
+      expect(jsonData).to.have.property('access_token');
+      bru.setEnvVar("identityToken", jsonData.access_token);
+  });
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Get Role
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Roles/GetRole?Name=roleUUID
+  body: none
+  auth: bearer
+}
+
+params:query {
+  Name: roleUUID
+  ~SuppressPrincipalsList: true
+  ~getRights: true
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

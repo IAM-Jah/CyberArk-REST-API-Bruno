@@ -1,0 +1,46 @@
+meta {
+  name: Create User
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/CreateUser
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    //Uncomment any lines you wish you include
+    //"InEverybodyRole": false,
+    //"SendSmsInvite": true,
+    //"InSysAdminRole": true,
+    //"Description": "string",
+    "Name": "username",
+    //"MobileNumber": "string",
+    //"useAlternateMfaAccount": true,
+    //"OrgPath": "string",
+    //"Password": "string",
+    //"CmaRedirectedUserUuid": "string",
+    //"ServiceUser": true,
+    //"OfficeNumber": "string",
+    //"ReportsTo": "string",
+    //"SendEmailInvite": true,
+    //"HomeNumber": "string",
+    //"DisplayName": "string",
+    //"PrimaryIdentifier": "string",
+    //"VerifyEmail": true,
+    //"ForcePasswordChangeNext": true,
+    //"PasswordNeverExpire": true,
+    "Mail": "user@mail.com"
+  }
+}

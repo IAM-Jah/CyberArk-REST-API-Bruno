@@ -1,0 +1,28 @@
+meta {
+  name: Send Workflow Event
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/JobFlow/Event
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "jobid": "string",
+    "sync": true,
+    "args": {},
+    "event": "string"
+  }
+}

@@ -1,0 +1,20 @@
+meta {
+  name: Get Bulk Account Upload Result
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/bulkactions/accounts/:bulkUploadID/
+  body: none
+  auth: none
+}
+
+params:path {
+  bulkUploadID: {{bulkUploadID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

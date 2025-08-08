@@ -1,0 +1,29 @@
+meta {
+  name: Confirm Request
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/incomingrequests/:requestID/confirm
+  body: json
+  auth: bearer
+}
+
+params:path {
+  requestID: {{requestID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Reason":"Confirmed through Bruno"
+  }
+}

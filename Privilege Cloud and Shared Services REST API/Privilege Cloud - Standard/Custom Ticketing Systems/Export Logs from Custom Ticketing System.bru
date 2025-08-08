@@ -1,0 +1,21 @@
+meta {
+  name: Export Logs from Custom Ticketing System
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/ticketing-systems/logs/:days/:userID
+  body: none
+  auth: none
+}
+
+params:path {
+  userID: {{userID}}
+  days: 7
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

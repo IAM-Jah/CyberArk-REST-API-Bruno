@@ -1,0 +1,23 @@
+meta {
+  name: Get Active Session Activities
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/livesessions/:activeSessionId/activities/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  activeSessionId: {{activeSessionId}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,56 @@
+meta {
+  name: Add Safe Member
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Safes/:safeID/Members/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  safeID: {{safeID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+      "memberName": "JonDoe",
+      "searchIn": "Vault",
+      "membershipExpirationDate": 1667472534,
+      "permissions": {
+          "useAccounts": false,
+          "retrieveAccounts": false,
+          "listAccounts": false,
+          "addAccounts": false,
+          "updateAccountContent": false,
+          "updateAccountProperties": false,
+          "initiateCPMAccountManagementOperations": false,
+          "specifyNextAccountContent": false,
+          "renameAccounts": false,
+          "deleteAccounts": false,
+          "unlockAccounts": false,
+          "manageSafe": false,
+          "manageSafeMembers": false,
+          "backupSafe": false,
+          "viewAuditLog": false,
+          "viewSafeMembers": false,
+          "accessWithoutConfirmation": false,
+          "createFolders": false,
+          "deleteFolders": false,
+          "moveAccountsAndFolders": false,
+          "requestsAuthorizationLevel1": false,
+          "requestsAuthorizationLevel2": false
+      },
+    "MemberType": "User/Group"
+  }
+}

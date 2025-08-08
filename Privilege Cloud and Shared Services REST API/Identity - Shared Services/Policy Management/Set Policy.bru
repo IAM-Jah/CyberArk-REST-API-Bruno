@@ -1,0 +1,34 @@
+meta {
+  name: Set Policy
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Policy/SavePolicyBlock3
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "policy": {
+      "Newpolicy": true,
+      "Version": 0,
+      "Path": "string",
+      "RevStamp": "string",
+      "Description": "string"
+    },
+    "plinks": [
+      {}
+    ]
+  }
+}

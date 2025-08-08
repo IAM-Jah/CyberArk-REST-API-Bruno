@@ -1,0 +1,23 @@
+meta {
+  name: Delete Privileged Data
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/PrivilegedData/:accountID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  accountID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

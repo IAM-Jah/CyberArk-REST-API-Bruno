@@ -1,0 +1,59 @@
+meta {
+  name: Asynchronous HTTP Task
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/api/tasks/http-async
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "request": {
+      "url": "string",
+      "method": "GET",
+      "headers": "string",
+      "queryStringParameters": "string",
+      "data": "string"
+    },
+    "targetFilter": {
+      "connectorId": "ManagementAgent_96e1df8d-ffe5-4314-8b65-b6b941f35a13",
+      "poolFilter": {
+        "poolIds": [
+          "string"
+        ],
+        "excludeFilter": {
+          "connector_ids": [
+            "ManagementAgent_e0a15f4b-29e9-31c8-f084-3f2783584ff7"
+          ]
+        },
+        "poolIdentifiers": {
+          "additionalProp1": "string",
+          "additionalProp2": "string",
+          "additionalProp3": "string"
+        },
+        "poolNetworkIds": [
+          "string"
+        ]
+      }
+    },
+    "encryption": {
+      "sessionKey": "string",
+      "sensitiveVarNames": [
+        "string"
+      ],
+      "sessionId": "96e14f8d-ffe5-4314-8b65-b6b941f35a13"
+    }
+  }
+}

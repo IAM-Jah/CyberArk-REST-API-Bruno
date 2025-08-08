@@ -1,0 +1,26 @@
+meta {
+  name: Generate an MFA Caching SSH Key
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Users/Secret/SSHKeys/Cache/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "formats":"{{MFAKeyFormat}}",
+    "keyPassword":"passphraseOrRemoveThisParameter"
+  }
+}

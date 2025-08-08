@@ -1,0 +1,27 @@
+meta {
+  name: Get additional attributes
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/ExtData/GetSchema
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "ID": "abc-e2e-123",
+    "IncludeNulls": false,
+    "Table": "Users"
+  }
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Update Group
+  type: http
+  seq: 2
+}
+
+put {
+  url: https://api.alero.io/v2-edge/groups/:groupID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  groupID: groupID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}
+
+body:json {
+  "q\\lK9H8v\"Vr#M#U#kRz~R\"46`K@}-NK4?qx'tyVz,;*v9YF,,srwE#JZdio_eX%^=tbl6 |^ -Pd%7QVq"
+}

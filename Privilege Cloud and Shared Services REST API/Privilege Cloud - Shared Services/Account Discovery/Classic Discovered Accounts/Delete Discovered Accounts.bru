@@ -1,0 +1,19 @@
+meta {
+  name: Delete Discovered Accounts
+  type: http
+  seq: 4
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/DiscoveredAccounts/
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

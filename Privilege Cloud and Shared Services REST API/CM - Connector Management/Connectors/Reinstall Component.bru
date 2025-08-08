@@ -1,0 +1,24 @@
+meta {
+  name: Reinstall Component
+  type: http
+  seq: 12
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/api/connectors/:connectorID/components/:componentID/reinstall
+  body: none
+  auth: bearer
+}
+
+params:path {
+  componentID: componentID
+  connectorID: connectorID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

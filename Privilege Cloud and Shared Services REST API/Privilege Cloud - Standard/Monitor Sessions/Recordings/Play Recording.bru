@@ -1,0 +1,20 @@
+meta {
+  name: Play Recording
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/recordings/:recordingID/Play/
+  body: none
+  auth: none
+}
+
+params:path {
+  recordingID: {{recordingID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

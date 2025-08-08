@@ -1,0 +1,37 @@
+meta {
+  name: Create Role
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Roles/StoreRole
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Name": "string",
+    "Description": "string",
+    "Users": [
+      {}
+    ],
+    "Roles": [
+      {}
+    ],
+    "Groups": [
+      {}
+    ],
+    "RoleType": "string",
+    "OrgPath": "string"
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Retrieve Issuer
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/issuers/conjur/:issuerID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  issuerID: ID
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:form-urlencoded {
+  enabled: true
+}

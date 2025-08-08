@@ -1,0 +1,21 @@
+meta {
+  name: Get My Requests
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/MyRequests
+  body: none
+  auth: none
+}
+
+params:query {
+  ~onlywaiting: true/false
+  ~expired: true/false
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

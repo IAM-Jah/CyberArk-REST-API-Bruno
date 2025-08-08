@@ -1,0 +1,19 @@
+meta {
+  name: Get SIA Settings
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}-jit.cyberark.cloud/api/settings
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

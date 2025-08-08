@@ -1,0 +1,23 @@
+meta {
+  name: Get Recording Activities
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/recordings/:recordingID/activities/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  recordingID: {{recordingID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

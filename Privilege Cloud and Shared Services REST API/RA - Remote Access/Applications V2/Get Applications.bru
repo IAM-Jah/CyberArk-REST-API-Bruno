@@ -1,0 +1,28 @@
+meta {
+  name: Get Applications
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://api.alero.io/v2-edge/sites/:siteID/applications
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~offset: integer
+  ~limit: integer
+}
+
+params:path {
+  siteID: siteID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

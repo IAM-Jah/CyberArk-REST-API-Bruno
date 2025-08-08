@@ -1,0 +1,21 @@
+meta {
+  name: Start QR Code Authentication
+  type: http
+  seq: 18
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/StartQRCodeAuthentication
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "guid": "string"
+  }
+}

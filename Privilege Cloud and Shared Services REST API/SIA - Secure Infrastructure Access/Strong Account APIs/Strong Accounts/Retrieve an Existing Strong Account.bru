@@ -1,0 +1,23 @@
+meta {
+  name: Retrieve an Existing Strong Account
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{subdomain}}-jit.cyberark.cloud/api/secrets/public/v1/:strongAccountID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  strongAccountID: {{strongAccountID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

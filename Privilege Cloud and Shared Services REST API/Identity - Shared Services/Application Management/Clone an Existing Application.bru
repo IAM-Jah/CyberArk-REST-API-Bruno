@@ -1,0 +1,23 @@
+meta {
+  name: Clone an Existing Application
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/CloneApplication?Key=appKeyString
+  body: none
+  auth: bearer
+}
+
+params:query {
+  Key: appKeyString
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

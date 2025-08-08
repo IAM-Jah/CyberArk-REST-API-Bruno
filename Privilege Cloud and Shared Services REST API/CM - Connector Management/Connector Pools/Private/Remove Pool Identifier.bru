@@ -1,0 +1,25 @@
+meta {
+  name: Remove Pool Identifier
+  type: http
+  seq: 14
+}
+
+delete {
+  url: https://{{subdomain}}.cyberark.cloud/private/pools/:poolID/identifiers/:identifierID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  identifierID: identifierID
+  poolID: poolID
+}
+
+headers {
+  Content-Type: application/json
+  tenant-id: tenant-id
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

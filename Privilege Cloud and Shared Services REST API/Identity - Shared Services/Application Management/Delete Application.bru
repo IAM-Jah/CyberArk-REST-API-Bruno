@@ -1,0 +1,27 @@
+meta {
+  name: Delete Application
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/DeleteApplication
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "_RowKey": [
+      "string"
+    ]
+  }
+}

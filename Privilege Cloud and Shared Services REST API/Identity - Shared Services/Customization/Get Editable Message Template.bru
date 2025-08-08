@@ -1,0 +1,24 @@
+meta {
+  name: Get Editable Message Template
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/TenantConfig/GetEditableMessageTemplate?templateName=string&templateType=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  templateName: string
+  templateType: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

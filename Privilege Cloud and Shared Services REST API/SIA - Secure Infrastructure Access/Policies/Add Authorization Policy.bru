@@ -1,0 +1,140 @@
+meta {
+  name: Add Authorization Policy
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}-jit.cyberark.cloud/api/access-policies
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "policyName": "Production App Access",
+    "status": "Enabled",
+    "description": "",
+    "providersData": {
+      "AWS": {
+        "regions": [
+          "us-east-1",
+          "us-east-2"
+        ],
+        "tags": [
+          {
+            "Key": "env",
+            "Value": [
+              "prod"
+            ]
+          }
+        ],
+        "vpcIds": [],
+        "accountIds": []
+      },
+      "Azure": {
+        "regions": [
+          "eastus2",
+          "eastus"
+        ],
+        "tags": [
+          {
+            "Key": "env",
+            "Value": [
+              "prod"
+            ]
+          }
+        ],
+        "resourceGroups": [],
+        "vnetIds": [],
+        "subscriptions": []
+      },
+      "OnPrem": {
+        "fqdnRules": [
+          {
+            "operator": "EXACTLY",
+            "computernamePattern": "acme.com",
+            "domain": "ad.product2.com"
+          }
+        ]
+      },
+      "GCP": {
+        "regions": [
+          "asia-east1",
+          "us-east1"
+        ],
+        "labels": [
+          {
+            "Key": "env",
+            "Value": [
+              "prod"
+            ]
+          }
+        ],
+        "vpc_ids": [],
+        "projects": []
+      }
+    },
+    "startDate": "2023-01-10",
+    "endDate": "2024-01-10",
+    "userAccessRules": [
+      {
+        "ruleName": "dev-team-access",
+        "userData": {
+          "roles": [
+            "DEV_TEAM_ROLE"
+          ],
+          "groups": [],
+          "users": []
+        },
+        "connectionInformation": {
+          "connectAs": {
+            "AWS": {
+              "ssh": "ec2-user",
+              "rdp": {
+                "localEphemeralUser": {
+                  "assignGroups": [
+                    "Administrators"
+                  ]
+                }
+              }
+            },
+            "Azure": {
+              "ssh": "azureuser"
+            },
+            "OnPrem": {
+              "rdp": {
+                "localEphemeralUser": {
+                  "assignGroups": [
+                    "Administrators"
+                  ]
+                }
+              }
+            },
+            "GCP": {
+              "ssh": "root"
+            }
+          },
+          "grantAccess": 3,
+          "idleTime": 10,
+          "daysOfWeek": [
+            "Mon",
+            "Tue"
+          ],
+          "fullDays": false,
+          "hoursFrom": "10:00",
+          "hoursTo": "18:00",
+          "timeZone": "Asia/Jerusalem"
+        }
+      }
+    ]
+  }
+}

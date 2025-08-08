@@ -1,0 +1,30 @@
+meta {
+  name: Create Pool
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/private/pools
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+  tenant-id: string
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "name": "gc_gf0(y_2()b_wlT9HWiHNHkZm' )2C.OL'XpXgvlk9DEKzAeqYlZI)q@ICW)PO_txsvkjEA7SfJ9 3Qu89tdNHb(uBO.gl.iZMTOoc.o.wFGLZTz-AP7c/gs)MeU2WQzEn ZVcHyYZ8vAu7.uq(trAzr0'200oQlvo_4Z5-r8jk U6vPpzh IWzv6JTdq7k4pZR5h5",
+    "description": "string",
+    "assignedNetworkIds": [
+      "string"
+    ]
+  }
+}

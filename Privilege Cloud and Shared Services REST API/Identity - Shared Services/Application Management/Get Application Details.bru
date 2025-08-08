@@ -1,0 +1,23 @@
+meta {
+  name: Get Application Details
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/GetApplication?_RowKey=appKeyString
+  body: none
+  auth: bearer
+}
+
+params:query {
+  _RowKey: appKeyString
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

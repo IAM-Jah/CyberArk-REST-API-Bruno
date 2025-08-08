@@ -1,0 +1,16 @@
+meta {
+  name: Delete an MFA Caching SSH Key
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Users/Secret/SSHKeys/Cache/
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

@@ -1,0 +1,34 @@
+meta {
+  name: Update a Policy
+  type: http
+  seq: 10
+}
+
+patch {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/policies/conjur/policy/:identifier
+  body: text
+  auth: bearer
+}
+
+params:path {
+  identifier: data%2Fmyapp-01
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:text {
+  - !policy
+    id: database
+    body:
+      - !host
+        id: db-host
+      - !variable
+        id: db-password
+        owner: !host db-host
+}
+
+body:form-urlencoded {
+  enabled: true
+}

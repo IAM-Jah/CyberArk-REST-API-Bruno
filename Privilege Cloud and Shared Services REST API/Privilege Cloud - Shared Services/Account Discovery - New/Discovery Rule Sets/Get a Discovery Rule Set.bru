@@ -1,0 +1,23 @@
+meta {
+  name: Get a Discovery Rule Set
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/discovery-rule-sets/:ruleSetID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  ruleSetID: {{ruleSetID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,49 @@
+meta {
+  name: Update Role
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Roles/UpdateRole
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Roles": {
+      "Delete": [
+        "string"
+      ],
+      "Add": [
+        "string"
+      ]
+    },
+    "Users": {
+      "Delete": [
+        "string"
+      ],
+      "Add": [
+        "string"
+      ]
+    },
+    "Groups": {
+      "Delete": [
+        "string"
+      ],
+      "Add": [
+        "string"
+      ]
+    },
+    "Name": "string"
+  }
+}

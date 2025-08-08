@@ -1,0 +1,21 @@
+meta {
+  name: Delete Safe Member
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Safes/:safeID/Members/:safeMemberName/
+  body: none
+  auth: none
+}
+
+params:path {
+  safeMemberName: {{safeMemberName}}
+  safeID: {{safeID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

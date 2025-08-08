@@ -1,0 +1,24 @@
+meta {
+  name: Delete Application Authentication Method
+  type: http
+  seq: 7
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/WebServices/PIMServices.svc/Applications/:appID/Authentications/:appAuthMethodID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  appAuthMethodID: {{appAuthMethodID}}
+  appID: {{appID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

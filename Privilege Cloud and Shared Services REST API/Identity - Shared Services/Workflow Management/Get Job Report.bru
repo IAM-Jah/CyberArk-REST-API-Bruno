@@ -1,0 +1,23 @@
+meta {
+  name: Get Job Report
+  type: http
+  seq: 7
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Task/JobReport?hoursBack=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  hoursBack: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

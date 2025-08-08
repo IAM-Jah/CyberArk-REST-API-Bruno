@@ -1,0 +1,38 @@
+meta {
+  name: Update Administrators for Organization
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Org/UpdateAdministrators
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Grant": [
+      {
+        "DirectoryServiceUuid": "09B9A9B0-6CE8-465F-AB03-65766D33B05E",
+        "Id": "c2c7bcc6-9560-44e0-8dff-5be221cd37ee",
+        "SystemName": "mark@aak7163",
+        "Type": "User"
+      }
+    ],
+    "OrgId": "f584df36-82e1-4c7a-bc8f-b5217bf2557e",
+    "Revoke": [
+      {
+        "Id": "c2c7bcc6-9560-44e0-8dff-5be221cd37ee"
+      }
+    ]
+  }
+}

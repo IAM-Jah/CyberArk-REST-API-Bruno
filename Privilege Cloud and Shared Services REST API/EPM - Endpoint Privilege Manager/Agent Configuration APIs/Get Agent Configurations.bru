@@ -1,0 +1,31 @@
+meta {
+  name: Get Agent Configurations
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/Policies/AgentConfiguration/Search
+  body: json
+  auth: bearer
+}
+
+params:query {
+  ~limit: integer
+  ~offset: integer
+  ~sortBy: Updated
+  ~sortDir: desc
+}
+
+params:path {
+  setID: setID
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{EPMToken}}
+}

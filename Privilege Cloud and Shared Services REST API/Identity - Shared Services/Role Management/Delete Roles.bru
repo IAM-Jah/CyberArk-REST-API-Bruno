@@ -1,0 +1,27 @@
+meta {
+  name: Delete Roles
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/SaasManage/DeleteRoles
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Roles": [
+      {}
+    ]
+  }
+}

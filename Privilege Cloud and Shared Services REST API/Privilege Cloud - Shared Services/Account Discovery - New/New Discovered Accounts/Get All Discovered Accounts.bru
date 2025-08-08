@@ -1,0 +1,29 @@
+meta {
+  name: Get All Discovered Accounts
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/discovered-accounts/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~search: {{searchTerms}}
+  ~searchOnAllFields: true
+  ~offset: 0
+  ~limit: 50
+  ~sort: username asc/desc
+  ~filter: type EQ windows AND subtype EQ loosely
+  ~extendedDetails: true
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

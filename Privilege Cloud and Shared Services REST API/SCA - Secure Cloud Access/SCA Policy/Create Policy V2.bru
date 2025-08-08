@@ -1,0 +1,60 @@
+meta {
+  name: Create Policy V2
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.sca.cyberark.cloud/api/policies/create-policy
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{SCAToken}}
+}
+
+body:json {
+  {
+    "csp": "aws",
+    "name": "finance",
+    "description": "end of year calculations",
+    "startDate": "2022-07-12T00:00:00.000Z",
+    "endDate": "2022-10-10T00:00:00.000Z",
+    "policy_type": "pre_defined",
+    "roles": [
+      {
+        "entityId": "arn:aws:iam::364358839657:role/CEMAdmin",
+        "workspaceType": "account",
+        "entitySourceId": "364358839657",
+        "organization_id": null
+      }
+    ],
+    "identities": [
+      {
+        "entityName": "John.D",
+        "entitySourceId": "09B9A9B0-6CE8-465F-AB03-65766D33B05E",
+        "entityClass": "user"
+      }
+    ],
+    "accessRules": {
+      "days": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "fromTime": null,
+      "toTime": null,
+      "maxSessionDuration": 1,
+      "timeZone": "Asia/Jerusalem"
+    }
+  }
+}

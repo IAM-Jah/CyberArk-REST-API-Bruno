@@ -1,0 +1,26 @@
+meta {
+  name: Reject Request
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/incomingrequests/:requestID/reject
+  body: json
+  auth: none
+}
+
+params:path {
+  requestID: {{requestID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "Reason":"Rejected through Bruno"
+  }
+}

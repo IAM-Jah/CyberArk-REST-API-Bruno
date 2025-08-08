@@ -1,0 +1,19 @@
+meta {
+  name: Revoke Tokens
+  type: http
+  seq: 2
+}
+
+delete {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/host_factory_tokens/:token
+  body: none
+  auth: bearer
+}
+
+params:path {
+  token: tokenString
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}

@@ -1,0 +1,28 @@
+meta {
+  name: Get Safe Details
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Safes/:safeID/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~includeAccounts: True
+  ~useCache: True
+}
+
+params:path {
+  safeID: {{safeID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

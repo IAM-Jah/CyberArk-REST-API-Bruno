@@ -1,0 +1,23 @@
+meta {
+  name: Get Tags for Application
+  type: http
+  seq: 17
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/GetTagsForApp?appkey=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  appkey: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

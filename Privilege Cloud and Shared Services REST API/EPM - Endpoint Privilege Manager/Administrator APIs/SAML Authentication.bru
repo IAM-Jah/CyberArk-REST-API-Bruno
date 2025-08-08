@@ -1,0 +1,28 @@
+meta {
+  name: SAML Authentication
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{EPMAddress}}/SAML/Logon
+  body: multipartForm
+  auth: none
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:multipart-form {
+  SAMLResponse: {{EPMSAMLToken}}
+}
+
+tests {
+  const jsonData = res.getBody().Result
+  
+  test("EPM Token Exists", function() {
+      expect(jsonData).to.have.property('EPMAuthenticationResult');
+      bru.setEnvVar("EPMToken", jsonData.EPMAuthenticationResult);
+  });
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Validate OATH OTP Code
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Oath/ValidateOtpCode?otpCode=string&useOathDefaults=string&uuid=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  otpCode: string
+  useOathDefaults: string
+  uuid: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

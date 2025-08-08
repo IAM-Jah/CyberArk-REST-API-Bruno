@@ -1,0 +1,35 @@
+meta {
+  name: Retrieve Private SSH Key Account
+  type: http
+  seq: 11
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Accounts/:accountID/Secret/Retrieve/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  accountID: {{accountID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+      "reason": "Retrieved with Bruno",
+      "TicketingSystemName": "{{ticketingSystemName}}",
+      "TicketId": "{{ticketID}}",
+      //"Version": <version number>,
+      "ActionType": "download",
+      //"isUse": false,
+      "Machine": "targetAddress"
+  }
+}

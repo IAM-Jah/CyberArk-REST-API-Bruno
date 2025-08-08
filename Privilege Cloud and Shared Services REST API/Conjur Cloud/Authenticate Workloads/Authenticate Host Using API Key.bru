@@ -1,0 +1,32 @@
+meta {
+  name: Authenticate Host Using API Key
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/authn/conjur/:login/authenticate
+  body: text
+  auth: none
+}
+
+params:path {
+  login: host/<host-id>
+}
+
+headers {
+  Accept-Encoding: base64
+  Content-Type: text/plain
+}
+
+body:text {
+  Put API Key here, for example: 14m9cf91wfsesv1kkhevg12cdywm2wvqy6s8sk53z1ngtazp1t9tykc
+}
+
+body:form-urlencoded {
+  id_token: {{identityToken}}
+}
+
+script:post-response {
+  bru.setEnvVar("conjurToken", res.body);
+}

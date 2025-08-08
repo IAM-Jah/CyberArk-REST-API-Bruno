@@ -1,0 +1,47 @@
+meta {
+  name: Update Privileged Data
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/PrivilegedData/:accountID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  accountID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "name": "string",
+    "description": "string",
+    "type": "string",
+    "urn:ietf:params:scim:schemas:cyberark:1.0:PrivilegedData": {
+      "safe": "string",
+      "remoteMachinesAccess": {
+        "remoteMachines": "string",
+        "accessRestrictedToRemoteMachines": "string"
+      },
+      "properties": [
+        {
+          "key": "string",
+          "value": "string"
+        }
+      ]
+    },
+    "schemas": [
+      "string"
+    ]
+  }
+}

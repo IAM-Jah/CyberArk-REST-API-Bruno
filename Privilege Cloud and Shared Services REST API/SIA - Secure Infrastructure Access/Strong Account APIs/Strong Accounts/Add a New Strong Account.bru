@@ -1,0 +1,44 @@
+meta {
+  name: Add a New Strong Account
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}-jit.cyberark.cloud/api/secrets/public/v1
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "is_active": true,
+    "secret": {
+      "example_pcloud_account": {
+        "secret_data": {
+          "account_name": "example_account_name",
+          "safe": "example_safe"
+        },
+        "tenant_encrypted": "True"
+      },
+      "example_provisioner_user": {
+        "secret_data": {
+          "password": "example_password",
+          "username": "example_name"
+        },
+        "tenant_encrypted": "True"
+      }
+    },
+    "secret_details": "account_domain=*example*",
+    "secret_name": "string",
+    "secret_type": "ProvisionerUser"
+  }
+}

@@ -1,0 +1,30 @@
+meta {
+  name: Duplicate Rotational Group Platforms
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/platforms/rotationalGroups/:groupID/duplicate/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  groupID: {{groupID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+      "Name": "{{platformName}}",
+      "Description": ""
+  }
+}

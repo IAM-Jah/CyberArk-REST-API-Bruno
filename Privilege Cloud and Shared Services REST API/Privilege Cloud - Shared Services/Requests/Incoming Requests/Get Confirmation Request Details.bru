@@ -1,0 +1,29 @@
+meta {
+  name: Get Confirmation Request Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/incomingrequests/:requestID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  requestID: {{requestID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+  "Reason": "Retrieved through Bruno"
+  }
+}

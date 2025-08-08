@@ -1,0 +1,20 @@
+meta {
+  name: Get Group Platforms
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/platforms/groups/
+  body: none
+  auth: none
+}
+
+params:query {
+  ~search: stringFromPlatformName
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

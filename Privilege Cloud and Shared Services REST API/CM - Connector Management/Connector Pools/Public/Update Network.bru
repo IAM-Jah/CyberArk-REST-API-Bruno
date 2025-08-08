@@ -1,0 +1,29 @@
+meta {
+  name: Update Network
+  type: http
+  seq: 10
+}
+
+patch {
+  url: https://{{subdomain}}.cyberark.cloud/networks/:networkID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  networkID: networkID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "name": "oJjEswP)TZxSbaMA1xKx@MVoyii22'0wbYNutK6tkE1.UQLPlZT2@k)8ADfPl4/2hc"
+  }
+}

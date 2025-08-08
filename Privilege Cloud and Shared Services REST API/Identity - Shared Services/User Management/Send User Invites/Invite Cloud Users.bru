@@ -1,0 +1,43 @@
+meta {
+  name: Invite Cloud Users
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/InviteUsers
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+      "EmailInvite": true,
+      "GroupInvite": false,
+      "SmsInvite": false,
+      "Role": "roleName",
+      "Entities": [
+          {
+              "Type": "user",
+              "Guid": "userUUID",
+              "Name": "userName"
+          },
+          {
+              "Type": "group",
+              "Guid": "groupUUID"
+          },
+          {
+              "Type": "role",
+              "Guid": "roleUUID"
+          }
+      ]
+  }
+}

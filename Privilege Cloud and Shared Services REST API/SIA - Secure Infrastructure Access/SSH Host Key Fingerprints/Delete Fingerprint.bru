@@ -1,0 +1,23 @@
+meta {
+  name: Delete Fingerprint
+  type: http
+  seq: 2
+}
+
+delete {
+  url: https://{{subdomain}}-jit.cyberark.cloud/api/ssh-fingerprints/:targetID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  targetID: AWSInstanceID/AzureVMID/GCPInstanceID/FQDN/IP_LogicalNetName
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

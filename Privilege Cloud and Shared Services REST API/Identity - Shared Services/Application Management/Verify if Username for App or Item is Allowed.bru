@@ -1,0 +1,25 @@
+meta {
+  name: Verify if Username for App or Item is Allowed
+  type: http
+  seq: 29
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/ValidateUsernameIsAllowed
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "userName": "string"
+  }
+}

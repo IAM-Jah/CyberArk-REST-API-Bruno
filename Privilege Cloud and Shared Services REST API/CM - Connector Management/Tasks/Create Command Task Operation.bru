@@ -1,0 +1,77 @@
+meta {
+  name: Create Command Task Operation
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{subdomain}}.cyberark.cloud/api/tasks/operation
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "request": {
+      "componentName": "AWSAccessKeys",
+      "componentSubFolder": "srs/plugin",
+      "componentVersion": "stable, 1.2.3.4",
+      "operationName": "rotate_password",
+      "inputVars": {},
+      "dependencies": [
+        {
+          "componentName": "AWSAccessKeys",
+          "componentSubFolder": "srs/plugin",
+          "componentVersion": "stable, 1.2.3.4"
+        }
+      ],
+      "temporaryPackageIds": [
+        "string"
+      ],
+      "encryption": {
+        "sessionKey": "string",
+        "sensitiveVarNames": [
+          "string"
+        ],
+        "sessionId": "96e14f8d-ffe5-4314-8b65-b6b941f35a13"
+      }
+    },
+    "targetFilter": {
+      "connectorId": "ManagementAgent_96e1df8d-ffe5-4314-8b65-b6b941f35a13",
+      "poolFilter": {
+        "poolIds": [
+          "string"
+        ],
+        "excludeFilter": {
+          "connector_ids": [
+            "ManagementAgent_36458e49-9515-be54-7152-17f761ca9e1f"
+          ]
+        },
+        "poolIdentifiers": {
+          "additionalProp1": "string",
+          "additionalProp2": "string",
+          "additionalProp3": "string"
+        },
+        "poolNetworkIds": [
+          "string"
+        ]
+      }
+    },
+    "operationSpecs": {
+      "timeout": {
+        "queuedTimeout": 0,
+        "runningTimeout": 0,
+        "overallTimeout": 0
+      },
+      "mode": "Parallel"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+meta {
+  name: Set Tenant Custom Configuration
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/TenantConfig/SetCustomerConfig
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "OtpCodeLength": 0,
+    "TenantUrlDeprecationEnabled": true,
+    "Icon": "string",
+    "EnableUmc": true,
+    "SendPasswordChangeConfirmation": true,
+    "LoginBannerMessage": "string",
+    "StoreCorporateAppUserCredsInVault": true,
+    "LoginSampleText": "string",
+    "PortalImage": "string",
+    "LoginBannerMessageL10nEnabled": true,
+    "CompanySupportLink": "string",
+    "ThemeColor": "string",
+    "GlobalImage": "string",
+    "ZsoCertLifeTime": 0,
+    "MfaAttributeMapping": [
+      {}
+    ],
+    "LoginBackgroundImage": "string",
+    "StorePersonalAppUserCredsInVault": true,
+    "CompanyName": "string",
+    "IsOriginValidationEnabled": true,
+    "reCaptchaThreshold": 0,
+    "WelcomeMessage": "string",
+    "ZsoCertRenewalWindow": 0,
+    "EmailImage": "string",
+    "LoginImage": "string",
+    "IsOriginValidationOnGetEnabled": true,
+    "ForgotUsernameAllowed": true,
+    "NavigationColor": "string",
+    "IsPasswordPersistanceEnabled": true,
+    "FastSearchEnabledEntities": [
+      "string"
+    ],
+    "PrivacyPolicyLink": "string",
+    "AllowCors": [
+      "string"
+    ],
+    "BackgroundColor": "string",
+    "EnableQRCode": true,
+    "CustomerCompany": "string",
+    "DisplayLoginBanner": true,
+    "TermsOfUseLink": "string"
+  }
+}

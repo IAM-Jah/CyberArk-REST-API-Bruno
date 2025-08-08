@@ -1,0 +1,40 @@
+meta {
+  name: Authorize
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/OAuth2/Authorize/:clientAppID?client_id=90ab28fc-f890-4b3d-9c44-722c9b6ecf2&redirect_uri=string&response_type=id_token&scope=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  client_id: 90ab28fc-f890-4b3d-9c44-722c9b6ecf2
+  redirect_uri: string
+  response_type: id_token
+  scope: string
+  ~client_secret: string
+  ~code_challenge: PCKEFlowOnly
+  ~code_challenge_method: SHA256
+  ~prompt: string
+  ~state: string
+}
+
+params:path {
+  clientAppID: {{clientAppID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:form-urlencoded {
+  grant_type: client_credentials
+  scope: AllAPIsScope
+}

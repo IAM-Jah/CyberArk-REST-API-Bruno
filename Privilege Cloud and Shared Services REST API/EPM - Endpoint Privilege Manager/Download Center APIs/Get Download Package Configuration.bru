@@ -1,0 +1,25 @@
+meta {
+  name: Get Download Package Configuration
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/Computers/Packages/:packageID/Configuration
+  body: none
+  auth: bearer
+}
+
+params:path {
+  packageID: packageID
+  setID: setID
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{EPMToken}}
+}

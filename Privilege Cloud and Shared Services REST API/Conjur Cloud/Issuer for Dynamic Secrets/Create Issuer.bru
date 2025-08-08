@@ -1,0 +1,26 @@
+meta {
+  name: Create Issuer
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/issuers/conjur?id=string&max_ttl=integer&type=enum
+  body: none
+  auth: bearer
+}
+
+params:query {
+  id: string
+  max_ttl: integer
+  type: enum
+  ~data: JSONObject
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:form-urlencoded {
+  enabled: true
+}

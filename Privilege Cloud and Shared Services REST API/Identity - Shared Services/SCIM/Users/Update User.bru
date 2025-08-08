@@ -1,0 +1,60 @@
+meta {
+  name: Update User
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/Users/:userID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  userID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "name": {
+      "formatted": "string",
+      "familyName": "string",
+      "givenName": "string"
+    },
+    "displayName": "string",
+    "preferredLanguage": "string",
+    "active": true,
+    "userName": "string",
+    "emails": [
+      {
+        "type": "string",
+        "primary": "string",
+        "value": "string"
+      }
+    ],
+    "phoneNumbers": [
+      {
+        "type": "string",
+        "value": "string"
+      }
+    ],
+    "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+      "organization": "string",
+      "manager": {
+        "value": "string"
+      }
+    },
+    "urn:scim:schemas:extension:custom:2.0": {},
+    "schemas": [
+      "string"
+    ]
+  }
+}

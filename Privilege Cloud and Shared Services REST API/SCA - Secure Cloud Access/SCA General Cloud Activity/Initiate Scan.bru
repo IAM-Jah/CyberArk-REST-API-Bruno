@@ -1,0 +1,29 @@
+meta {
+  name: Initiate Scan
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.sca.cyberark.cloud/api/cloud/rescan
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{SCAToken}}
+}
+
+body:json {
+  {
+    "cloudProvider": 0,
+    "accountType": "string",
+    "entityIds": [
+      "string"
+    ]
+  }
+}

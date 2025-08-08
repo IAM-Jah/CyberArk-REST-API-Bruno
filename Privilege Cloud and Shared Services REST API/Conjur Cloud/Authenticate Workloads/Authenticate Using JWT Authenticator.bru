@@ -1,0 +1,33 @@
+meta {
+  name: Authenticate Using JWT Authenticator
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/authn-jwt/:serviceID/conjur/:hostID/authenticate
+  body: formUrlEncoded
+  auth: none
+}
+
+params:path {
+  hostID: host%2Fjwt-apps%2Fmyapp
+  serviceID: myVendor
+}
+
+headers {
+  Accept-Encoding: base64
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:text {
+  Put API Key here, for example: 14m9cf91wfsesv1kkhevg12cdywm2wvqy6s8sk53z1ngtazp1t9tykc
+}
+
+body:form-urlencoded {
+  jwt: eyJhbGciOiJSUzI1NiIs......uTonCA
+}
+
+script:post-response {
+  bru.setEnvVar("conjurToken", res.body);
+}

@@ -1,0 +1,40 @@
+meta {
+  name: Add a Bulk of Target Sets
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{subdomain}}-jit.cyberark.cloud/api/discovery/targetsets/bulk
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "target_sets_mapping": [
+      {
+        "strong_account_id": "string",
+        "target_sets": [
+          {
+            "name": "string",
+            "description": "string",
+            "provision_format": "string",
+            "enable_certificate_validation": true,
+            "secret_type": "IdentityUser",
+            "secret_id": "string",
+            "type": "Domain"
+          }
+        ]
+      }
+    ]
+  }
+}

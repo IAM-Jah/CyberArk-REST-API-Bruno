@@ -1,0 +1,37 @@
+meta {
+  name: Onboard a Discovered Account
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/discovered-accounts/:accountID/onboard
+  body: json
+  auth: bearer
+}
+
+params:path {
+  accountID: {{accountID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "coreAttributes": {
+    "safeName":"{{safeName}}",
+    "platformID":"{{platformID}}"
+    },
+    //"additionalProperties": {
+    //"property": "value"
+    //},
+    "secret":"initialSecretValue",
+    "resetSecret":"True"
+  }
+}

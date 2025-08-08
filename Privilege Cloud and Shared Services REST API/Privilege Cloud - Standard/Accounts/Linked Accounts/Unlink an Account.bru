@@ -1,0 +1,21 @@
+meta {
+  name: Unlink an Account
+  type: http
+  seq: 2
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Accounts/:accountID/LinkAccount/:extraPassIndex/
+  body: none
+  auth: none
+}
+
+params:path {
+  extraPassIndex: {{extraPassIndex}}
+  accountID: {{accountID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

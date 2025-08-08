@@ -1,0 +1,26 @@
+meta {
+  name: Rename a Tag
+  type: http
+  seq: 18
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/RenameTag
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "newTagname": "string",
+    "tagname": "string"
+  }
+}

@@ -1,0 +1,26 @@
+meta {
+  name: Create Tokens
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/host_factory_tokens
+  body: formUrlEncoded
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+auth:bearer {
+  token: token="{{conjurToken}}"
+}
+
+body:form-urlencoded {
+  expiration: 2017-08-04T22:27:20+00:00
+  host_factory: conjur:host_factory:hf-db
+  ~count: integer
+  ~cidr: ["192.0.2.1","192.0.2.2"]
+}

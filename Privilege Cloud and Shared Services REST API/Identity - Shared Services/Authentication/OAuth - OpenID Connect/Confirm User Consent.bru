@@ -1,0 +1,35 @@
+meta {
+  name: Confirm User Consent
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/OAuth2/Confirm/:clientAppID?bounce=string&deniedScopes=string&scopes=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  bounce: string
+  deniedScopes: string
+  scopes: string
+  ~result: integer
+}
+
+params:path {
+  clientAppID: {{cientAppID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:form-urlencoded {
+  grant_type: client_credentials
+  scope: AllAPIsScope
+}

@@ -1,0 +1,41 @@
+meta {
+  name: Advance Authentication - Start OOB
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/AdvanceAuthentication
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "TenantId": "{{identityTenantID}}",
+      "SessionId": "{{identitySessionID}}",
+      "MechanismId": "{{identityMechanismID2}}",
+      "Action": "StartOOB"
+  }
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  const jsonData = res.getBody()
+  
+  // Check if OOB process was initiated successfully.
+  test("Check for invalid request", function() {
+    // If 'Token' doesn't exist, present an error message indicating the user should continue with authentication.
+    expect(
+      jsonData,
+      "OOB request was not initiated. Validate 'identityMechanismID2' environment variable or request body/URI syntax"
+    ).to.have.property("Action");
+  });
+}

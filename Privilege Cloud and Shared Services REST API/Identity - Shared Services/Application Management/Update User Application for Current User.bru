@@ -1,0 +1,26 @@
+meta {
+  name: Update User Application for Current User
+  type: http
+  seq: 23
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/UpdateUserApplication
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "appkey": "string",
+    "notes": "string"
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Get Apps Associated with Role
+  type: http
+  seq: 12
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Core/GetAssignedAdministrativeRights?role=roleUUID
+  body: none
+  auth: bearer
+}
+
+params:query {
+  role: roleUUID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

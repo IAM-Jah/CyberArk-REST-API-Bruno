@@ -1,0 +1,24 @@
+meta {
+  name: Get Registration Challenge
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/U2f/GetRegistrationChallenge?authenticatorType=string&userDefinedName=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  authenticatorType: string
+  userDefinedName: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

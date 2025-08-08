@@ -1,0 +1,42 @@
+meta {
+  name: Start Forgot Username Session
+  type: http
+  seq: 15
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/ForgotUsername
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "Version": "1.0"
+  }
+}
+
+tests {
+  const jsonData = res.getBody().Result
+  
+  test("Session ID Exists", function() {
+      expect(jsonData).to.have.property('SessionId');
+      bru.setEnvVar("identitySessionID", jsonData.SessionId);
+  });
+  
+  test("Identity Mechanism ID Exists", function() {
+      if (jsonData.Challenges[0].Mechanisms[0].MechanismId) {
+          bru.setEnvVar("identityMechanismID", jsonData.Challenges[0].Mechanisms[0].MechanismId);
+      }
+  });
+  
+  test("Identity Mechanism ID 2 Exists", function() {
+      if (jsonData.Challenges[1].Mechanisms[0].MechanismId) {
+          bru.setEnvVar("identityMechanismID2", jsonData.Challenges[1].Mechanisms[0].MechanismId);
+      }
+  });
+}

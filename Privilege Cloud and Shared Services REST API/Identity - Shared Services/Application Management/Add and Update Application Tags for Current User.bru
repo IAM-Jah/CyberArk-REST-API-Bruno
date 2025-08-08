@@ -1,0 +1,28 @@
+meta {
+  name: Add and Update Application Tags for Current User
+  type: http
+  seq: 26
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/UpsertTagsForApp
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "appkey": "string",
+    "tagnames": [
+      "string"
+    ]
+  }
+}

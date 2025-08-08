@@ -1,0 +1,29 @@
+meta {
+  name: Set Additional Attributes
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/ExtData/SetColumns
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Columns": {
+      "PhoneNumber": 919876543210
+    },
+    "ID": "abc-e2e-123",
+    "Table": "Users"
+  }
+}

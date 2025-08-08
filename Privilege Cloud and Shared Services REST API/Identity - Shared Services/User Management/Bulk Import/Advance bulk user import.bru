@@ -1,0 +1,32 @@
+meta {
+  name: Advance bulk user import
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/SubmitUploadedFile?importType=ImportBulkUser
+  body: json
+  auth: bearer
+}
+
+params:query {
+  importType: ImportBulkUser
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+      "AdminEmail" : "admin@example.com",
+      "ReturnID": "{{returnID}}",
+      "SendEmailInvite": true,
+      "SendSMSInvite": false
+  }
+}

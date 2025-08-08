@@ -1,0 +1,21 @@
+meta {
+  name: Forgot Username
+  type: http
+  seq: 14
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/ForgotUsername
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "SearchKey": "Email address"
+  }
+}

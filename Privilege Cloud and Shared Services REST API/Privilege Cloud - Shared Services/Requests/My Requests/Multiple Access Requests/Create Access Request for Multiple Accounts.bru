@@ -1,0 +1,56 @@
+meta {
+  name: Create Access Request for Multiple Accounts
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/MyRequests/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+      "BulkItems": [
+          {
+              "Operation": "Add",
+              "Item": {
+                  "accountID": "{{accountID}}",
+                  "reason": "Requested through Bruno",
+                  "TicketingSystemName": "{{ticketingSystemName}}",
+                  "multipleAccessRequired": false,
+                  //"fromDate": 0,
+                  //"toDate": 0,
+                  "AdditionalInfo": {
+                      "Emergency": false,
+                      "RefNo": ""
+                  }
+              }
+          },
+          {
+              "Operation": "Add",
+              "Item": {
+                  "accountID": "23_6",
+                  "reason": "Requested through Bruno",
+                  "TicketingSystemName": "",
+                  "multipleAccessRequired": true,
+                  "fromDate": 0,
+                  "toDate": 0,
+                  "AdditionalInfo": {
+                      "Emergency": false,
+                      "RefNo": ""
+                  }
+              }
+          }
+      ]
+  }
+}

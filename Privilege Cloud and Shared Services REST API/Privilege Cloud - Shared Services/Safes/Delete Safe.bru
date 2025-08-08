@@ -1,0 +1,23 @@
+meta {
+  name: Delete Safe
+  type: http
+  seq: 7
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Safes/:safeID/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  safeID: {{safeID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

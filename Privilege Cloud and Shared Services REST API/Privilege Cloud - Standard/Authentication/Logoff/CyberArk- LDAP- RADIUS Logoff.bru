@@ -1,0 +1,20 @@
+meta {
+  name: CyberArk- LDAP- RADIUS Logoff
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Auth/Logoff/
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+script:post-response {
+  bru.setEnvVar("PAMSAMLToken", "");
+}

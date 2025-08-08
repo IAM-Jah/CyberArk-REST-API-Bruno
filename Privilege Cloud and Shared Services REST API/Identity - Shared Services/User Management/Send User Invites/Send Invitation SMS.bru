@@ -1,0 +1,23 @@
+meta {
+  name: Send Invitation SMS
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UserMgmt/SendLoginEmails?ID=userUUID
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ID: userUUID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Remove User from Team
+  type: http
+  seq: 6
+}
+
+delete {
+  url: https://api.alero.io/v2-edge/users/:userID/teams/:teamID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  teamID: teamID
+  userID: userID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

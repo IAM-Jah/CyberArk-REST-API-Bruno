@@ -1,0 +1,30 @@
+meta {
+  name: Bulk Remove Pool Identifier
+  type: http
+  seq: 13
+}
+
+delete {
+  url: https://{{subdomain}}.cyberark.cloud/private/pools/:poolID/identifiers-bulk
+  body: json
+  auth: bearer
+}
+
+params:path {
+  poolID: poolID
+}
+
+headers {
+  Content-Type: application/json
+  tenant-id: tenant-id
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "requests": {}
+  }
+}

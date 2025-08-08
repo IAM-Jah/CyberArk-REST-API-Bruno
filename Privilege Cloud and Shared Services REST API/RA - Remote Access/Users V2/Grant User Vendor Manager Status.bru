@@ -1,0 +1,54 @@
+meta {
+  name: Grant User Vendor Manager Status
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://api.alero.io/v2-edge/users/:userID/vendor-manager-permission
+  body: json
+  auth: bearer
+}
+
+params:path {
+  userID: userID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}
+
+body:json {
+  {
+    "accessPeriodStartDate": 0,
+    "accessPeriodEndDate": 0,
+    "allowedApps": [
+      {
+        "id": "string",
+        "siteId": "string"
+      }
+    ],
+    "accountActivation": "AUTOMATIC",
+    "maxInvitedVendors": 100000,
+    "userProvisioning": "ProvisionedByAlero",
+    "canInviteToWebApps": true,
+    "userGroups": [
+      "wJA|oOysu.`l$LZZfntcr|_XDXQSlRX|0 0-CL3E:;tQ:f5\",,!o-'DtI_1CQT^5tfUsQ~;DL{0t\"l"
+    ],
+    "idaptiveRoles": [
+      "TaVV#Gz GK$f_FPP\\p7Q{CC^O~uuk.1Rl`ZK{}-vcOg,{NF+W:fJ|?sAV,Ub"
+    ],
+    "provisioningUsername": "3;\"%:|}U#VL5& X-=DyQoteoPK}|_4}KKufaSt$Qd{2FUM'or",
+    "allowedEmailDomains": [
+      "I&FjD1X:DPfZgr%h+2?m=O,8H?\\T^hy;D^gnFg|%~NUPCydd'Y,XWekb^.$KabX;9@tXf_\\kjXZC@gJ"
+    ],
+    "canDelegatePermissionsToExternalVendorManagers": true,
+    "canCreateGroups": true,
+    "canInviteToAllGroups": true,
+    "canInviteToAllApps": true
+  }
+}

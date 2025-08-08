@@ -1,0 +1,25 @@
+meta {
+  name: Import Custom Ticketing System
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/ticketing-systems/import
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "ticketingZipFile": "zipFileContainingDLLAndXMLFiles"
+  }
+}

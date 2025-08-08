@@ -1,0 +1,23 @@
+meta {
+  name: Get U2F Devices for User
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/U2f/GetU2fDevicesForUser?type=string
+  body: none
+  auth: bearer
+}
+
+params:query {
+  type: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

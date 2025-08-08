@@ -1,0 +1,51 @@
+meta {
+  name: Create an Access Request
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/MyRequests
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+  "accountId": "<Account id>",
+  "reason":"<Reason>",
+  "TicketingSystemName": "<Ticketing system>",
+  "TicketId": "<Ticketid>",
+  "ConnectionComponent":"<Connection compmonent id>",
+  "MultipleAccessRequired":false,
+  //"FromDate":<0-max integer>,
+  //"ToDate":<0-max integer>,
+  "AdditionalInfo":
+  {
+  "<Additional Info name>":"<Addition Info value>",
+  "<Additional Info name>":"<Addition Info value>"
+  },
+  "UseConnect":true,
+  "ConnectionParams":
+  {
+  "<Connection parameter name>":
+  {
+  "value":"<Connection parameter value>",
+  "ShouldSave":true
+  },
+  "<Connection parameter name>":
+  {
+  "value":"<Connection parameter value>",
+  "ShouldSave":true
+  }
+  }
+  }
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Monitor an Active Session
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/LiveSessions/:activeSessionID/Monitor/
+  body: none
+  auth: none
+}
+
+params:path {
+  activeSessionID: {{activeSessionId}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+  Accept: RDP/PSMGW
+}

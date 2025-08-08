@@ -1,0 +1,33 @@
+meta {
+  name: Add Additional Attributes
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/ExtData/UpdateSchema
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Columns": {
+      "StreetAddress": {
+        "Title": "Street Address",
+        "Type": "text",
+        "Description": "4817 Hide A Way Road"
+      }
+    },
+    "AllowDelete": true,
+    "Table": "Users"
+  }
+}

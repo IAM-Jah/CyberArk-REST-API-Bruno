@@ -1,0 +1,25 @@
+meta {
+  name: Upload Secured Item Icon
+  type: http
+  seq: 25
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/UploadSecuredItemIcon
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "sItemkey": "string"
+  }
+}

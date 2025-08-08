@@ -1,0 +1,23 @@
+meta {
+  name: Get a Discovered Accounts Activities
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/discovered-accounts/:accountID/activities
+  body: none
+  auth: bearer
+}
+
+params:path {
+  accountID: {{accountID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

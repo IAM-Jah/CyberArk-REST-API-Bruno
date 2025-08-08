@@ -1,0 +1,29 @@
+meta {
+  name: Get Accounts
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Accounts
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~search: {{searchTerms}}
+  ~searchType: contains/startswith
+  ~offset: 0
+  ~limit: 1000
+  ~sort: UserName asc/desc
+  ~filter: safeName eq {{safeName}}
+  ~savedFilter: New/Deleted/etc
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

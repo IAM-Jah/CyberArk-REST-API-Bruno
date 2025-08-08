@@ -1,0 +1,44 @@
+meta {
+  name: Advance Authentication - Security Question
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/AdvanceAuthentication
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "TenantId": "{{identityTenantID}}",
+      "SessionId": "{{identitySessionID}}",
+      "MechanismId": "{{identityMechanismID2}}",
+      "Action": "Answer",
+      "Answer": "{{securityQuestionAnswer}}"
+  }
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  const jsonData = res.getBody().Result
+  
+  // Check if 'Token' exists, indicating that all MFA requirements are complete.
+  test("Check for token", function() {
+    // If 'Token' doesn't exist, present an error message indicating the user should continue with authentication.
+    expect(
+      jsonData,
+      "Identity Token does not exist: continue with Advance Authentication API(s) to complete authentication process"
+    ).to.have.property("Token");
+      // If 'Token' exists, store it as 'IdentityToken' environment variable.
+      bru.setEnvVar("identityToken", jsonData.Token);
+  });
+}

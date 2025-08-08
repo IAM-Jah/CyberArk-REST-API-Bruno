@@ -1,0 +1,31 @@
+meta {
+  name: List Pool Identifiers
+  type: http
+  seq: 12
+}
+
+get {
+  url: https://{{subdomain}}.cyberark.cloud/pools/:poolID/identifiers
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~continuationToken: string
+  ~filter: string
+  ~order: string
+  ~pageSize: string
+  ~sort: string
+}
+
+params:path {
+  poolID: poolID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

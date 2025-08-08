@@ -1,0 +1,38 @@
+meta {
+  name: Update User with Patch
+  type: http
+  seq: 5
+}
+
+patch {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/Users/:userID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  userID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Operations": [
+      {
+        "op": "string",
+        "path": "string",
+        "value": {}
+      }
+    ],
+    "schemas": [
+      "string"
+    ]
+  }
+}

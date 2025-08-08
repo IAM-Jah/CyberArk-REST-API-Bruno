@@ -1,0 +1,22 @@
+meta {
+  name: Start Social Authentication
+  type: http
+  seq: 17
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Security/StartSocialAuthentication
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "PostExtIdpAuthCallbackUrl": "string",
+    "IdpName": "string"
+  }
+}

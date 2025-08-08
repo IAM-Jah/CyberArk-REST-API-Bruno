@@ -1,0 +1,69 @@
+vars {
+  accountID: 21
+  accountName: accountObjectNameFromDetailsPage
+  activeSessionId: sessionID
+  appAuthMethodID: appAuthMethodID
+  appID: applicationID
+  authType: Cyberark/LDAP/RADIUS
+  bulkAccessRequestID: identifierForBulkAccessRequest
+  bulkUploadID: bulkUploadID
+  CCPAddress: FQDNOrIP
+  challengeID: challengeID
+  clientAppID: OAuthClientAppID
+  clientAppUsername: username@cyberark.cloud.suffix
+  componentID: putSystemHealthComponentIDHere
+  directoryName: directoryName
+  directoryUID: 1
+  domainName: domain.com
+  domainURL: domain.com
+  DPAPolicyID: DPAPolicyID
+  EPMAddress: login.epm.cyberark.com/login
+  extraPassIndex: 1
+  groupID: putGroupIDHere
+  identityAPIUsername: username@cyberark.cloud.suffix
+  identityMechanismID2: 
+  identityMechanismID: 
+  identitySessionID: 
+  identityTenantID: abc1234
+  identityUsername: username@cyberark.cloud.suffix
+  imageType: Square/Watermark
+  ldapMappingID: 1
+  MFAKeyFormat: PPK/PEM/OpenSSH
+  PAMAuthID: saml
+  PAMUserName: userName
+  platformID: win-dom-plat-id
+  platformName: platformNameOrID
+  recordingID: recordingID
+  requestID: requestID
+  returnID: returnID
+  ruleID: ruleID
+  ruleSetID: ruleSetID
+  safeID: 42
+  safeMemberName: safeMemberNameUserOrGroup
+  safeName: safeName
+  safeQuery: safeQuery
+  searchTerms: RESTStandardSearch
+  strongAccountID: strongAccountID
+  subdomain: PrivCloudSubdomain
+  ticketID: ticketNumber
+  ticketingSystemName: ticketingSystemName
+  userID: 22
+  dependentAccountID: 
+}
+vars:secret [
+  identityAPIPassword,
+  CCPRetrievedSecret,
+  clientAppPassword,
+  EPMSAMLToken,
+  EPMToken,
+  identityPassword,
+  identityToken,
+  PAMNewPassword,
+  PAMPassword,
+  PAMSAMLToken,
+  PAMSessionToken,
+  remoteAccessToken,
+  SCAToken,
+  securityQuestionAnswer,
+  conjurToken
+]

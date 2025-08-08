@@ -1,0 +1,43 @@
+meta {
+  name: Create Privileged Data
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/scim/PrivilegedData
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "name": "string",
+    "description": "string",
+    "type": "string",
+    "urn:ietf:params:scim:schemas:cyberark:1.0:PrivilegedData": {
+      "safe": "string",
+      "remoteMachinesAccess": {
+        "remoteMachines": "string",
+        "accessRestrictedToRemoteMachines": "string"
+      },
+      "properties": [
+        {
+          "key": "string",
+          "value": "string"
+        }
+      ]
+    },
+    "schemas": [
+      "string"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+meta {
+  name: Get Scans
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.secretshub.cyberark.cloud/api/scans
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/x.secretshub.beta+json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "scope": {
+      "secretStoresIds": [
+        "store-c3051c3a-5584-43e3-905d-420b37d5633c"
+      ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Get Active Sessions
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/LiveSessions
+  body: none
+  auth: none
+}
+
+params:query {
+  ~Safe: {{safeName}}
+  ~FromTime: UTCInteger
+  ~ToTime: UTCInteger
+  ~Activities: activitiesKeywords
+  ~Limit: 25
+  ~Sort: RemoteMachineOrOtherProperty
+  ~offset: 0
+  ~Search: {{searchTerms}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

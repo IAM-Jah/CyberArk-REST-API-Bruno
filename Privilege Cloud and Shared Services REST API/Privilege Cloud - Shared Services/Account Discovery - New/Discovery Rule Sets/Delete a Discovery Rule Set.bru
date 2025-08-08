@@ -1,0 +1,23 @@
+meta {
+  name: Delete a Discovery Rule Set
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/api/discovery-rule-sets/:ruleSetID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  ruleSetID: {{ruleSetID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

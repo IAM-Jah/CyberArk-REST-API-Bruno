@@ -1,0 +1,28 @@
+meta {
+  name: Get All Available User Portal Data
+  type: http
+  seq: 28
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/GetUPData?force=string&username=string
+  body: json
+  auth: bearer
+}
+
+params:query {
+  force: string
+  username: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {}
+}

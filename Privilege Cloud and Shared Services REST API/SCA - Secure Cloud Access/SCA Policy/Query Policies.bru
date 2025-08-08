@@ -1,0 +1,25 @@
+meta {
+  name: Query Policies
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.sca.cyberark.cloud/api/policies
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~status: number1-6
+  ~free_text: string
+  ~cloud_provider: number1-4
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{SCAToken}}
+}

@@ -1,0 +1,37 @@
+meta {
+  name: Edit Directory Mapping
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Configuration/LDAP/Directories/:domainName/Mappings/:id/
+  body: json
+  auth: none
+}
+
+params:path {
+  id: {{ldapMappingID}}
+  domainName: {{domainURL}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "LDAPBranch": "string",
+    "MappingAuthorizations": [
+    "AddSafes, AuditUsers, AddUpdateUsers, ResetUsersPasswords, ActivateUsers, AddNetworkAreas, ManageServerFileCategories, BackupAllSafes, RestoreAllSafes"
+    ],
+    "MappingName": "nameOfRoleCreated",
+    "LDAPQuery": "filterAppliedToUsersInLDAPGroup",
+    "DomainGroups": [
+    "DomainGroup1, Group2, Group3"
+    ],
+    "UserActivityLogPeriod": <1-3650>
+  }
+  
+}

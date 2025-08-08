@@ -1,0 +1,25 @@
+meta {
+  name: Delete a Tag
+  type: http
+  seq: 11
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/UPRest/DeleteTag
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "tagname": "string"
+  }
+}

@@ -1,0 +1,57 @@
+meta {
+  name: Start bulk user import
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/CDirectoryService/GetUsersFromCsvFile?importType=ImportBulkUser
+  body: json
+  auth: bearer
+}
+
+params:query {
+  importType: ImportBulkUser
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "File_Name": {
+      "InEverybodyRole": true,
+      "SendSmsInvite": true,
+      "InSysAdminRole": true,
+      "Description": "string",
+      "Name": "string",
+      "MobileNumber": "string",
+      "Password": "string",
+      "CmaRedirectedUserUuid": "string",
+      "ServiceUser": true,
+      "OfficeNumber": "string",
+      "ReportsTo": "string",
+      "SendEmailInvite": true,
+      "HomeNumber": "string",
+      "DisplayName": "string",
+      "ForcePasswordChangeNext": true,
+      "PasswordNeverExpire": true,
+      "Mail": "string"
+    },
+    "FileName": "string"
+  }
+}
+
+tests {
+  var jsonData = JSON.parse(responseBody);
+  if(jsonData.success) {
+  bru.setVar("returnID", jsonData.Result.ReturnID);
+  } else {
+      console.error(jsonData.Message);
+  }
+}

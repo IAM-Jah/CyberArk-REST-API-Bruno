@@ -1,0 +1,59 @@
+meta {
+  name: Create Vendor Invitation
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://api.alero.io/v2-edge/invitations/vendor-invitations
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}
+
+body:json {
+  {
+    "companyName": "b:,~W:yQEP%Xg320X9G$?3Fo8!ox'2sydh",
+    "emailAddress": "string",
+    "firstName": ";8nfkQXO",
+    "lastName": "BLt1srWqnZV\"|c.$cmx\",N,o_#&4BP_MAUbsdE.w}} Q%fk{S?",
+    "phoneNumber": "+972058655541",
+    "initialStatus": "Activated",
+    "accessStartDate": 0,
+    "accessEndDate": 0,
+    "accessTimeDetails": {
+      "timeZone": "America/New_York",
+      "allowedDays": [
+        "MONDAY"
+      ],
+      "allDay": true,
+      "workingHoursStartSeconds": 0,
+      "workingHoursEndSeconds": 0
+    },
+    "canInvite": true,
+    "comments": "D5j0JP2s!`FO9XQN&vUxN'iyFdNl^lzB1S%_#=WO5YH.PRkoBYma",
+    "provisioningType": "ProvisionedByAlero",
+    "provisioningUsername": "9xXSOfMCSXTcI2HE_5rX\"3R|Byn?B9U0iN\"2x{Vm8}DJAo_RYx2yJ.?bimL\"vgD8Rk5C2LAa}",
+    "provisioningGroups": [
+      "\\8{Lo&Ju1,w~:w3cr3uweelvW#"
+    ],
+    "applications": [
+      {
+        "siteId": "string",
+        "applicationId": "string"
+      }
+    ],
+    "customText": "h{}gpf`7KcY!S\"vvd|~Qm=p#b9{A_H?Vb",
+    "maxNumOfInvitedVendors": 2147483647,
+    "phoneAndEmailAuth": true,
+    "invitedVendorsInitialStatus": "Activated",
+    "enableWebAppsAccess": true
+  }
+}

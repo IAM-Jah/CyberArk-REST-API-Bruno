@@ -1,0 +1,27 @@
+meta {
+  name: Update User Role
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://api.alero.io/v2-edge/users/:userID/role
+  body: json
+  auth: bearer
+}
+
+params:path {
+  userID: userID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}
+
+body:json {
+  "TenantAdmin"
+}

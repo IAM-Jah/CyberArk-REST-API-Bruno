@@ -1,0 +1,27 @@
+meta {
+  name: List Policies
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}-jit.cyberark.cloud/api/access-policies
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~extended: true
+  ~filter: ((updatedOn gt '2024-01-01 10:00:00') and (platforms eq 'AWS'))
+  ~limit: 1000
+  ~offset: 0
+  ~sort: id asc
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

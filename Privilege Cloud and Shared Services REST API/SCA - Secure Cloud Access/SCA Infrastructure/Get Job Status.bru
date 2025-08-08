@@ -1,0 +1,23 @@
+meta {
+  name: Get Job Status
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{subdomain}}.sca.cyberark.cloud/api/integrations/status?jobid=jobID
+  body: none
+  auth: bearer
+}
+
+params:query {
+  jobid: jobID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{SCAToken}}
+}

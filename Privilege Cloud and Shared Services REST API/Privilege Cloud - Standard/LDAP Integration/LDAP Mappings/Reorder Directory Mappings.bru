@@ -1,0 +1,26 @@
+meta {
+  name: Reorder Directory Mappings
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/Configuration/LDAP/Directories/:directoryName/Mappings/Reorder/
+  body: json
+  auth: none
+}
+
+params:path {
+  directoryName: {{directoryName}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "MappingsOrder": [ <mapping id 1>, <mapping id 2>, ..., <mapping id N> ]
+  }
+}

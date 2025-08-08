@@ -1,0 +1,20 @@
+meta {
+  name: Privilege Cloud System Health Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.com/PasswordVault/API/ComponentsMonitoringDetails/:componentID/
+  body: none
+  auth: none
+}
+
+params:path {
+  componentID: {{componentID}}
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: {{PAMSessionToken}}
+}

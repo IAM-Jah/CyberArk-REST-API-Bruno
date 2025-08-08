@@ -1,0 +1,23 @@
+meta {
+  name: Activate Rotational Group Platform
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/platforms/rotationalGroups/:groupID/activate/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  groupID: {{groupID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Get Safes by Platform ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{subdomain}}.privilegecloud.cyberark.cloud/PasswordVault/API/Platforms/:platformID/Safes/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~Safe: {{safeName}}
+}
+
+params:path {
+  platformID: {{platformID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}

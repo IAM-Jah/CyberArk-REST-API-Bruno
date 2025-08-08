@@ -1,0 +1,26 @@
+meta {
+  name: Unassign Administrative Rights for Role
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Roles/UnAssignSuperRights
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "Role": "string",
+    "Path": "string"
+  }
+}

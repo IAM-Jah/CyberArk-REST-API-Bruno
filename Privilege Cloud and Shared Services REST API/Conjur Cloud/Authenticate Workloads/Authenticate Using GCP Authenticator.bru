@@ -1,0 +1,28 @@
+meta {
+  name: Authenticate Using GCP Authenticator
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{subdomain}}.secretsmgr.cyberark.cloud/api/authn-gcp/conjur/authenticate
+  body: formUrlEncoded
+  auth: none
+}
+
+headers {
+  Accept-Encoding: base64
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:text {
+  Put API Key here, for example: 14m9cf91wfsesv1kkhevg12cdywm2wvqy6s8sk53z1ngtazp1t9tykc
+}
+
+body:form-urlencoded {
+  jwt: eyJhbGciOiJSUzI1NiIs......uTonCA
+}
+
+script:post-response {
+  bru.setEnvVar("conjurToken", res.body);
+}

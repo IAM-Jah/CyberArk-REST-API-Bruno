@@ -1,0 +1,28 @@
+meta {
+  name: UserInfo
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/OAuth2/UserInfo/:clientAppID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  clientAppID: {{clientAppID}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:form-urlencoded {
+  grant_type: client_credentials
+  scope: AllAPIsScope
+}

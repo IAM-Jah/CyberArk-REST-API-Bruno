@@ -1,0 +1,26 @@
+meta {
+  name: Start Job
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{identityTenantID}}.id.cyberark.cloud/Task/CancelJob
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
+
+body:json {
+  {
+    "jobId": "string",
+    "reason": "string"
+  }
+}

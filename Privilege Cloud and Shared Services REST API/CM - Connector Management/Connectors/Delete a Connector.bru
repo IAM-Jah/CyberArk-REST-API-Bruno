@@ -1,0 +1,23 @@
+meta {
+  name: Delete a Connector
+  type: http
+  seq: 6
+}
+
+delete {
+  url: https://{{subdomain}}.cyberark.cloud/api/connectors/:connectorID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  connectorID: connectorID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{identityToken}}
+}
