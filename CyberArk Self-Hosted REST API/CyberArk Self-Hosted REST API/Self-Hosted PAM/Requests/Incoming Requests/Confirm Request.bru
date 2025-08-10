@@ -1,0 +1,29 @@
+meta {
+  name: Confirm Request
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/incomingrequests/:requestID/confirm
+  body: json
+  auth: bearer
+}
+
+params:path {
+  requestID: requestID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "Reason":"Accepted via Bruno"
+  }
+}

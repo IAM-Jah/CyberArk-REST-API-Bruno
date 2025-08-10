@@ -1,0 +1,27 @@
+meta {
+  name: Create Group
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/UserGroups/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+     "groupName": "nameOfGroupInVault",
+    "description": "The users in this group all have the same authorizations",
+    "location": "\\"
+  }
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Get Platforms
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Platforms/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~Active: true/false
+  ~PlatformType: Group/Regular
+  ~PlatformName: string
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

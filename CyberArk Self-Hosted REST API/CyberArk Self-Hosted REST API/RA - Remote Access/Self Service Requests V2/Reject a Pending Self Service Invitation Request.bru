@@ -1,0 +1,23 @@
+meta {
+  name: Reject a Pending Self Service Invitation Request
+  type: http
+  seq: 2
+}
+
+delete {
+  url: https://api.alero.io/v2-edge/selfServiceRequests/:ID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  ID: ID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

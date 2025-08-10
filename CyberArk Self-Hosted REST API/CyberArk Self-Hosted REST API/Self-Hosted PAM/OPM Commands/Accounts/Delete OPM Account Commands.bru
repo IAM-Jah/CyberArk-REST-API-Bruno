@@ -1,0 +1,23 @@
+meta {
+  name: Delete OPM Account Commands
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/Account/:accountDetails/PrivilegedCommands/{id/}
+  body: none
+  auth: bearer
+}
+
+params:path {
+  accountDetails: {AccountAddress}|{AccountUserName}|{AccountPolicyId}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

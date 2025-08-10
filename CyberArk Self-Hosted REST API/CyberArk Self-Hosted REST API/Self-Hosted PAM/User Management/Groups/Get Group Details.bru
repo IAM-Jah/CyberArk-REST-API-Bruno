@@ -1,0 +1,27 @@
+meta {
+  name: Get Group Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/UserGroups/:groupID
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~includeMembers: True
+}
+
+params:path {
+  groupID: groupID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

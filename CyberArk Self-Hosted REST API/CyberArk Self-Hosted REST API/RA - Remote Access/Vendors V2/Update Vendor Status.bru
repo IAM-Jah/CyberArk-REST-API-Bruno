@@ -1,0 +1,27 @@
+meta {
+  name: Update Vendor Status
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://api.alero.io/v2-edge/vendors/:vendorID/status
+  body: json
+  auth: bearer
+}
+
+params:path {
+  vendorID: vendorID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}
+
+body:json {
+  "Activated"
+}

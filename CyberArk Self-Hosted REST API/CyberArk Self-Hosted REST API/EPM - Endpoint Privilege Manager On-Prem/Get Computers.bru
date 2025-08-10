@@ -1,0 +1,30 @@
+meta {
+  name: Get Computers
+  type: http
+  seq: 16
+}
+
+get {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/Computers
+  body: none
+  auth: none
+}
+
+params:query {
+  ~ComputerName: eq 'comp01'
+  ~Platform: eq 'MacOS'
+  ~Status: in('Disconnected', 'Support')
+  ~offset: integer
+  ~limit: integer
+}
+
+params:path {
+  setID: setID
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: basic {{EPMToken}}
+  VFUser: {{EPMToken}}
+}

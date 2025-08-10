@@ -1,0 +1,23 @@
+meta {
+  name: Get Session Management Policy of Platform
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Platforms/Targets/:platformId/PrivilegedSessionManagement/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  platformId: platformID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

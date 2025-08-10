@@ -1,0 +1,28 @@
+meta {
+  name: Get Reports
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Reports
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~offset: integer
+  ~limit: integer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-reports.htm
+}

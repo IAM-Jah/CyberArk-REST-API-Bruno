@@ -1,0 +1,19 @@
+meta {
+  name: Get PTA Administration
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/pta/API/administration
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}

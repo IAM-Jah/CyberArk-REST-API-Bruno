@@ -1,0 +1,19 @@
+meta {
+  name: Server
+  type: http
+  seq: 3
+}
+
+get {
+  url: https:{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/Server/
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

@@ -1,0 +1,28 @@
+meta {
+  name: Delete Dependent Account
+  type: http
+  seq: 6
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Accounts/:accountID/dependentAccounts/:dependentAccountID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  dependentAccountID: {{dependentAccountID}}
+  accountID: {{accountName}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/delete-dependent-account.htm
+}

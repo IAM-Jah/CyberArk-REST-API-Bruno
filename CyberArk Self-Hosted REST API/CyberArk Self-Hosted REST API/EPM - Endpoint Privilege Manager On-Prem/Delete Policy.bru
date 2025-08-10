@@ -1,0 +1,22 @@
+meta {
+  name: Delete Policy
+  type: http
+  seq: 14
+}
+
+delete {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/Policies/:policyID
+  body: none
+  auth: none
+}
+
+params:path {
+  policyID: policyID
+  setID: setID
+  version: version
+}
+
+headers {
+  Authorization: basic {{EPMToken}}
+  ~VFUser: {{EPMToken}}
+}

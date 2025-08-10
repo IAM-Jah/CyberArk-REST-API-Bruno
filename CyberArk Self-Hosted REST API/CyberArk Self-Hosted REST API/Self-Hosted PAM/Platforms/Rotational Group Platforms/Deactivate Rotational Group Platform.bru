@@ -1,0 +1,23 @@
+meta {
+  name: Deactivate Rotational Group Platform
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/platforms/rotationalGroups/:platformID/deactivate/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  platformID: platformID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

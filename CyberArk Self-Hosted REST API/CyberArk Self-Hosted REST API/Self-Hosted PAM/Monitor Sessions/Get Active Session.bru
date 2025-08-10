@@ -1,0 +1,23 @@
+meta {
+  name: Get Active Session
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/livesessions/:liveSessionID/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  liveSessionID: liveSessionID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

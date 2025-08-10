@@ -1,0 +1,23 @@
+meta {
+  name: Disable User
+  type: http
+  seq: 10
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Users/:userID/disable
+  body: none
+  auth: bearer
+}
+
+params:path {
+  userID: userIDForDisable
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

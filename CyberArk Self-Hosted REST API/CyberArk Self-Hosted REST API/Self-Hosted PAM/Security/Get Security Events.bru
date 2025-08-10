@@ -1,0 +1,25 @@
+meta {
+  name: Get Security Events
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/pta/API/Events/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~fromUpdateTime: numberInEpochTime
+  ~status: open/closed
+  ~accountID: safeID_accountID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}

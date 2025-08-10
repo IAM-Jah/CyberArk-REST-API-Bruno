@@ -1,0 +1,37 @@
+meta {
+  name: Add Application
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/Applications/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "application":{
+      "AppID":"<application Name>",
+      "Description":"<description of the application>",
+      "Location":"<existing location from the Vault>”,
+      "AccessPermittedFrom":<the hour that access is permitted to the application>,
+      "AccessPermittedTo":<the hour that access is permitted to the application>,
+      "ExpirationDate":<expiration date of the application>,
+      "Disabled":"<whether the application is disabled>",
+      "BusinessOwnerFName":"<business owner first name>",
+      "BusinessOwnerLName":"<business owner last name >",
+      "BusinessOwnerEmail":"<business owner email >",
+      "BusinessOwnerPhone":"<business owner phone>"
+    }
+  }
+}

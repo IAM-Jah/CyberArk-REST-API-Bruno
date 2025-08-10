@@ -1,0 +1,24 @@
+meta {
+  name: Delete Application Authentication Method
+  type: http
+  seq: 7
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/Applications/:applicationID/Authentications/:authID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  authID: authMethodID
+  applicationID: applicationID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

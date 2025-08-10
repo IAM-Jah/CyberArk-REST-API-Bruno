@@ -1,0 +1,36 @@
+meta {
+  name: Update Auth Method
+  type: http
+  seq: 2
+}
+
+put {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Configuration/AuthenticationMethods/:authID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  authID: authMethodID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+  "displayName": "",
+  "enabled": true,
+  "mobileEnabled": false,
+  "logoffUrl": "https://domain.com/idp/logoff",
+  "secondFactorAuth": null,
+  "signInLabel": "",
+  "usernameFieldLabel": "",
+  "passwordFieldLabel": ""
+  }
+}

@@ -1,0 +1,38 @@
+meta {
+  name: Register Own FIDO2 Device
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/fido2/selfRegistration/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+  "Attestation": {
+    "Id": "string",
+    "Type": "public-key",
+    "Response": {
+      "AttestationObject": "string",
+      "ClientDataJson": "string"
+    },
+    "Extensions": {}
+  },
+  "UserId": 0
+  }
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/fido2-selfregister.htm
+}

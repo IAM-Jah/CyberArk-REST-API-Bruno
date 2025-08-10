@@ -1,0 +1,23 @@
+meta {
+  name: Get Directory Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Configuration/LDAP/Directories/:LDAPID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  LDAPID: directoryID/
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

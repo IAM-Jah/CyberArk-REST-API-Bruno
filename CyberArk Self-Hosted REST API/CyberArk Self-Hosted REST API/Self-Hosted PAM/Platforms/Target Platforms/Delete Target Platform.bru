@@ -1,0 +1,23 @@
+meta {
+  name: Delete Target Platform
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/platforms/targets/:platformID/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  platformID: platformID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

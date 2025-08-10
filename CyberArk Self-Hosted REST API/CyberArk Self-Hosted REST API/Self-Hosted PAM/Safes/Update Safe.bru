@@ -1,0 +1,40 @@
+meta {
+  name: Update Safe
+  type: http
+  seq: 2
+}
+
+put {
+  url: https://{{PVWAAddress}}//PasswordVault/API/Safes/:safeID/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  safeID: safeID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+      "safeName":"Aviv",
+      "safeNumber":22,
+      "description":"AvivDesc",
+      "location":"\\","creator":
+      {
+          "id":"14",
+          "name":"AdminUser1"
+      },
+      "olacEnabled":false,
+      "managingCPM":"PasswordManager",
+      "numberOfVersionsRetention":null,
+      "numberOfDaysRetention":7
+  }
+}

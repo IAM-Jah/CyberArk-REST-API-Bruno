@@ -1,0 +1,19 @@
+meta {
+  name: Get Logged On User Details
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/User
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

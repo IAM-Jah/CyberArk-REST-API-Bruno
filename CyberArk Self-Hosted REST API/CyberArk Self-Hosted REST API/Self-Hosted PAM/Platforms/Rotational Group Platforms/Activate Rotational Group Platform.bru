@@ -1,0 +1,23 @@
+meta {
+  name: Activate Rotational Group Platform
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/platforms/rotationalGroups/:platformID/activate/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  platformID: platformID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

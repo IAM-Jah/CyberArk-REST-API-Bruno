@@ -1,0 +1,23 @@
+meta {
+  name: Terminate an Active Session
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/LiveSessions/:liveSessionID/Terminate/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  liveSessionID: liveSessionID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

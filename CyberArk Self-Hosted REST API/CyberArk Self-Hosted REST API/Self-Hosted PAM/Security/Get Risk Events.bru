@@ -1,0 +1,26 @@
+meta {
+  name: Get Risk Events
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/pta/API/Risks/RisksEvents/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~filter: type eq "RISK_RISKY_SPN" AND status eq "OPEN"
+  ~sort: string
+  ~page: 0
+  ~size: 1000
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}

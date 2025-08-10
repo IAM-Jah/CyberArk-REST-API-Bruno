@@ -1,0 +1,33 @@
+meta {
+  name: Add Auth Method
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Configuration/AuthenticationMethods/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+      "id": "saml",
+      "displayName": "IDaptive SAML",
+      "enabled": true,
+      "mobileEnabled": false,
+      "logoffUrl": "https://domain.com/idp/logoff",
+      "secondFactorAuth": null,
+      "signInLabel": "",
+      "usernameFieldLabel": "",
+      "passwordFieldLabel": ""
+  }
+}

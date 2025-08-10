@@ -1,0 +1,33 @@
+meta {
+  name: CyberArk- LDAP- RADIUS- Windows - Logon
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/auth/:authType/Logon
+  body: json
+  auth: none
+}
+
+params:path {
+  authType: Cyberark/Windows/LDAP/RADIUS
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "username": "{{PAMUsername}}",
+    "password": "{{PAMPassword}}",
+    //"newPassword": "{{PAMNewPassword}}",
+    "concurrentSession": "true"
+  }
+}
+
+script:post-response {
+  const jsonData = JSON.parse(responseBody);
+  bru.setEnvVar("PAMSessionToken", jsonData);
+}

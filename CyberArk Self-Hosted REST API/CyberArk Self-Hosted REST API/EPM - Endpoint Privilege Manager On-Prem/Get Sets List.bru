@@ -1,0 +1,26 @@
+meta {
+  name: Get Sets List
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets
+  body: none
+  auth: none
+}
+
+params:query {
+  ~Offset: integer
+  ~Limit: integer
+}
+
+params:path {
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: basic {{EPMToken}}
+  ~VFUser: {{EPMToken}}
+}

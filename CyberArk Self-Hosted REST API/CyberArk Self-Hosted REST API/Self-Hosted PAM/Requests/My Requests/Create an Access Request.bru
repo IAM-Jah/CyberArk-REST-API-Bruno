@@ -1,0 +1,51 @@
+meta {
+  name: Create an Access Request
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/MyRequests
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+  "accountId": "<Account id>",
+  "reason":"<Reason>",
+  "TicketingSystemName": "<Ticketing system>",
+  "TicketId": "<Ticketid>",
+  "ConnectionComponent":"<Connection compmonent id>",
+  "MultipleAccessRequired":<true\false>,
+  "FromDate":<0-max integer>,
+  "ToDate":<0-max integer>,
+  "AdditionalInfo":
+  {
+  "<Additional Info name>":"<Addition Info value>",
+  "<Additional Info name>":"<Addition Info value>"
+  },
+  "UseConnect":<true\false>,
+  "ConnectionParams":
+  {
+  "<Connection parameter name>":
+  {
+  "value":"<Connection parameter value>",
+  "ShouldSave<true\false>"
+  },
+  <Connection parameter name>:
+  {
+  "value":"<Connection parameter value>",
+  "ShouldSave<true\false>"
+  }
+  }
+  }
+}

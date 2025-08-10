@@ -1,0 +1,23 @@
+meta {
+  name: Start Own FIDO2 Registration
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/fido2/registrationOptions/
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/fido2-self-start-registration.htm
+}

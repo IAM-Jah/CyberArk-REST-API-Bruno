@@ -1,0 +1,23 @@
+meta {
+  name: Get Confirmation Request Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/incomingrequests/:requestID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  requestID: requestID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

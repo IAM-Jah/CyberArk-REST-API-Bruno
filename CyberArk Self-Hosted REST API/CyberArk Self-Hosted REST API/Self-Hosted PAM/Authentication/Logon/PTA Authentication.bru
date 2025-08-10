@@ -1,0 +1,31 @@
+meta {
+  name: PTA Authentication
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{PTAAddress}}/api/getauthtoken
+  body: formUrlEncoded
+  auth: none
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  username: {{PTAUsername}}
+  password: {{PTAPassword}}
+}
+
+tests {
+  const jsonData = res.getBody().Result
+  
+  test("PTA token Exists", function() {
+      if (jsonData.Token) {
+          bru.setEnvVar("PTASessionToken", jsonData.Token);
+      }
+  });
+  
+}

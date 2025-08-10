@@ -1,0 +1,42 @@
+meta {
+  name: Update Dependent Account
+  type: http
+  seq: 5
+}
+
+put {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Accounts/:accountID/dependentAccounts/:dependentAccountID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  dependentAccountID: {{dependentAccountID}}
+  accountID: {{accountName}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  { 
+    "name": "windows-1.2.3.4-service-test-1",
+    "platformAccountProperties": {
+      "address": "1.2.3.4",
+      "servicename": "test"
+    },
+    "secretManagement": { 
+        "automaticManagementEnabled": true,
+        "manualManagementReason": null
+    }
+  }
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/update-dependent-account.htm
+}

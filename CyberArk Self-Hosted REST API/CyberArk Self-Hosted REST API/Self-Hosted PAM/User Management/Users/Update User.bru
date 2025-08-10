@@ -1,0 +1,85 @@
+meta {
+  name: Update User
+  type: http
+  seq: 6
+}
+
+put {
+  url: https://{{PVWAAddress}}/passwordvault/api/users/:userID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  userID: userIDToUpdate
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+  "enableUser": true,
+  "changePassOnNextLogon": false,
+  "expiryDate": 1577836800,
+  "suspended": false,
+  "unAuthorizedInterfaces": [
+  "GUI"
+  ],
+  
+  "authenticationMethod": [
+  "AuthTypePass"
+  ],
+  "passwordNeverExpires": true,
+  "distinguishedName": "JohnDoeRoe",
+  "description": "John Doe Roe",
+  "businessAddress": {
+  "workStreet": "Kuritania street",
+  "workCity": "Curitania",
+  "workState": "Suritania",
+  "workZip": "90211",
+  "workCountry": "Ruritania"
+  },
+  "internet": {
+  "homePage": "example.com",
+  "homeEmail": "John@example.net",
+  "businessEmail": "John@example.com",
+  "otherEmail": "John@example.org"
+  },
+  "phones": {
+  "homeNumber": "555-0100",
+  "businessNumber": "555-0101",
+  "cellularNumber": "0491 570 156",
+  "faxNumber": "555-0102",
+  "pagerNumber": "555-0103"
+  },
+  "personalDetails": {
+  "street": "Main street",
+  "city": "Curitania",
+  "state": "Suritania",
+  "zip": "90210",
+  "country": "Ruritania",
+  "title": "Mr. John",
+  "organization": "Acme",
+  "department": "newco",
+  "profession": "Doing Job",
+  "firstName": "John",
+  "middleName": "Doe",
+  "lastName": "Roe"
+  },
+  "id": 24,
+  "username": "JohnDR",
+  "source": "CyberArk",
+  "userType": "EPVUser",
+  "componentUser": false,
+  "vaultAuthorization": [
+  "AuditUsers"
+  ],
+  "location": "\\"
+  }
+}

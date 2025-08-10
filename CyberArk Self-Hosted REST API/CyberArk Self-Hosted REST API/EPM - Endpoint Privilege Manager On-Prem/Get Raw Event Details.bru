@@ -1,0 +1,24 @@
+meta {
+  name: Get Raw Event Details
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/Events/:category/Raw/:eventID
+  body: none
+  auth: none
+}
+
+params:path {
+  eventID: eventID
+  category: category
+  setID: setID
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: basic {{EPMToken}}
+  ~VFUser: {{EPMToken}}
+}

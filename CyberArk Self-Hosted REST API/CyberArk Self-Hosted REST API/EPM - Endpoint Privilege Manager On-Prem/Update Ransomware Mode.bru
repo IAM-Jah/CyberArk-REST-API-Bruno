@@ -1,0 +1,26 @@
+meta {
+  name: Update Ransomware Mode
+  type: http
+  seq: 17
+}
+
+patch {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/Policies/Ransomware?Mode=Enable/Disable
+  body: none
+  auth: none
+}
+
+params:query {
+  Mode: Enable/Disable
+}
+
+params:path {
+  setID: setID
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: basic {{EPMToken}}
+  ~VFUser: {{EPMToken}}
+}

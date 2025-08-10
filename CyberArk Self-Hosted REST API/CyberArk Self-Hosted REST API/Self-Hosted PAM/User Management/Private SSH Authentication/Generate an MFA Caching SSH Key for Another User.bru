@@ -1,0 +1,30 @@
+meta {
+  name: Generate an MFA Caching SSH Key for Another User
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Users/:UserName/Secret/SSHKeys/Cache/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  UserName: username
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+      "formats": "PPK, PEM, OpenSSH",
+      "keyPassword": "passphrase"
+  }
+}

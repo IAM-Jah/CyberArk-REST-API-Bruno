@@ -1,0 +1,29 @@
+meta {
+  name: Reorder Directory Mappings
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Configuration/LDAP/Directories/:directoryName/Mappings/Reorder/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  directoryName: directoryName
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "MappingsOrder": [ <mapping id 1>, <mapping id 2>, ..., <mapping id N> ]
+  }
+}

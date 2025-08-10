@@ -1,0 +1,23 @@
+meta {
+  name: Get Rotational Group Platforms
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/platforms/rotationalGroups/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~search: platformName
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

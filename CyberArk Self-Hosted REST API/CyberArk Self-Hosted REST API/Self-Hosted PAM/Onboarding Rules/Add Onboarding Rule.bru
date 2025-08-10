@@ -1,0 +1,36 @@
+meta {
+  name: Add Onboarding Rule
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/AutomaticOnboardingRules/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+  "TargetPlatformId": "<platform ID>",
+  "TargetSafeName": "<Safe name>",
+  "IsAdminIDFilter": <False>,
+  "MachineTypeFilter": "<Server>",
+  "SystemTypeFilter": "<Windows>",
+  "UserNameFilter": "<filter>",
+  "UserNameMethod": "<Begins>",
+  "AddressFilter": "<filter>",
+  "AddressMethod": "<Equals>",
+  "AccountCategoryFilter": "<Any>",
+  "RuleName": "<rule name>",
+  "RuleDescription": "<description>"
+  }
+}

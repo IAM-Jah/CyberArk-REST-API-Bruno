@@ -1,0 +1,27 @@
+meta {
+  name: Remove FIDO2 Device
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/fido2/keys/:fidoKeyID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  fidoKeyID: <ID of key to delete>
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/fido2-remove.htm
+}

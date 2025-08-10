@@ -1,0 +1,34 @@
+meta {
+  name: Get Raw Events
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/Events/:category/:fileQualifier
+  body: none
+  auth: none
+}
+
+params:query {
+  ~Offset: Number
+  ~Limit: Number
+  ~EventType: String
+  ~DateFrom: YYYY-MM-DDThh:mm:ssZ
+  ~DateTo: YYYY-MM-DDThh:mm:ssZ
+  ~Justification: String
+  ~PolicyName: string
+}
+
+params:path {
+  fileQualifier: fileID
+  category: category
+  setID: setID
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: basic {{EPMToken}}
+  ~VFUser: {{EPMToken}}
+}

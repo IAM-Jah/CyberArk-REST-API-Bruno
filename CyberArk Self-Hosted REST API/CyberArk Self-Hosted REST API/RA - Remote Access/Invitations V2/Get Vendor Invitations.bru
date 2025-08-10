@@ -1,0 +1,27 @@
+meta {
+  name: Get Vendor Invitations
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://api.alero.io/v2-edge/invitations/vendor-invitations/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~createdBy: string
+  ~searchString: string
+  ~searchIn: string
+  ~offset: integer
+  ~limit: integer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

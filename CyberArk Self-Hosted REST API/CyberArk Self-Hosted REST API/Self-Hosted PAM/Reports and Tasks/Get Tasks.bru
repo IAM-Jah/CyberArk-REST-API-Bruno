@@ -1,0 +1,28 @@
+meta {
+  name: Get Tasks
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Tasks
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~offset: integer
+  ~limit: integer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-tasks.htm
+}

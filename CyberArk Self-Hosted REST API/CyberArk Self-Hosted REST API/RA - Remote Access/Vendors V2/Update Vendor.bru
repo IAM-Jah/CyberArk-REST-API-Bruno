@@ -1,0 +1,46 @@
+meta {
+  name: Update Vendor
+  type: http
+  seq: 2
+}
+
+put {
+  url: https://api.alero.io/v2-edge/vendors/:vendorID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  vendorID: vendorID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}
+
+body:json {
+  {
+    "accessStartDate": 0,
+    "accessEndDate": 0,
+    "canInvite": true,
+    "invitedVendorsInitialStatus": "Activated",
+    "maxNumInvitedVendors": 2147483647,
+    "provisioningType": "ProvisionedByAlero",
+    "username": "M6Ud",
+    "groups": [
+      "string"
+    ],
+    "comments": "FIa",
+    "applications": [
+      {
+        "siteId": "string",
+        "applicationId": "string"
+      }
+    ],
+    "pvwaApplications": true
+  }
+}

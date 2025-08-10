@@ -1,0 +1,53 @@
+meta {
+  name: Edit Directory Mapping
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{PVWAAddress}}/passwordvault/api/configuration/ldap/directories/:LDAPID/mappings/:mappingID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  mappingID: mappingID
+  LDAPID: directoryID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "LDAPBranch": "string",
+    "VaultGroups": [
+      "string"
+    ],
+    "MappingAuthorizations": [
+      "AddUpdateUsers"
+    ],
+    "Location": "string",
+    "AuthenticationMethod": [
+      "AuthTypePass"
+    ],
+    "UserType": "string",
+    "DisableUser": true,
+    "UserActivityLogPeriod": 0,
+    "UserExpiration": 0,
+    "LogonFromHour": 0,
+    "LogonToHour": 0,
+    "MappingID": 0,
+    "DirectoryMappingOrder": 0,
+    "MappingName": "string",
+    "LDAPQuery": "string",
+    "DomainGroups": [
+      "string"
+    ]
+  }
+}

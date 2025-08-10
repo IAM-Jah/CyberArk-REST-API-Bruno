@@ -1,0 +1,23 @@
+meta {
+  name: Get Vendor by ID
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://api.alero.io/v2-edge/vendors/:vendorID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  vendorID: vendorID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

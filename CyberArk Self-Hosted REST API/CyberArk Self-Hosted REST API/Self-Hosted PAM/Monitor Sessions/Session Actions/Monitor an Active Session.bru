@@ -1,0 +1,23 @@
+meta {
+  name: Monitor an Active Session
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/LiveSessions/:liveSessionID/Monitor/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  liveSessionID: liveSessionID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

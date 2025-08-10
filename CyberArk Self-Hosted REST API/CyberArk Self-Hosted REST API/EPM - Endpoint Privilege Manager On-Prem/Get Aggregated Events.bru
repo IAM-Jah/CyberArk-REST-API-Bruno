@@ -1,0 +1,35 @@
+meta {
+  name: Get Aggregated Events
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/Events/:category
+  body: none
+  auth: none
+}
+
+params:query {
+  ~Offset: Number
+  ~Limit: Number
+  ~EventType: String
+  ~Publisher: String
+  ~DateFrom: YYYY-MM-DDThh:mm:ssZ
+  ~DateTo: YYYY-MM-DDThh:mm:ssZ
+  ~Justification: String
+  ~ApplicationType: String
+  ~PolicyName: string
+}
+
+params:path {
+  category: category
+  setID: setID
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: basic {{EPMToken}}
+  ~VFUser: {{EPMToken}}
+}

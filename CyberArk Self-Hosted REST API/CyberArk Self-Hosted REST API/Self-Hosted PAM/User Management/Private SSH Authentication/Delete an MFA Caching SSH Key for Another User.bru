@@ -1,0 +1,23 @@
+meta {
+  name: Delete an MFA Caching SSH Key for Another User
+  type: http
+  seq: 4
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Users/:UserName/Secret/SSHKeys/Cache/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  UserName: username
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

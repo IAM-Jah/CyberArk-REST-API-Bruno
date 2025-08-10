@@ -1,0 +1,23 @@
+meta {
+  name: Get Just in Time Access
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Accounts/:accountID/grantAdministrativeAccess/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  accountID: accountID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

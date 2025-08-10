@@ -1,0 +1,36 @@
+meta {
+  name: EPM Authentication
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{EPMAddress}}/EPM/API/:version/Auth/EPM/Logon
+  body: json
+  auth: none
+}
+
+params:path {
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+  "Username": "string",
+  "Password": "string",
+  "ApplicationID": "string"
+  }
+}
+
+tests {
+  const jsonData = res.getBody().Result
+  
+  test("EPM Token Exists", function() {
+      expect(jsonData).to.have.property('EPMAuthenticationResult');
+      bru.setEnvVar("EPMToken", jsonData.EPMAuthenticationResult);
+  });
+}

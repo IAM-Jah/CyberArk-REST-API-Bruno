@@ -1,0 +1,19 @@
+meta {
+  name: PTA Health Monitoring Details
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{PTAAddress}}/API/Monitoring/
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}

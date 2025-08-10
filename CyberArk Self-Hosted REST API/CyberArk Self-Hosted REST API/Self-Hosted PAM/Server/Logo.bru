@@ -1,0 +1,23 @@
+meta {
+  name: Logo
+  type: http
+  seq: 2
+}
+
+get {
+  url: https:{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/Logo? type={{imageType}}
+  body: none
+  auth: bearer
+}
+
+params:query {
+  type: {{imageType}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

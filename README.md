@@ -4,7 +4,7 @@
 <tr>
 <td>
   
-Bruno Collection and Environment files for **CyberArk Identity Security** REST API testing and automation. 945 REST API requests are included in the Collections, which cover Self-Hosted PAM, Privilege Cloud - Standard, Privilege Cloud on Identity Security Platform for Shared Services (ISPSS/Shared Services), and many shared services from the SaaS platform.
+Bruno Collection and Environment files for **CyberArk Identity Security** REST API testing and automation. 980 REST API requests are included in the Collections, which cover Self-Hosted PAM, Privilege Cloud - Standard, Privilege Cloud on Identity Security Platform for Shared Services (ISPSS/Shared Services), and many shared services from the SaaS platform.
 
 Each API request includes small optimizations to help get you up and running quickly, for example:
   * Authentication requests test for and store the resulting tokens as Environment variables.
@@ -38,7 +38,7 @@ Each API request includes small optimizations to help get you up and running qui
 ## Collections
 
 #### CyberArk Privilege Cloud and Shared Services REST API:
-  This Collection is meant to help CyberArk Privilege Cloud and CyberArk Identity administrators manage and explore the CyberArk Shared Services/SaaS environment with REST API. For ease of use, the Environment JSON file is alphabetized and includes only relevant environment variables. All default services that are part of the Shared Services platform are included:
+  This Collection is meant to help CyberArk Privilege Cloud and CyberArk Identity administrators manage and explore the CyberArk Shared Services/SaaS environment with REST API. All default services that are part of the Shared Services platform are included:
 
   * CyberArk Privilege Cloud - Standard
   * CyberArk Privilege Cloud - Shared Services
@@ -55,14 +55,14 @@ Each API request includes small optimizations to help get you up and running qui
   Current up to Privilege Cloud v14.7 (August 2025)
 
 #### CyberArk Self-Hosted REST API:
-  This Collection is meant to help self-hosted CyberArk PAM administrators manage and explore the PAM environment with REST API. For ease of use, the Environment JSON file is alphabetized and includes only relevant environment variables. The following services are included:
+  This Collection is meant to help self-hosted CyberArk PAM administrators manage and explore the PAM environment with REST API. The following services are included:
 
   * Self-Hosted PAM
   * Central Credential Provider (CCP)
   * Remote Access V2
   * EPM On-Prem
 
-  Current up to Password Vault Web Access (PVWA) v14.2 (Aug 2024) and EPM On-Prem v11.5.6 (Feb 2023/final version).
+  Current up to Password Vault Web Access (PVWA) LTS v14.6 (Aug 2025) and EPM On-Prem v11.5.6 (Feb 2023/final version).
 
 ## Roadmap
 
@@ -83,7 +83,7 @@ Each API request includes small optimizations to help get you up and running qui
     - [x] Remote Access (30 Aug 2024)
     - [x] Endpoint Privilege Manager (30 Aug 2024)
 - [x] Add usage guide (14 Oct 2024)
-- [x] Upload native .bru project files (7 Aug 2025)
+- [x] Upload native .bru project files (10 Aug 2025)
 - [ ] UX enhancements:
     - [ ] Expand documentation
     - [ ] Improve examples for params

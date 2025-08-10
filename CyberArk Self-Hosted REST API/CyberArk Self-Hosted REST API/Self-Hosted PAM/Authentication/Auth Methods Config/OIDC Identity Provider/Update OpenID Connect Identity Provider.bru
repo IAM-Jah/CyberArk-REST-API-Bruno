@@ -1,0 +1,33 @@
+meta {
+  name: Update OpenID Connect Identity Provider
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{PVWAAddress}}/passwordvault/api/Configuration/OIDC/Providers/:authID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  authID: authMethodID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+  "authenticationFlow": "Code",
+  "discoveryEndpointUrl": "https://10.10.22.121/OPServer/.well-known/openid-configuration",
+  "clientId": "pvwa",
+  "clientSecretMethod" : "basic",
+  "userNameClaim": "given_name"
+  }
+}

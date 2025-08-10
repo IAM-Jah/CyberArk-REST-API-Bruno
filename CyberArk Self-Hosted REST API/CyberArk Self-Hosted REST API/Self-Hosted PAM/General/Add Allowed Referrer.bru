@@ -1,0 +1,26 @@
+meta {
+  name: Add Allowed Referrer
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{PVWAAddress}}/passwordvault/api/Configuration/AccessRestriction/AllowedReferrers
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "referrerURL": "https://CompanyA/portal/",
+    "regularExpression": false
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Enable User
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Users/:userID/enable
+  body: none
+  auth: bearer
+}
+
+params:path {
+  userID: userIDForEnable
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

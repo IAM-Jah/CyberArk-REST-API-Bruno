@@ -1,0 +1,23 @@
+meta {
+  name: Delete My Request
+  type: http
+  seq: 4
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/myrequests/:requestID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  requestID: requestID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

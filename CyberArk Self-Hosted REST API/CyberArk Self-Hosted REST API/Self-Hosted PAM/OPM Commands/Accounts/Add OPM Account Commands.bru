@@ -1,0 +1,33 @@
+meta {
+  name: Add OPM Account Commands
+  type: http
+  seq: 2
+}
+
+put {
+  url: https://{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/Account/:accountDetails/PrivilegedCommands/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  accountDetails: {AccountAddress}|{AccountUserName}|{AccountPolicyId}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+  "Command":"<Command>",
+  "CommandGroup":<true/false>,
+  "PermissionType":"<Allow/Deny>",
+  "Restrictions":"<Restrictions>",
+  "UserName":"<UserName>"
+  }
+}

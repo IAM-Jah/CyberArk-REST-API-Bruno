@@ -1,0 +1,24 @@
+meta {
+  name: Get Tenant Sites
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://api.alero.io/v2-edge/sites
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~offset: integer
+  ~limit: integer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

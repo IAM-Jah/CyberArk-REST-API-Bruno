@@ -1,0 +1,31 @@
+meta {
+  name: Update Risk Event Status
+  type: http
+  seq: 4
+}
+
+patch {
+  url: https://{{PVWAAddress}}/PasswordVault/API/pta/API/Risks/RiskEvents/:eventID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  eventID: eventID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}
+
+body:json {
+  {
+  "Status": "CLOSED",
+  "closeReason": "HANDLED",
+  "reasonText": "Handled by SOC team"
+  }
+}

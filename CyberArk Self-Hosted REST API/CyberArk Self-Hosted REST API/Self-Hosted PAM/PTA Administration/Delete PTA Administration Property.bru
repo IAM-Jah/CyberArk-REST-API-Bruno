@@ -1,0 +1,24 @@
+meta {
+  name: Delete PTA Administration Property
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/pta/API/administration/properties/:propertyKey/:ID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  ID: propertyID
+  propertyKey: CidrInclusionList
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}

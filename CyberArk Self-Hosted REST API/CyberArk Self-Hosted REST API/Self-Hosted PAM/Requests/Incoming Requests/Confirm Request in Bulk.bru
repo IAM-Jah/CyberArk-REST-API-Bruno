@@ -1,0 +1,38 @@
+meta {
+  name: Confirm Request in Bulk
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/incomingrequests/:requestID/confirm/bulk
+  body: json
+  auth: bearer
+}
+
+params:path {
+  requestID: requestID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+   "BulkItems": [
+    {
+      "RequestID": "<{SAFE_NAME}_{REQUEST_ID}>",
+      "Reason": "Accepted via Bruno"
+    }
+   ]
+  }
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/14.6/en/content/webservices/bulkconfirmrequest.htm
+}

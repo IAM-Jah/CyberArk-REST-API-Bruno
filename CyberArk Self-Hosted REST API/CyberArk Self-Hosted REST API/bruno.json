@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "CyberArk Self-Hosted REST API v1.1",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

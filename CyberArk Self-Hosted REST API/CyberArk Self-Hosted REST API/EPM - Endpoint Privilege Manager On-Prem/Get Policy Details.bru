@@ -1,0 +1,23 @@
+meta {
+  name: Get Policy Details
+  type: http
+  seq: 11
+}
+
+get {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/Policies/:policyID
+  body: none
+  auth: none
+}
+
+params:path {
+  policyID: policyID
+  setID: setID
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: basic {{EPMToken}}
+  ~VFUser: {{EPMToken}}
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Get Users by Query
+  type: http
+  seq: 9
+}
+
+get {
+  url: https://api.alero.io/v2-edge/users/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~name: string
+  ~offset: integer
+  ~limit: integer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

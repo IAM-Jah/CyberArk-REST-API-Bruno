@@ -1,0 +1,27 @@
+meta {
+  name: Unlock Account
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Accounts/:accountID/Unlock/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  accountID: accountID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/unlock-account.htm
+}

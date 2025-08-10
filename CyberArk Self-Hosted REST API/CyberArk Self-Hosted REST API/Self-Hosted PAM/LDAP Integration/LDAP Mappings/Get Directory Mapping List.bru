@@ -1,0 +1,23 @@
+meta {
+  name: Get Directory Mapping List
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Configuration/LDAP/Directories/:LDAPID/Mappings
+  body: none
+  auth: bearer
+}
+
+params:path {
+  LDAPID: directoryID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

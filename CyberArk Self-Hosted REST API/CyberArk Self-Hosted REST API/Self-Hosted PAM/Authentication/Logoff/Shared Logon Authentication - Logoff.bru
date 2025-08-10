@@ -1,0 +1,23 @@
+meta {
+  name: Shared Logon Authentication - Logoff
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/WebServices/auth/Shared/RestfulAuthenticationService.svc/Logoff
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+script:post-response {
+  bru.setEnvVar("PAMSessionToken","");
+}

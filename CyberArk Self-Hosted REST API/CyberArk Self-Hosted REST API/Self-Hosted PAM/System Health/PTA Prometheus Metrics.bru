@@ -1,0 +1,23 @@
+meta {
+  name: PTA Prometheus Metrics
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{PTAAddress}}/monitoring/federate?match[]=%7Bjob%3D~%22ptaaa_.%2B%22%7D
+  body: none
+  auth: bearer
+}
+
+params:query {
+  match[]: %7Bjob%3D~%22ptaaa_.%2B%22%7D
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}

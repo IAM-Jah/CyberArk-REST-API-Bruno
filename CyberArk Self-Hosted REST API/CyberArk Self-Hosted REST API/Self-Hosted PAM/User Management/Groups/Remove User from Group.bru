@@ -1,0 +1,24 @@
+meta {
+  name: Remove User from Group
+  type: http
+  seq: 7
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/UserGroups/:groupID/members/:memberName
+  body: none
+  auth: bearer
+}
+
+params:path {
+  memberName: memberNameToRemove
+  groupID: groupIDToRemoveFrom
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

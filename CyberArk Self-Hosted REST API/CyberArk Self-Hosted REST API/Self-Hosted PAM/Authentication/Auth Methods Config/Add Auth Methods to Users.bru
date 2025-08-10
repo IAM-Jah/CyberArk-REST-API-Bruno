@@ -1,0 +1,34 @@
+meta {
+  name: Add Auth Methods to Users
+  type: http
+  seq: 6
+}
+
+patch {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Users/AddAllowedAuthenticationMethods/Bulk
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+  "BulkItems": [
+    {
+     "userIds": ["36", "37"],
+     "allowedAuthenticationMethods:  [ "SAML", "PKI"]
+    }
+   ]
+  }
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/bulk-add-allowed-auth.htm
+}

@@ -1,0 +1,23 @@
+meta {
+  name: CyberArk- LDAP- RADIUS- Windows - Logoff
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Auth/Logoff/
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+script:post-response {
+  bru.setEnvVar("PAMSessionToken","");
+}

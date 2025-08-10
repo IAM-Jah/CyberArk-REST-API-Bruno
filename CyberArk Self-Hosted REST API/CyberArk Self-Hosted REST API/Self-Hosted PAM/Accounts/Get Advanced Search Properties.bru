@@ -1,0 +1,33 @@
+meta {
+  name: Get Advanced Search Properties
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Accounts/AdvancedSearchProperties
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~search: keywords with spaces
+  ~searchType: contains/startswith
+  ~sort: windows asc
+  ~offset: 0
+  ~limit: 50
+  ~filter: safename eq mySafe AND ModificationTime gte 0
+  ~savedfilter: savedFilterName
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/sdk/get-advanced-search-properties.htm
+}

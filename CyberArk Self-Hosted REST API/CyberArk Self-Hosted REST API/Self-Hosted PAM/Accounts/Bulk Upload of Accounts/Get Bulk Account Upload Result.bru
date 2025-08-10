@@ -1,0 +1,23 @@
+meta {
+  name: Get Bulk Account Upload Result
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/bulkactions/accounts/:ID/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  ID: bulkUploadID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

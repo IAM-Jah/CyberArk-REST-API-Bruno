@@ -1,0 +1,23 @@
+meta {
+  name: Delete Directory
+  type: http
+  seq: 4
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Configuration/LDAP/Directories/:LDAPID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  LDAPID: directoryID/
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Delete Member from Account Group
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/AccountGroups/:groupID/Members/:accountID/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  accountID: accountID
+  groupID: groupID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

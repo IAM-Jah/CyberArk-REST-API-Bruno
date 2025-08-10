@@ -1,0 +1,28 @@
+meta {
+  name: Get Safe Member
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Safes/:safeID/Members/:memberName
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~useCache: true
+}
+
+params:path {
+  safeID: safeID
+  memberName: memberName
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

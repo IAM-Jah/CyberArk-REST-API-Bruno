@@ -1,0 +1,29 @@
+meta {
+  name: Update Account
+  type: http
+  seq: 7
+}
+
+patch {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Accounts/:accountID/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  accountID: accountID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  [{ "op": "replace", "path": "/address", "value": "10.10.27.254"},
+    { "op": "replace", "path": "/secretManagement/automaticManagementEnabled", "value": "false"}]
+  
+}

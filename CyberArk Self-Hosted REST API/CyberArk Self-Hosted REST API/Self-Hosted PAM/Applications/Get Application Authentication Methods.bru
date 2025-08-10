@@ -1,0 +1,23 @@
+meta {
+  name: Get Application Authentication Methods
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/Applications/:applicationID/Authentications/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  applicationID: applicationID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Get Global Catalog Connectivity Details
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/pta/API/Administration/GCConnectivity
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}

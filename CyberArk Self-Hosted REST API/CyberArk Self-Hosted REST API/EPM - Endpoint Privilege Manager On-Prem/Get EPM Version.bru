@@ -1,0 +1,19 @@
+meta {
+  name: Get EPM Version
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{EPMAddress}}/EPM/API/:version/Server/Version
+  body: none
+  auth: none
+}
+
+params:path {
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+}

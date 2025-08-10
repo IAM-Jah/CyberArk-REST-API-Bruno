@@ -1,0 +1,41 @@
+meta {
+  name: Install PTA
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{PTAAddress}}/installer/api/installation
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}
+
+body:json {
+  {
+  "currentPassword": "currpass",
+  "newPassword": "newpass",
+  "vault": {
+  "ip": "10.10.10.10, 10.10.10.11",
+  "port": "10000",
+  "ipDR": "10.10.50.10, 10.10.50.11",
+  "timezone": "Israel",
+  "adminUser": "admin",
+  "adminPassword": "fkdshsfkd23392hk!",
+  "daysActivity": "200"
+  },
+  "pvwa": {
+  "connectionMethod": "http",
+  "host": "pvwa-host",
+  "port": "30456",
+  "appContext": "PasswordVault"
+  }
+  }
+}

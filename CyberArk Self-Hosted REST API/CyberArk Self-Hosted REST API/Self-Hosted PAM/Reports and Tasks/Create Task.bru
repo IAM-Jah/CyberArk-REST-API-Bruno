@@ -1,0 +1,54 @@
+meta {
+  name: Create Task
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Tasks
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "version": 0,
+    "type": "Report",
+    "subType": "string",
+    "name": "string",
+    "keepTaskDefinition": true,
+    "schedule": {
+      "startTime": "2025-06-18T07:12:38.192Z",
+      "recurrence": {
+        "type": "Weekly",
+        "recurrenceValue": 0,
+        "daysOfWeek": [0],
+        "weekNumber": "First"
+      }
+    },
+    "subscribers": [
+      {
+        "name": "string",
+        "type": "User",
+        "notifyOnSuccess": true,
+        "ldapInfo": {
+          "directoryName": "string",
+          "fullDN": "string"
+        }
+      }
+    ],
+    "notifyOnFailure": true
+  }
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/create-task.htm
+}

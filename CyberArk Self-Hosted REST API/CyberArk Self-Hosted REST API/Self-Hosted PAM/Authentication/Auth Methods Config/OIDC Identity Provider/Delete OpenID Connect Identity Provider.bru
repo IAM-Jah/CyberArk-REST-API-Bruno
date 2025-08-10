@@ -1,0 +1,23 @@
+meta {
+  name: Delete OpenID Connect Identity Provider
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{PVWAAddress}}/passwordvault/api/Configuration/OIDC/Providers/:authID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  authID: authMethodID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

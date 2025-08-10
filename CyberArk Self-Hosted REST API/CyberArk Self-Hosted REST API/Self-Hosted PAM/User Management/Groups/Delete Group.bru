@@ -1,0 +1,23 @@
+meta {
+  name: Delete Group
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/UserGroups/:groupID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  groupID: groupIDToDelete
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

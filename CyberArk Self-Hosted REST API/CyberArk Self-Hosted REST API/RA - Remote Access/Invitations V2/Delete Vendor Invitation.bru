@@ -1,0 +1,23 @@
+meta {
+  name: Delete Vendor Invitation
+  type: http
+  seq: 4
+}
+
+delete {
+  url: https://api.alero.io/v2-edge/invitations/vendor-invitations/:invitationID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  invitationID: invitationID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

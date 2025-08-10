@@ -1,0 +1,23 @@
+meta {
+  name: Update PTA Administration Property
+  type: http
+  seq: 2
+}
+
+patch {
+  url: https://{{PVWAAddress}}/PasswordVault/API/pta/API/administration/properties/:propertyKey
+  body: none
+  auth: bearer
+}
+
+params:path {
+  propertyKey: CidrInclusionList{"cidr": "0.0.0.0/0"}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}

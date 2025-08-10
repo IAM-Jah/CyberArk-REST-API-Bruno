@@ -1,0 +1,23 @@
+meta {
+  name: Get Vendor by Phone Number
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://api.alero.io/v2-edge/vendors/phone/:phoneNumber
+  body: none
+  auth: bearer
+}
+
+params:path {
+  phoneNumber: +972058655541
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

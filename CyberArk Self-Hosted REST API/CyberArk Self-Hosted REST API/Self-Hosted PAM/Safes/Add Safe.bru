@@ -1,0 +1,32 @@
+meta {
+  name: Add Safe
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Safes/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "numberOfDaysRetention": 7,
+    "numberOfVersionsRetention": null,
+    "oLACEnabled": false,
+    "autoPurgeEnabled": true,
+    "managingCPM": "passwordManager",
+    "safeName": "PasswordManagerSafe",
+    "description": "This is PasswordManager safe.",
+    "location": ""
+  }
+}

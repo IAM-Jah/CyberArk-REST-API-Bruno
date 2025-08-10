@@ -1,0 +1,38 @@
+meta {
+  name: Reject Request in Bulk
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/incomingrequests/:requestID/reject/bulk
+  body: json
+  auth: bearer
+}
+
+params:path {
+  requestID: requestID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+   "BulkItems": [
+    {
+      "RequestID": "<{SAFE_NAME}_{REQUEST_ID}>",
+      "Reason": "Rejected via Bruno"
+    }
+   ]
+  }
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/14.6/en/content/webservices/bulkrejectrequest.htm
+}

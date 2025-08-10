@@ -1,0 +1,29 @@
+meta {
+  name: Update Group
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://{{PVWAAddress}}/PasswordVault/API/UserGroups/:groupID
+  body: json
+  auth: bearer
+}
+
+params:path {
+  groupID: groupIDToUpdate
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+      "groupName": "UnixAdmins"
+  }
+}

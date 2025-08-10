@@ -1,0 +1,19 @@
+meta {
+  name: Get Security Settings
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/pta/API/Settings
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Update User Status
+  type: http
+  seq: 3
+}
+
+put {
+  url: https://api.alero.io/v2-edge/users/:userID/status
+  body: json
+  auth: bearer
+}
+
+params:path {
+  userID: userID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}
+
+body:json {
+  "Deactivated"
+}

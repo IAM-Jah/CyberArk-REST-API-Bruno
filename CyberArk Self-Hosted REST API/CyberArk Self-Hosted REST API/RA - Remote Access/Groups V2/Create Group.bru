@@ -1,0 +1,26 @@
+meta {
+  name: Create Group
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://api.alero.io/v2-edge/groups
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}
+
+body:json {
+  {
+    "name": "%Ym2NqUMW8\\Y%?65VvX1bM}.Lb+zbv_+xQ\\zMvG?dHL6pa\"#$v",
+    "description": "}:Sf# c21FKhA&,+\"apEx`G3}_a08W7bN9bI`Z:6n{hsSxDM8IE@N2KLSw7E3\"_.x8OheJ$.xA~`7u,CSB!g*4}lb8E~nxmDC"
+  }
+}

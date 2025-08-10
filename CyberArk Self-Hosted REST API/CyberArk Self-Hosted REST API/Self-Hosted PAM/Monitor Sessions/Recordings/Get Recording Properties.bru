@@ -1,0 +1,23 @@
+meta {
+  name: Get Recording Properties
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/recordings/:recordingID/properties/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  recordingID: recordingID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

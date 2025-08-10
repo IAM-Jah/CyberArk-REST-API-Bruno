@@ -1,0 +1,111 @@
+meta {
+  name: Update Windows Advanced Policy
+  type: http
+  seq: 12
+}
+
+put {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/Policies/:policyID
+  body: json
+  auth: none
+}
+
+params:path {
+  policyID: policyID
+  setID: setID
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: basic {{EPMToken}}
+  ~VFUser: {{EPMToken}}
+}
+
+body:json {
+  {
+   "PolicyType": "AdvancedWinApp",
+   "Name": "My Advanced Policy",
+   "Action": "NormalRun",
+   "Activation":{
+    "Enabled": true,
+    "DeactivateDate":{
+     "Year":2025,
+     "Month":5,
+     "Day":30,
+     "Hours":8,
+     "Minutes":40,
+     "Seconds":0
+    }
+   },
+   "IncludeComputersInSet":[
+   {
+    "Id": "2469aae5-67c6-427c-b5ee-32d6add0523c"
+   }
+   ],
+   "ExcludeComputersInSet":[
+   {
+    "Id": "abc2469a-6a7c-f42c-5b5e-3245332d6add"
+   }
+   ],
+   "IncludeComputerGroups":[
+   {
+    "Id": "2469aae5-67c6-427c-b5ee-32d6add0523c"
+   }
+   ],
+   "ExcludeComputerGroups":[
+   {
+    "Id": "abc2469a-6a7c-f42c-5b5e-3245332d6add"
+   }
+   ],
+   "IncludeUsers":[
+   {
+    "UserName":"MyOwnDomain\\MyUser",
+   }
+   ],
+   "IncludeUserGroups":[
+   {
+    "Sid":"S-1-5-32-544"
+   },
+   {
+    "GroupName":"mydomain\\myusers"
+   }
+   ],
+   "IncludeADComputerGroups":[
+   {
+    "GroupName":"ADUser\\ADUser"
+   }
+   ],
+   "ExcludeADComputerGroups":[
+   {
+    "Sid":"S-1-5-83-0"
+   }
+   ],
+   "Applications":[
+   {
+    "Type": "EXE",
+    "Checksum": "SHA1:5FF30FF14984820C01941F767CE47F0F39BDE265",
+    "FileName": "grep.exe",
+    "FileSize": 135680,
+    "Location": "Fixed"
+   },{
+    "Type": "EXE",
+    "Description": "Command-Based Script",
+    "FileName": "cscript.exe",
+    "FileNameCompare": "Exactly",
+    "Location": "%SystemRoot%",
+    "Signature": "Microsoft",
+    "SignatureCompare": "Prefix"
+   },
+   {
+    "Type": "EXE",
+    "Location": "c:\\Users\\user1\\Documents\\tmp",
+    "LocationCompare": "WithSubfolders",
+    "FileName": "WinMD5.exe",
+    "Owner": "MyOwnDomain\\MyUser",
+    "MinFileVersion": "6.1",
+    "MaxFileVersion": "8.2.5"
+   }
+   ]
+  }
+}

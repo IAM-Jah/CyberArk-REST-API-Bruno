@@ -1,0 +1,23 @@
+meta {
+  name: Get Public SSH Key
+  type: http
+  seq: 1
+}
+
+get {
+  url: https:/{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/Users/:UserName/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys
+  body: none
+  auth: bearer
+}
+
+params:path {
+  UserName: username
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

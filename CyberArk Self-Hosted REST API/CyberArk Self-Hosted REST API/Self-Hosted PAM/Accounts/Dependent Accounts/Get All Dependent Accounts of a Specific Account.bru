@@ -1,0 +1,33 @@
+meta {
+  name: Get All Dependent Accounts of a Specific Account
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Accounts/:accountID/dependentAccounts
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~search: keywords with spaces
+  ~filter: modificationTime gte <UNIX TIMESTAMP> AND platformId eq <platformID>
+  ~failed: Yes
+}
+
+params:path {
+  accountID: {{accountName}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-all-dependent-accounts-specific.htm
+}

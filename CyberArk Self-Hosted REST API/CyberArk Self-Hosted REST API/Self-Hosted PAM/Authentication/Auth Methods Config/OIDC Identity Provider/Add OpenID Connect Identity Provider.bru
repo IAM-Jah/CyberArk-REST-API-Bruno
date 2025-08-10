@@ -1,0 +1,30 @@
+meta {
+  name: Add OpenID Connect Identity Provider
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{PVWAAddress}}/passwordvault/api/Configuration/OIDC/Providers/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+  "id": "opserver",
+  "authenticationFlow": "Code",
+  "discoveryEndpointUrl": "https://Domain.com/OPServer/.well-known/openid-configuration",
+  "clientId": "pvwa",
+  "clientSecret": "secret",
+  "clientSecretMethod" : "basic"
+  }
+}

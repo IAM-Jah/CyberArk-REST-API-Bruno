@@ -1,0 +1,30 @@
+meta {
+  name: Duplicate Rotational Group Platforms
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/platforms/rotationalGroups/:platformID/duplicate/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  platformID: platformID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+  "Name": "test Platform",
+  "Description": ""
+  }
+}

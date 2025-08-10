@@ -1,0 +1,24 @@
+meta {
+  name: Get Applications
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/Applications/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~Location: \
+  ~IncludeSublocations: false
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

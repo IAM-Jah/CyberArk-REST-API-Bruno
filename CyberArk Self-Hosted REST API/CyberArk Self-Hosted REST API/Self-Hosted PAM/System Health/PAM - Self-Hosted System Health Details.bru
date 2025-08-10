@@ -1,0 +1,23 @@
+meta {
+  name: PAM - Self-Hosted System Health Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/ComponentsMonitoringDetails/:componentID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  componentID: componentID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

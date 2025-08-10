@@ -1,0 +1,24 @@
+meta {
+  name: Get Target Platforms
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/platforms/targets/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~Filter: active eq true
+  ~search: platformName
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Get User by ID
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://api.alero.io/v2-edge/users/:userID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  userID: userID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}

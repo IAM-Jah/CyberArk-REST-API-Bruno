@@ -1,0 +1,64 @@
+meta {
+  name: Get Multiple Account Access Status
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/bulkactions/:requestID/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~DisplayExtendedItems: True
+}
+
+params:path {
+  requestID: bulkRequestID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+      "BulkItems": [
+          {
+              "Operation": "Add",
+              "Item": {
+                  "accountID": "23_3",
+                  "reason": "MyReason",
+                  "TicketingSystemName": "ServiceNow",
+                  "multipleAccessRequired": false,
+                  "fromDate": 0,
+                  "toDate": 0,
+                  "AdditionalInfo": {
+                      "Emergency": false,
+                      "RefNo": ""
+                  }
+              }
+          },
+          {
+              "Operation": "Add",
+              "Item": {
+                  "accountID": "23_6",
+                  "reason": "nosafe",
+                  "TicketingSystemName": "",
+                  "multipleAccessRequired": false,
+                  "fromDate": 0,
+                  "toDate": 0,
+                  "AdditionalInfo": {
+                      "Emergency": false,
+                      "RefNo": ""
+                  }
+              }
+          }
+      ]
+  }
+}

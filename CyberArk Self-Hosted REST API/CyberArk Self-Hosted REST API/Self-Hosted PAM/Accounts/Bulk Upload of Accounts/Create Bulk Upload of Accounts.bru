@@ -1,0 +1,67 @@
+meta {
+  name: Create Bulk Upload of Accounts
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/bulkactions/accounts/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "source":"filename.csv",
+    "accountsList": [
+      { 
+        "uploadIndex": "1",
+        "username":"JohnDoe",
+        "address":"192.0.2.0",
+        "platformId":"WinDomain",
+        "safeName":"WinDomainSafe",
+        "secret":"123456",
+        "platformAccountProperties": {
+        "port":"111"
+        },
+        "secretManagement": {
+        "automaticManagementEnabled":true,
+        "manualManagementReason":""
+        },
+        "remoteMachinesAccess": {
+        "accessRestrictedToRemoteMachines": true,
+        "remoteMachines": "example.com"
+        },
+        "groupName":"DomainGroup"
+      },
+      {
+       "uploadIndex": "2",
+       "username":"JaneDoe",
+       "address":"198.51.100.0",
+       "platformId":"WinDesktopLocal",
+       "safeName":"WinUsersSafe",
+       "secret":"123456",
+       "platformAccountProperties": {
+       "port":"222"
+       },
+       "secretManagement": {
+       "automaticManagementEnabled":true,
+       "manualManagementReason":""
+       },
+       "remoteMachinesAccess": {
+       "accessRestrictedToRemoteMachines": true,
+       "remoteMachines": "example.net"
+       },
+       "groupName":"WinGroup"
+       },
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+meta {
+  name: Add Application Authentication Method
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/Applications/:applicationID/Authentications
+  body: json
+  auth: bearer
+}
+
+params:path {
+  applicationID: applicationID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  //PATH AUTHENTICATION
+  {
+    "authentication":{
+      "AuthType":"path",
+      "AuthValue":"<Path string>",
+      "IsFolder":<true/false>,
+      "AllowInternalScripts":<true/false>
+      }
+  }
+  
+  //HASH AUTHENTICATION
+  {
+    "authentication":{
+      "AuthType":"hash",
+      "AuthValue":"<Hash string>",
+     "Comment":"<Comment>"
+      }
+  }
+  
+  //OS USER AUTHENTICATION
+  {
+    "authentication":{
+      "AuthType":"osUser",
+      "AuthValue":"<OS User Name>"
+      }
+  }
+  
+  //ALLOWED MACHINES
+  {
+    "authentication":{
+      "AuthType":"machineAddress",
+      "AuthValue":"<machine address>"
+      }
+  
+    
+  //CERT SN
+    {
+    "authentication":{
+      "AuthType":"certificateserialnumber",
+      "AuthValue":"<certificateSerialNumberString>",
+      "Comment":"<comment>"
+    }
+  }
+  
+  //CERT ATTRIBUTE
+  {
+    "authentication":{
+     "AuthType":"certificateattr",
+     "Issuer":["<IssuerAttribute>=<value>","<IssuerAttribute>=<value>"],
+     "Subject":["<SubjectAttribute>=<value>","<SubjectAttribute>=<value>"],
+     "SubjectAlternativeName":["<SubjectAlternativeNameAttribute>=<value>","<SubjectAlternativeNameAttribute>=<value>"],
+  "Comment":"<comment>"
+      }
+  }
+}

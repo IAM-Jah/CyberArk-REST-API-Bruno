@@ -1,0 +1,23 @@
+meta {
+  name: Delete Stored Platform
+  type: http
+  seq: 2
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Platforms/Storage
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/deletestoredplatform.htm
+}

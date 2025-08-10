@@ -1,0 +1,23 @@
+meta {
+  name: Get Account Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Accounts/:accountID/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  accountID: accountID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

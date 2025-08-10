@@ -1,0 +1,25 @@
+meta {
+  name: Get PTA Installation Status
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{PTAAddress}}/installer/api/installation
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}
+
+body:json {
+  {
+    "status": "New"
+  }
+}

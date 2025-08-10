@@ -1,0 +1,34 @@
+meta {
+  name: Ad-Hoc Connect Using PSM
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Accounts/AdHocConnect/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+  "UserName":"<User Name>",
+  "Secret":"<password>",
+  "Address":"<Address>",
+  "PlatformId":"<Secure Connect Platform>",
+  "extraFields":
+  { "LogonDomain": "<>" },
+  "PSMConnectPrerequisites":
+  {
+  "ConnectionComponent":"<Connection Component ID>"
+  "ConnectionType":"<Connection Type> }
+  }
+}

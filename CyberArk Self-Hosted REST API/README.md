@@ -1,34 +1,30 @@
 <h1 align="center">Bruno Collections for CyberArk Identity Security REST API</h1>
 
 #### CyberArk Self-Hosted REST API:
-  This Collection is meant to help self-hosted CyberArk PAM administrators manage and explore the PAM environment with REST API. For ease of use, the Environment JSON file is alphabetized and includes only relevant environment variables. The following services are included:
+  This Collection is meant to help self-hosted CyberArk PAM administrators manage and explore the PAM environment with REST API. The following services are included:
 
   * Self-Hosted PAM
   * Central Credential Provider (CCP)
   * Remote Access V2
   * EPM On-Prem
 
-  Current up to Password Vault Web Access (PVWA) v14.2 (Aug 2024) and EPM On-Prem v11.5.6 (Feb 2023/final version).
+  Current up to Password Vault Web Access (PVWA) LTS v14.6 (Aug 2025) and EPM On-Prem v11.5.6 (Feb 2023/final version).
 
 ## Installation
 
-##### To import from JSON (Easiest method):
-1. Download the latest version of both the 'Environment' and 'Collection' JSON files that correspond to your environment:
-  * Self-Hosted PAM:
-    * [Collection](https://github.com/IAM-Jah/CyberArk-REST-API-Bruno/blob/main/CyberArk%20Self-Hosted%20REST%20API/CyberArk%20Self-Hosted%20REST%20API.json)
-    * [Environment](https://github.com/IAM-Jah/CyberArk-REST-API-Bruno/blob/main/CyberArk%20Self-Hosted%20REST%20API/Self-Hosted%20Environment.json)
+##### To import:
+1.  Install [Bruno](https://www.usebruno.com/downloads) (if not already installed).
 
-2.  From the Bruno start page, click 'Import Collection' > 'Bruno Collection' and select the Collection JSON file.
+2.  **Clone** this repository locally:
+    ```bash
+    git clone https://github.com/IAM-Jah/CyberArk-REST-API-Bruno/
+    ```
+2.  From the Bruno start page, click 'Open Collection'.
 
-> [!IMPORTANT]  
-> You must use Bruno v1.19 or later to import JSON files.
+3.  Browse to the cloned repository's root folder and select it.
+    This will load the .bru collection in Bruno.
 
-3.  Once the Collection is imported, expand the Collection tree down and select any API request. Press 'ctrl'+'e' on the request page to open the Environments menu.
-
-4. Click 'Import' in the lower left then select the Environment JSON file to use with the Collection.
-
-##### To import Bruno Collection natively (Advanced):
-1.  Uploading native .bru project files is on the roadmap.
+4.  Confirm you have loaded the collection "CyberArk Self-Hosted REST API v1.1" and the environment "Self-Hosted Environment" before making requests.
 
 ## Roadmap
 
@@ -49,7 +45,7 @@
     - [x] Remote Access (30 Aug 2024)
     - [x] Endpoint Privilege Manager (30 Aug 2024)
 - [x] Add usage guide (14 Oct 2024)
-- [ ] Upload native .bru project files
+- [x] Upload native .bru project files (10 Aug 2025)
 - [ ] UX enhancements:
     - [ ] Expand documentation
     - [ ] Improve examples for params

@@ -1,0 +1,31 @@
+meta {
+  name: Import Stored Platform Alongside Existing Platform
+  type: http
+  seq: 4
+}
+
+patch {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Platforms/Import
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "PlatformId": "string",
+    "PlatformName": "string",
+    "Description": "string"
+  }
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/importstoredplatformpatch.htm
+}

@@ -1,0 +1,30 @@
+meta {
+  name: Get Recordings
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/recordings/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~Limit: 25
+  ~sort: -RiskScore
+  ~Offset: 0
+  ~Search: searchTerms
+  ~Safe: safeName
+  ~FromTime: UTCInteger
+  ~ToTime: UTCInteger
+  ~Activities: string/
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

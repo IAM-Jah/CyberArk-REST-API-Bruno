@@ -1,0 +1,29 @@
+meta {
+  name: Reject Request
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/incomingrequests/:requestID/reject
+  body: json
+  auth: bearer
+}
+
+params:path {
+  requestID: requestID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "Reason":"Rejected via Bruno"
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Deactivate Target Platform
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/platforms/targets/:platformID/deactivate/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  platformID: platformID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

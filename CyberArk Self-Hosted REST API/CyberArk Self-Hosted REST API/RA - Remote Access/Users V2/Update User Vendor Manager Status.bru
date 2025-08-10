@@ -1,0 +1,54 @@
+meta {
+  name: Update User Vendor Manager Status
+  type: http
+  seq: 1
+}
+
+put {
+  url: https://api.alero.io/v2-edge/users/:userID/vendor-manager-permission
+  body: json
+  auth: bearer
+}
+
+params:path {
+  userID: userID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{remoteAccessToken}}
+}
+
+body:json {
+  {
+    "accessPeriodStartDate": 0,
+    "accessPeriodEndDate": 0,
+    "allowedApps": [
+      {
+        "id": "string",
+        "siteId": "string"
+      }
+    ],
+    "accountActivation": "AUTOMATIC",
+    "maxInvitedVendors": 100000,
+    "userProvisioning": "ProvisionedByAlero",
+    "canInviteToWebApps": true,
+    "userGroups": [
+      "I3uSEIt~J\"Cg4gm9QBuu8jNNqN,"
+    ],
+    "idaptiveRoles": [
+      "_1CYoh~N,9T\"*6w.vVcdQqDSjEpyFFk?-3vyT1AthShZQh-9m^U,k^nlV#U&2\\h9Gib!Hg _+"
+    ],
+    "provisioningUsername": ",N\"f?UO7bzf2VhQW;\"T6!7i+Wm",
+    "allowedEmailDomains": [
+      "+{ycL5hBo^3"
+    ],
+    "canDelegatePermissionsToExternalVendorManagers": true,
+    "canCreateGroups": true,
+    "canInviteToAllGroups": true,
+    "canInviteToAllApps": true
+  }
+}

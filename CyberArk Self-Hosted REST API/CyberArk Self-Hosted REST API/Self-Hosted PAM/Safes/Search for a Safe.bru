@@ -1,0 +1,23 @@
+meta {
+  name: Search for a Safe
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{PVWAAddress}}//PasswordVault/WebServices/PIMServices.svc/Safes?Query=searchTerms}/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  Query: searchTerms}/
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

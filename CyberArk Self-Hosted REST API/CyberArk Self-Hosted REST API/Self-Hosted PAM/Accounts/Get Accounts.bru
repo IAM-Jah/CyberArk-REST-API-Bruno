@@ -1,0 +1,29 @@
+meta {
+  name: Get Accounts
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Accounts/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~search: keywords with spaces
+  ~searchType: contains/startswith
+  ~sort: windows asc
+  ~offset: 0
+  ~limit: 50
+  ~filter: safename eq mySafe AND ModificationTime gte 0
+  ~savedfilter: savedFilterName
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

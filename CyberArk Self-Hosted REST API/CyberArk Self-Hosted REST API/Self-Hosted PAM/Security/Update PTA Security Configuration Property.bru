@@ -1,0 +1,23 @@
+meta {
+  name: Update PTA Security Configuration Property
+  type: http
+  seq: 11
+}
+
+patch {
+  url: https://{{PVWAAddress}}/PasswordVault/API/pta/API/configuration/properties/:propertyKey
+  body: none
+  auth: bearer
+}
+
+params:path {
+  propertyKey: PrivilegedUsersList{"user":"TestUser","platform":"WINDOWS"}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}

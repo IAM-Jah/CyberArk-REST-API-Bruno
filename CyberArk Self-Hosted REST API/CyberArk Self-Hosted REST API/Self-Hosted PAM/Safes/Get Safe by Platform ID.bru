@@ -1,0 +1,27 @@
+meta {
+  name: Get Safe by Platform ID
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://{{PVWAAddress}}//PasswordVault/API/Platforms/:platformID/Safes/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~safeName: stringOrPartialStirng
+}
+
+params:path {
+  platformID: platformID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

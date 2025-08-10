@@ -1,0 +1,26 @@
+meta {
+  name: Shared Logon Authentication - Logon
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/WebServices/auth/Shared/RestfulAuthenticationService.svc/Logon
+  body: none
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+tests {
+  const jsonData = res.getBody().Result
+  
+  test("Token Exists", function() {
+      if (jsonData.LogonResult) {
+          bru.setEnvVar("PAMSessionToken", jsonData.LogonResult);
+      }
+  });
+  
+}

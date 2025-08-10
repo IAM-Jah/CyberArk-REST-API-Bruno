@@ -1,0 +1,29 @@
+meta {
+  name: Add a Public SSH Key
+  type: http
+  seq: 2
+}
+
+post {
+  url: https:/{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/Users/:UserName/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys
+  body: json
+  auth: bearer
+}
+
+params:path {
+  UserName: username
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "PublicSSHKey": "public-key"
+  }
+}

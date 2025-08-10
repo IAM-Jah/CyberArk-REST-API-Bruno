@@ -1,0 +1,24 @@
+meta {
+  name: Delete PTA Security Configuration Property
+  type: http
+  seq: 12
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/pta/API/configuration/properties/:propertyKey/:ID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  ID: ID
+  propertyKey: propertyKey
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}

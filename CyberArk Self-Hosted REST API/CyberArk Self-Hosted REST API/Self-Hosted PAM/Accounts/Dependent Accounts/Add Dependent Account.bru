@@ -1,0 +1,42 @@
+meta {
+  name: Add Dependent Account
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Accounts/:accountID/dependentAccounts
+  body: json
+  auth: bearer
+}
+
+params:path {
+  accountID: {{accountName}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  { 
+    "name": "windows-1.2.3.4-service-test",
+    "platformId": "10",
+    "platformAccountProperties": {
+      "address": "1.2.3.4",
+      "servicename": "test"
+    },
+    "secretManagement": { 
+        "automaticManagementEnabled": true,
+        "manualManagementReason": null
+    }
+  }
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/add-dependent-account.htm
+}

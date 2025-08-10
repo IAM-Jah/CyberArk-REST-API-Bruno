@@ -1,0 +1,24 @@
+meta {
+  name: Delete Public SSH Key
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https:/{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/Users/:UserName/AuthenticationMethods/SSHKeyAuthentication/AuthorizedKeys/:keyID
+  body: none
+  auth: bearer
+}
+
+params:path {
+  UserName: username
+  keyID: SSHKeyID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

@@ -1,0 +1,32 @@
+meta {
+  name: Get Dependent Account Details
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Accounts/:accountID/dependentAccounts/:dependentAccountID
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~extendedDetails: yes
+}
+
+params:path {
+  dependentAccountID: {{dependentAccountID}}
+  accountID: {{accountName}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-dependent-account-details.htm
+}

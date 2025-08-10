@@ -1,0 +1,24 @@
+meta {
+  name: Delete OPM Policy
+  type: http
+  seq: 3
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/WebServices/PIMServices.svc/Policy/:policyID/PrivilegedCommands/:ruleID/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  ruleID: ruleID
+  policyID: policyID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

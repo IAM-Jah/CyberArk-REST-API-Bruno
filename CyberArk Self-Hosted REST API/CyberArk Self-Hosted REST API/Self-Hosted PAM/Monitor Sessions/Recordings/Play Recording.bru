@@ -1,0 +1,23 @@
+meta {
+  name: Play Recording
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/recordings/:recordingID/Play/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  recordingID: recordingID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

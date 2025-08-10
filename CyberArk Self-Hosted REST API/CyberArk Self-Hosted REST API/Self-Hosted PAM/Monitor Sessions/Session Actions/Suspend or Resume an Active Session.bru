@@ -1,0 +1,24 @@
+meta {
+  name: Suspend or Resume an Active Session
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/LiveSessions/:liveSessionID/:action/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  action: Suspend/Resume
+  liveSessionID: liveSessionID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

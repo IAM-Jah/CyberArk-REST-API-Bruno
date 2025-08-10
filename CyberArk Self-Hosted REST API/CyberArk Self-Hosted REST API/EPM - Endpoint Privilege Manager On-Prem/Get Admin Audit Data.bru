@@ -1,0 +1,29 @@
+meta {
+  name: Get Admin Audit Data
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://{{EPMAddress}}/EPM/API/:version/Sets/:setID/AdminAudit
+  body: none
+  auth: none
+}
+
+params:query {
+  ~Offset: Number
+  ~Limit: Number
+  ~DateFrom: YYYY-MM-DDThh:mm:ssZ
+  ~DateTo: YYYY-MM-DDThh:mm:ssZ
+}
+
+params:path {
+  setID: setID
+  version: version
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: basic {{EPMToken}}
+  ~VFUser: {{EPMToken}}
+}

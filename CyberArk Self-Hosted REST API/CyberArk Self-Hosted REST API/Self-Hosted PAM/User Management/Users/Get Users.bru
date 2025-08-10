@@ -1,0 +1,28 @@
+meta {
+  name: Get Users
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Users
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~filter: userType/componentUser/userName
+  ~search: searchTerms
+  ~ExtendedDetails: True
+  ~sort: username asc
+  ~pageOffset: number
+  ~pageSize: number
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

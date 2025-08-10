@@ -1,0 +1,19 @@
+meta {
+  name: Update Security Remediation Settings
+  type: http
+  seq: 7
+}
+
+patch {
+  url: https://{{PVWAAddress}}/PasswordVault/API/pta/API/Settings/AutomaticRemediations/
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}

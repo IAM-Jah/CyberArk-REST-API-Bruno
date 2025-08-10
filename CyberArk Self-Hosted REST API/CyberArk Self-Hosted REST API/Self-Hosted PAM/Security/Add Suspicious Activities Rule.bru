@@ -1,0 +1,34 @@
+meta {
+  name: Add Suspicious Activities Rule
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/pta/API/Settings/RiskyActivity/
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}
+
+body:json {
+  {
+         "category": "KEYSTROKES",
+         "regex": "(.*)netsh(.*)wlan(.*)key=clear(.*)", 
+        "score": 40, 
+        "description": "Indication of a privileged user using a decoding command in clear text to retrieve a WIFI password.", 
+        "response": "NONE", 
+         "active": true,
+         "scope":{ 
+              "vaultUsers":{"mode":"EXCLUDE","list":["john*"]}, 
+              "machines":{"mode":"INCLUDE","list":["*"]} 
+         }
+    }
+}

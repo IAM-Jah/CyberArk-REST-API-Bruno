@@ -1,0 +1,23 @@
+meta {
+  name: Delete Rotational Group Platform
+  type: http
+  seq: 5
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/platforms/rotationalGroups/:platformID/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  platformID: platformID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

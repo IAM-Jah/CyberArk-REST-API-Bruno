@@ -1,0 +1,33 @@
+meta {
+  name: Add Global Catalog Connectivity Details
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/pta/API/Administration/GCConnectivity
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PTASessionToken}}
+}
+
+body:json {
+  {
+  "ldap_certificate": "String",
+  "properties":{
+  "ldap_server": "String",
+  "ssl": "Bool",
+  "ldap_port": "Number",
+  "upn": "String",
+  "ldapPassword": "String",
+  "accountID": "String"
+  }
+  }
+}

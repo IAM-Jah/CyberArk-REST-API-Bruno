@@ -1,0 +1,23 @@
+meta {
+  name: Delete Account
+  type: http
+  seq: 8
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Accounts/:accountID/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  accountID: accountID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Get Auth Methods
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://{{PVWAAddress}}/passwordvault/api/Configuration/AuthenticationMethods/
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Activate User
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Users/:userID/activate
+  body: none
+  auth: bearer
+}
+
+params:path {
+  userID: userIDToActivate
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

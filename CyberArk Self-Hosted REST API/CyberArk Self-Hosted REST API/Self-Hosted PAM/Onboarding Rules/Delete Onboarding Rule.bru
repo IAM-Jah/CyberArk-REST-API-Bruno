@@ -1,0 +1,23 @@
+meta {
+  name: Delete Onboarding Rule
+  type: http
+  seq: 4
+}
+
+delete {
+  url: https://{{PVWAAddress}}/PasswordVault/API/AutomaticOnboardingRules/:ruleID/
+  body: none
+  auth: bearer
+}
+
+params:path {
+  ruleID: ruleID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

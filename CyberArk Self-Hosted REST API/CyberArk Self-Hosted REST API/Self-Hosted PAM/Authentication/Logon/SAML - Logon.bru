@@ -1,0 +1,26 @@
+meta {
+  name: SAML - Logon
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/auth/SAML/Logon
+  body: formUrlEncoded
+  auth: none
+}
+
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
+body:form-urlencoded {
+  SAMLResponse: string
+  apiUse: True
+  ~concurrentSession: True
+}
+
+script:post-response {
+  const jsonData = JSON.parse(responseBody);
+  bru.setEnvVar("PAMSessionToken", jsonData);
+}

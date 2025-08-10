@@ -1,0 +1,29 @@
+meta {
+  name: Add Member to Account Group
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/AccountGroups/:groupID/Members/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  groupID: groupID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+    "AccountID":"accountID"
+  }
+}

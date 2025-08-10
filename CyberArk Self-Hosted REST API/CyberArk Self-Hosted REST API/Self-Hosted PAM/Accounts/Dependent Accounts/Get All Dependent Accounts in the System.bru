@@ -1,0 +1,31 @@
+meta {
+  name: Get All Dependent Accounts in the System
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/dependentAccounts/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~search: keywords with spaces
+  ~offset: 0
+  ~limit: 50
+  ~filter: MasterAccountId eq <ID> AND modificationTime gte <UNIX TIMESTAMP> AND platformId eq <platform> AND SafeName eq <SafeName>
+  ~IncludeDeleted: Yes
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+docs {
+  https://docs.cyberark.com/pam-self-hosted/latest/en/content/webservices/get-all-dependent-accounts.htm
+}

@@ -1,0 +1,37 @@
+meta {
+  name: Create Directory Mapping
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://{{PVWAAddress}}/PasswordVault/API/Configuration/LDAP/Directories/:LDAPID/Mappings/
+  body: json
+  auth: bearer
+}
+
+params:path {
+  LDAPID: directoryID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
+
+body:json {
+  {
+  "MappingName": "string",
+  "LDAPBranch": "string",
+  "DomainGroups": [
+  "string"
+  ],
+  "MappingAuthorizations": [
+  ],
+  "UserActivityLogPeriod": <1-3650>
+  }
+  
+}

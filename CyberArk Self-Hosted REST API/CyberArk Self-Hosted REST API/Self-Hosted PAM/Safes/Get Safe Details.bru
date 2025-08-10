@@ -1,0 +1,28 @@
+meta {
+  name: Get Safe Details
+  type: http
+  seq: 6
+}
+
+get {
+  url: https://{{PVWAAddress}}//PasswordVault/API/Safes/:safeID/
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~includeAccounts: True
+  ~useCache: True
+}
+
+params:path {
+  safeID: safeID
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}

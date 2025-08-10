@@ -1,0 +1,23 @@
+meta {
+  name: Get Group Platforms
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://{{PVWAAddress}}/PasswordVault/API/platforms/groups/?search=platformName
+  body: none
+  auth: bearer
+}
+
+params:query {
+  search: platformName
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{PAMSessionToken}}
+}
